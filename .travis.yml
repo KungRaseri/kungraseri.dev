@@ -2,9 +2,7 @@ language: node_js
 node_js:
   - v9
   - v8
-  - v6
-  - v4
-install: 
+install:
   - npm install
 script:
   - npm run build
