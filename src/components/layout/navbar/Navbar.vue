@@ -110,9 +110,9 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../../sass/_variables.scss";
-@import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
-@import "../../../../node_modules/bootstrap/scss/variables";
+// @import "../../../sass/_variables.scss";
+// @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+// @import "../../../../node_modules/bootstrap/scss/variables";
 
 .navbar.app-navbar {
   .navbar-container {

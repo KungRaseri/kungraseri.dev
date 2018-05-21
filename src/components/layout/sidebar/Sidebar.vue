@@ -37,13 +37,11 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import Expanding from "../../../../node_modules/vue-bulma-expanding/src/Expanding";
-import VuesticScrollbar from "../../vuestic-components/vuestic-scrollbar/VuesticScrollbar";
 
 export default {
   name: "sidebar",
   components: {
-    Expanding,
-    VuesticScrollbar
+    Expanding
   },
   computed: {
     ...mapGetters({ menuItems: "menuItems" }),
@@ -103,9 +101,9 @@ function _findMatchingParentMenuItem(itemName) {
 </script>
 
 <style lang="scss">
-@import "../../../sass/_variables.scss";
-@import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
-@import "../../../../node_modules/bootstrap/scss/variables";
+// @import "../../../sass/_variables.scss";
+// @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+// @import "../../../../node_modules/bootstrap/scss/variables";
 
 .sidebar {
   @include media-breakpoint-down(md) {
