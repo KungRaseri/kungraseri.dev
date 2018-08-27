@@ -1,71 +1,15 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import '@babel/polyfill'
 import Vue from 'vue'
-// import BootstrapVue from 'bootstrap-vue'
-import VeeValidate from 'vee-validate'
-import App from './App'
-import store from './store'
+import './plugins/vuetify'
+import App from './App.vue'
 import router from './router'
-import {
-  sync
-} from 'vuex-router-sync'
-import ApiService from './services/api.service';
+import store from './store'
+import './registerServiceWorker'
 
-Vue.prototype.$api = ApiService;
-// Vue.use(BootstrapVue)
+Vue.config.productionTip = false
 
-// NOTE: workaround for VeeValidate + vuetable-2
-Vue.use(VeeValidate, {
-  fieldsBagName: 'formFields'
-})
-
-sync(store, router)
-
-let mediaHandler = () => {
-  if (window.matchMedia(store.getters.config.windowMatchSizeLg).matches) {
-    store.dispatch('toggleSidebar', true)
-  } else {
-    store.dispatch('toggleSidebar', false)
-  }
-}
-
-router.beforeEach((to, from, next) => {
-  store.commit('setLoading', true)
-  store.dispatch('verifyTokenExpiration')
-    .then(resolve => {
-      console.log(resolve);
-      if (!resolve) {
-        localStorage.clear();
-      }
-    });
-  if (to.matched.some(route => route.meta.requiresAuth)) {
-    if (!store.getters.isAuthenticated) {
-      next({
-        name: 'Login',
-        query: {
-          redirect: to.fullPath
-        }
-      });
-    } else {
-      next();
-    }
-  } else {
-    next();
-  }
-})
-
-router.afterEach((to, from) => {
-  mediaHandler()
-  store.commit('setLoading', false)
-})
-
-/* eslint-disable no-new */
 new Vue({
-  el: '#app',
   router,
   store,
-  template: '<App/>',
-  components: {
-    App
-  }
-})
+  render: h => h(App)
+}).$mount('#app')
