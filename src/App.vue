@@ -30,11 +30,12 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "App",
   data() {
     return {
-      isAuthenticated: this.$store.getters.isAuthenticated,
       drawer: true,
       clipped: true,
       fixed: true,
@@ -61,6 +62,9 @@ export default {
       sideNavItems: [],
       title: "Community Dashboard"
     };
+  },
+  computed: {
+    ...mapGetters(["isAuthenticated"])
   }
 };
 </script>

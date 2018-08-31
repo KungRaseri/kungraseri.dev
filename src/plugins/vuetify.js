@@ -8,11 +8,19 @@ import {
   VBtn,
   VIcon,
   VGrid,
+  VCard,
+  VForm,
+  VTooltip,
+  VTextField,
   VToolbar,
   transitions
 } from 'vuetify'
 import 'vuetify/src/stylus/app.styl'
-// import colors from 'vuetify/es5/util/colors'
+// eslint-disable-next-line
+import colors from 'vuetify/es5/util/colors'
+import {
+  Ripple
+} from 'vuetify/es5/directives'
 
 Vue.use(Vuetify, {
   components: {
@@ -23,8 +31,15 @@ Vue.use(Vuetify, {
     VBtn,
     VIcon,
     VGrid,
+    VCard,
+    VTooltip,
     VToolbar,
+    VForm,
+    VTextField,
     transitions
+  },
+  directives: {
+    Ripple
   },
   theme: {
     primary: "#673AB7",
