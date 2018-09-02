@@ -13,7 +13,8 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    sudo apt-get update && sudo apt-get install yarn
+    apt-get update 
+    apt-get install yarn
     yarn install
     yarn run build
   displayName: 'yarn install and build'
