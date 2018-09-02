@@ -13,5 +13,9 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm run build
-  displayName: 'npm build'
+    sudo apt-get update
+    sudo apt-get install yarn
+    yarn global add @vue/cli
+    yarn global add @vue/cli-service
+    yarn build
+  displayName: 'yarn build'
