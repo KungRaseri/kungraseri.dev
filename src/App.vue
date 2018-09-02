@@ -12,7 +12,7 @@
             </v-list-tile>
         </v-list>
     </v-navigation-drawer>
-    <v-toolbar app>
+    <v-toolbar app color="primary">
         <v-toolbar-side-icon v-if="isAuthenticated" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
         <v-toolbar-title v-text="title"></v-toolbar-title>
         <v-spacer></v-spacer>
@@ -24,7 +24,7 @@
         <router-view/>
     </v-content>
     <v-footer :fixed="fixed" app>
-        <span>&copy; 2018</span>
+        <span>&copy; 2018 - KungRaseri Community</span>
     </v-footer>
 </v-app>
 </template>

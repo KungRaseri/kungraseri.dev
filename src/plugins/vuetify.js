@@ -42,9 +42,9 @@ Vue.use(Vuetify, {
     Ripple
   },
   theme: {
-    primary: "#673AB7",
-    secondary: "#9575CD",
-    accent: "#9c27b0",
+    primary: colors.deepPurple.base,
+    secondary: colors.deepOrange.base,
+    accent: colors.deepOrange.darken2,
     error: "#D32F2F",
     warning: "#FDD835",
     info: "#1E88E5",
