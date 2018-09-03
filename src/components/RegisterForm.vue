@@ -1,13 +1,14 @@
 <template>
 <v-card class="elevation-12">
     <v-toolbar dark color="primary">
-        <v-toolbar-title>Login</v-toolbar-title>
+        <v-toolbar-title>Registration</v-toolbar-title>
         <v-spacer></v-spacer>
     </v-toolbar>
     <v-card-text>
         <v-form v-bind="account">
             <v-text-field v-model="account.email" prepend-icon="person" name="email" label="Email" type="text"></v-text-field>
             <v-text-field v-model="account.password" id="password" prepend-icon="lock" name="password" label="Password" type="password"></v-text-field>
+            <v-text-field v-model="confirmPassword" id="confirmpassword" prepend-icon="lock" name="confirmpassword" label="Confirm Password" type="password"></v-text-field>
         </v-form>
     </v-card-text>
     <v-card-actions>
@@ -17,11 +18,11 @@
         <v-btn fab color="accent">
             <font-awesome-icon :icon="['fab', 'google']"></font-awesome-icon>
         </v-btn>
-        <v-btn fab color="accent" @click="loginTwitch()">
+        <v-btn fab color="accent">
             <font-awesome-icon :icon="['fab', 'twitch']"></font-awesome-icon>
         </v-btn>
         <v-spacer></v-spacer>
-        <v-btn color="primary" @click="loginEmail()">Login</v-btn>
+        <v-btn color="primary" @click="registerEmail()">Register</v-btn>
     </v-card-actions>
 </v-card>
 </template>
@@ -30,27 +31,27 @@
 import { mapActions } from "vuex";
 
 export default {
-  name: "LoginForm",
+  name: "RegisterForm",
   data() {
     return {
       account: {
         email: "",
         password: ""
-      }
+      },
+      confirmPassword: ""
     };
   },
   methods: {
-    ...mapActions(["updateAccount", "updateIsAuthenticated"]),
-    loginEmail() {
+      ...mapActions(['updateAccount']),
+    registerEmail() {
       // eslint-disable-next-line
-      this.$api.Auth.Login(this.account).then(response => {
+      this.$api.Auth.Register(this.account).then(response => {
         var account = response.data.value;
         this.updateAccount(account);
-        this.updateIsAuthenticated(true);
       });
     },
     loginTwitch() {
-      this.$api.authenticate("twitch", { failureRedirect: "/" });
+      this.$api.Auth.authenticate("twitch", { failureRedirect: "/" });
     }
   }
 };

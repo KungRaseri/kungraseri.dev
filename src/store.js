@@ -1,42 +1,44 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import {
-  VueAuthenticate
-} from 'vue-authenticate';
-import VueAxios from 'vue-axios';
+  UPDATE_ACCOUNT,
+  UPDATE_IS_AUTHENTICATED
+} from './store/mutation-types';
 
-import axios from 'axios';
-
-Vue.use(VueAxios, axios)
 Vue.use(Vuex)
-
-const vueAuth = new VueAuthenticate(Vue.prototype.$http, {
-  baseUrl: 'http://localhost:4000'
-})
-
 
 export default new Vuex.Store({
   state: {
     isAuthenticated: false,
-    user: {}
+    account: {},
+    token: {}
   },
   mutations: {
-
+    [UPDATE_ACCOUNT](state, account) {
+      state.account = account;
+    },
+    [UPDATE_IS_AUTHENTICATED](state, isAuthenticated) {
+      state.isAuthenticated = isAuthenticated;
+    }
   },
   actions: {
-    login(context, payload) {
-      vueAuth.login(payload.user, payload.requestOptions).then((response => {
-        // eslint-disable-next-line
-        console.log(response);
-        context.commit('isAuthenticated', {
-          isAuthenticated: vueAuth.isAuthenticated()
-        });
-      }));
+    updateAccount({
+      commit
+    }, payload) {
+      commit(UPDATE_ACCOUNT, payload);
+    },
+    updateIsAuthenticated({
+      commit
+    }, payload) {
+      commit(UPDATE_IS_AUTHENTICATED, payload);
     }
   },
   getters: {
-    isAuthenticated: () => {
-      return vueAuth.isAuthenticated();
+    getAccount: (state) => {
+      return state.account;
+    },
+    isAuthenticated: (state) => {
+      return state.isAuthenticated
     }
   }
 });

@@ -1,10 +1,12 @@
-import '@babel/polyfill'
-import Vue from 'vue'
-import './plugins/vuetify'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-import './registerServiceWorker'
+import '@babel/polyfill';
+import Vue from 'vue';
+import './plugins/vuetify';
+import App from './App.vue';
+import router from './router';
+import store from './store';
+import './registerServiceWorker';
+import VueAxios from 'vue-axios';
+import axios from 'axios';
 
 import {
   library
@@ -22,7 +24,13 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 library.add(faCoffee, regular, brands);
 
-Vue.config.productionTip = false
+import api from './services/api.js';
+
+Vue.prototype.$api = api;
+
+Vue.config.productionTip = false;
+
+Vue.use(VueAxios, axios);
 
 new Vue({
   router,
