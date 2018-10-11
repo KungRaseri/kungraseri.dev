@@ -6,8 +6,8 @@
     </v-toolbar>
     <v-card-text>
         <v-form v-bind="account">
-            <v-text-field v-model="account.email" prepend-icon="person" name="email" label="Email" type="text"></v-text-field>
-            <v-text-field v-model="account.password" id="password" prepend-icon="lock" name="password" label="Password" type="password"></v-text-field>
+            <v-text-field v-model="account.email" id="Email" prepend-icon="person" name="email" label="Email" type="text"></v-text-field>
+            <v-text-field v-model="account.password" id="Password" prepend-icon="lock" name="password" label="Password" type="password"></v-text-field>
         </v-form>
     </v-card-text>
     <v-card-actions>

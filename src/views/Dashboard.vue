@@ -18,6 +18,11 @@ export default {
   },
   computed: {
     ...mapGetters(["isAuthenticated"])
+  },
+  created() {
+    if (!this.isAuthenticated) {
+      this.$router.push("login");
+    }
   }
 };
 </script>

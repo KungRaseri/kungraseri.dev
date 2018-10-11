@@ -12,6 +12,7 @@ import {
   VForm,
   VTooltip,
   VTextField,
+  VCheckbox,
   VToolbar,
   transitions
 } from 'vuetify'
@@ -36,6 +37,7 @@ Vue.use(Vuetify, {
     VToolbar,
     VForm,
     VTextField,
+    VCheckbox,
     transitions
   },
   directives: {
