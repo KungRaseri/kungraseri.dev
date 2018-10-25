@@ -14,20 +14,20 @@ export default new Router({
       name: 'home',
       component: Home,
     },
-    {
-      path: '/projects',
-      name: 'projects',
-      component: Project,
-    },
-    {
-      path: '/auth/register',
-      name: 'register',
-      component: Register,
-    },
-    {
-      path: '/auth/login',
-      name: 'login',
-      component: Login,
-    },
+    // {
+    //   path: '/projects',
+    //   name: 'projects',
+    //   component: Project,
+    // },
+    // {
+    //   path: '/auth/register',
+    //   name: 'register',
+    //   component: Register,
+    // },
+    // {
+    //   path: '/auth/login',
+    //   name: 'login',
+    //   component: Login,
+    // },
   ],
 });

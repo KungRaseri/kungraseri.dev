@@ -2,7 +2,7 @@
 <v-app dark>
   <Navigation v-bind:isAuthenticated="isAuthenticated"></Navigation>
   <v-content>
-    <LandingPage />
+    <router-view></router-view>
   </v-content>
 </v-app>
 </template>

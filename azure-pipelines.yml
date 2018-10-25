@@ -16,3 +16,10 @@ steps:
     yarn install
     yarn build
   displayName: 'yarn install and build'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/dist'
+    includeRootFolder: false
+
+- task: PublishBuildArtifacts@1

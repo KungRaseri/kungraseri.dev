@@ -1,5 +1,5 @@
 <template>
-<v-container>
+<v-container fluid>
   <v-layout row align-center text-md-center wrap>
     <v-flex >
       <VueTwitchPlayer :width="'1280'" :height="'720'" :channel="channel"></VueTwitchPlayer>
