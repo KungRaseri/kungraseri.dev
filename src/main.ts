@@ -7,7 +7,7 @@ import store from './store';
 import './registerServiceWorker';
 import 'roboto-fontface/css/roboto/roboto-fontface.css';
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
-const LoadScript = require('vue-plugin-load-script');
+import LoadScript from 'vue-plugin-load-script';
 
 Vue.config.productionTip = false;
 
