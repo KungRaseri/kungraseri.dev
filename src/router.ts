@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
 import Project from './views/Project.vue';
-import StreamView from './views/Stream.vue';
+import Stream from './views/Stream.vue';
 import Register from './views/auth/Register.vue';
 import Login from './views/auth/Login.vue';
 
@@ -19,7 +19,7 @@ export default new Router({
     {
       path: '/stream',
       name: 'stream',
-      component: StreamView,
+      component: Stream,
     },
     {
       path: '/projects',
