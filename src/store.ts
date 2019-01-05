@@ -18,9 +18,6 @@ const store = new Vuex.Store({
   },
   mutations: {
     RESTORE_MUTATION: vuexPersist.RESTORE_MUTATION,
-    INITIALIZE_STORE: (state) => {
-      state = state;
-    },
   },
   actions: {
     initializeStore: ({ commit }) => {
