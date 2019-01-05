@@ -28,7 +28,7 @@ steps:
   displayName: 'Prepare analysis on SonarCloud'
   inputs:
     SonarCloud: sonarcloud
-    organization: 'community-dashboard'
+    organization: 'kungraseri-community'
     projectKey: 'community-dashboard'
     projectName: 'community-dashboard'
     extraProperties: |
