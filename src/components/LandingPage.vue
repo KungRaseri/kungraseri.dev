@@ -1,27 +1,19 @@
 <template>
-<v-container fluid>
   <v-layout row align-center text-md-center wrap>
-    <v-flex >
-      <VueTwitchPlayer :width="'1280'" :height="'720'" :channel="channel"></VueTwitchPlayer>
-    </v-flex>
+    <v-flex></v-flex>
   </v-layout>
-</v-container>
 </template>
 
-<script>
-import VueTwitchPlayer from "vue-twitch-player";
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
 
-export default {
-  components: {
-    VueTwitchPlayer
-  },
+@Component({
+  components: {},
   data() {
     return {
-      channel: "kungraseri"
+      channel: 'kungraseri',
     };
-  }
-};
+  },
+})
+export default class LandingPage extends Vue {}
 </script>
-
-<style>
-</style>

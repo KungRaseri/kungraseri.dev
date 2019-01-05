@@ -1,29 +1,31 @@
 <template>
-<v-app dark>
-  <Navigation v-bind:isAuthenticated="isAuthenticated"></Navigation>
-  <v-content>
-    <router-view></router-view>
-  </v-content>
-</v-app>
+  <v-app dark>
+    <v-content>
+      <v-container fluid>
+        <Navigation v-bind:isAuthenticated="isAuthenticated"></Navigation>
+        <router-view></router-view>
+        <Footer></Footer>
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 
-<script>
-import LandingPage from "@/components/LandingPage.vue";
-import Navigation from "@/components/Navigation.vue";
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import Navigation from '@/components/Navigation.vue';
 
-export default {
-  name: "App",
+@Component({
   components: {
-    LandingPage,
-    Navigation
+    Navigation,
   },
   data() {
     return {
-      isAuthenticated: false
+      isAuthenticated: false,
     };
   },
   beforeCreate() {
-    this.$store.dispatch("initializeStore");
-  }
-};
+    this.$store.dispatch('initializeStore');
+  },
+})
+export default class App extends Vue {}
 </script>
