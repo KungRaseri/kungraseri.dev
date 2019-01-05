@@ -29,8 +29,8 @@ steps:
   inputs:
     SonarCloud: sonarcloud
     organization: 'kungraseri-community'
-    projectKey: 'community-dashboard'
-    projectName: 'community-dashboard'
+    projectKey: 'kung-dashboard'
+    projectName: 'Community Dashboard'
     extraProperties: |
      # Additional properties that will be passed to the scanner, 
      # Put one key=value per line, example:
