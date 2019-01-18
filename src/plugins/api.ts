@@ -1,7 +1,23 @@
 import Vue from 'vue';
 import axios from 'axios';
+import ICredentials from '@/interfaces/ICredentials';
+import IAccount from '@/interfaces/IAccount';
+import IToken from '@/interfaces/IToken';
+import ITwitchOAuthConfig from '@/interfaces/ITwitchOAuthConfig';
+import * as signalR from '@aspnet/signalr';
+import * as ApplicationSettings from '@/ApplicationSettings.json';
+import ISettings from '@/interfaces/ISettings';
 
-axios.defaults.baseURL = 'http://localhost:57463/api/v1/';
+const appSettingsJson: any = ApplicationSettings;
+const appSettings: ISettings = appSettingsJson.default[0];
+
+Object.defineProperty(Vue.prototype, '$signalR', { value: signalR });
+Object.defineProperty(Vue.prototype, '$settings', { value: appSettings });
+
+const axiosApi = axios;
+const axiosTwitch = axios;
+
+axiosApi.defaults.baseURL = appSettings.ApiUrl;
 axios.interceptors.request.use((config) => {
     const dashboardStore = localStorage.getItem('dashboard') || '{}';
     const token = JSON.parse(dashboardStore).token;
@@ -13,32 +29,31 @@ axios.interceptors.request.use((config) => {
     return Promise.reject(error);
 });
 
-export interface Credentials {
-    email: string;
-    password: string;
-}
-
-export interface Account {
-    username: string;
-    email: string;
-    password: string;
-    passwordSalt: string;
-    twitchBotSettings: object;
-    discordBotSettings: object;
-    viewers: any[];
-    viewerRanks: any[];
-}
-
-export interface Token {
-    value: string;
-    accountId: string;
-    expiration: string;
-    issued: string;
-}
-
 const ApiService = {
+    Twitch: {
+        AuthSettings: {
+            access_token: '',
+            scope: '',
+            token_type: '',
+        },
+        GetSettings(applicationKey: string) {
+            return new Promise((resolve, reject) => {
+                const data = new FormData();
+
+                data.append('apiKey', applicationKey);
+
+                axios
+                    .post(`settings/twitch`, data)
+                    .then((response) => {
+                        resolve(response);
+                    }).catch((response) => {
+                        reject(response);
+                    });
+            });
+        },
+    },
     Auth: {
-        Login(credentials: Credentials) {
+        Login(credentials: ICredentials) {
             return new Promise((resolve, reject) => {
                 const data = new FormData();
 
@@ -54,7 +69,7 @@ const ApiService = {
                     });
             });
         },
-        Register(credentials: Credentials) {
+        Register(credentials: ICredentials) {
             return new Promise((resolve, reject) => {
                 const data = new FormData();
 
@@ -70,7 +85,7 @@ const ApiService = {
                     });
             });
         },
-        Authentication(provider: object, credentials: Credentials) {
+        Authentication(provider: object, credentials: ICredentials) {
             return new Promise((resolve, reject) => {
                 const data = new FormData();
 
@@ -99,7 +114,7 @@ const ApiService = {
                     });
             });
         },
-        Post(account: Account) {
+        Post(account: IAccount) {
             return new Promise((resolve, reject) => {
                 const data = new FormData();
 

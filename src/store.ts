@@ -21,7 +21,7 @@ const store = new Vuex.Store({
   },
   actions: {
     initializeStore: ({ commit }) => {
-      commit('INITIALIZE_STORE');
+      // TODO: commit('INITIALIZE_STORE');
     },
   },
 });

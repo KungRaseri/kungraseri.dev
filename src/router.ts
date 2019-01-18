@@ -5,6 +5,7 @@ import Project from '@/views/Project.vue';
 import Stream from '@/views/Stream.vue';
 import Register from '@/views/auth/Register.vue';
 import Login from '@/views/auth/Login.vue';
+import TwitchExternalCallback from '@/views/auth/TwitchExternalCallback.vue';
 
 Vue.use(Router);
 
@@ -26,15 +27,20 @@ export default new Router({
       name: 'projects',
       component: Project,
     },
-    // {
-    //   path: '/auth/register',
-    //   name: 'register',
-    //   component: Register,
-    // },
-    // {
-    //   path: '/auth/login',
-    //   name: 'login',
-    //   component: Login,
-    // },
+    {
+      path: '/auth/register',
+      name: 'register',
+      component: Register,
+    },
+    {
+      path: '/auth/login',
+      name: 'login',
+      component: Login,
+    },
+    {
+      path: '/auth/external/twitch/callback',
+      name: 'external-twitch-callback',
+      component: TwitchExternalCallback,
+    },
   ],
 });
