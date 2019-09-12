@@ -5,6 +5,7 @@ import Projects from '@/views/Projects.vue';
 import Stream from '@/views/Stream.vue';
 import Register from '@/views/auth/Register.vue';
 import Login from '@/views/auth/Login.vue';
+import NotFound from '@/views/NotFound.vue';
 import TwitchExternalCallback from '@/views/auth/TwitchExternalCallback.vue';
 
 Vue.use(Router);
@@ -12,6 +13,11 @@ Vue.use(Router);
 export default new Router({
   mode: 'history',
   routes: [
+    {
+      path: '*',
+      name: 'not-found',
+      component: NotFound,
+    },
     {
       path: '/',
       name: 'home',
