@@ -3,7 +3,6 @@ import axios from 'axios';
 import ICredentials from '@/interfaces/ICredentials';
 import IAccount from '@/interfaces/IAccount';
 import IToken from '@/interfaces/IToken';
-import ITwitchOAuthConfig from '@/interfaces/ITwitchOAuthConfig';
 import * as signalR from '@aspnet/signalr';
 import * as ApplicationSettings from '@/ApplicationSettings.json';
 import ISettings from '@/interfaces/ISettings';
@@ -14,10 +13,7 @@ const appSettings: ISettings = appSettingsJson.default[0];
 Object.defineProperty(Vue.prototype, '$signalR', { value: signalR });
 Object.defineProperty(Vue.prototype, '$settings', { value: appSettings });
 
-const axiosApi = axios;
-const axiosTwitch = axios;
-
-axiosApi.defaults.baseURL = appSettings.ApiUrl;
+axios.defaults.baseURL = appSettings.ApiUrl;
 axios.interceptors.request.use((config) => {
     const dashboardStore = localStorage.getItem('dashboard') || '{}';
     const token = JSON.parse(dashboardStore).token;
@@ -30,28 +26,6 @@ axios.interceptors.request.use((config) => {
 });
 
 const ApiService = {
-    Twitch: {
-        AuthSettings: {
-            access_token: '',
-            scope: '',
-            token_type: '',
-        },
-        GetSettings(applicationKey: string) {
-            return new Promise((resolve, reject) => {
-                const data = new FormData();
-
-                data.append('apiKey', applicationKey);
-
-                axios
-                    .post(`settings/twitch`, data)
-                    .then((response) => {
-                        resolve(response);
-                    }).catch((response) => {
-                        reject(response);
-                    });
-            });
-        },
-    },
     Auth: {
         Login(credentials: ICredentials) {
             return new Promise((resolve, reject) => {
@@ -158,7 +132,5 @@ const ApiService = {
         },
     },
 };
-
-export default ApiService;
 
 Vue.prototype.$api = ApiService;
