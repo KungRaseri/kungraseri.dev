@@ -8,15 +8,15 @@
           <span class="font-weight-lighter">&nbsp;Productions</span>
           <span class="font-weight-light">&nbsp;LLC</span>
         </v-toolbar-title>
-        <v-btn flat href="stream">
+        <v-btn flat to="stream">
           <span class="mr-2">stream</span>
           <v-icon>view_stream</v-icon>
         </v-btn>
-        <v-btn flat href="projects">
+        <v-btn flat to="projects">
           <span class="mr-2">projects</span>
           <v-icon>view_stream</v-icon>
         </v-btn>
-        <v-btn flat href="music">
+        <v-btn flat to="music">
           <span class="mr-2">music</span>
           <v-icon>view_stream</v-icon>
         </v-btn>
