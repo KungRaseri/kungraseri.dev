@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="E:\Code\kp-dashboard\tests\unit\component.project.spec.ts">
+    <testCase name="Project.vue renders props when passed" duration="62"/>
+  </file>
+</testExecutions>
