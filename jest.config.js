@@ -35,6 +35,6 @@ module.exports = {
     }
   },
   "collectCoverage": true,
-  "collectCoverageFrom": ["**/*.{ts,js,vue}", "!**/node_modules/**", "!**/template/**"],
+  "collectCoverageFrom": ["**/*.{ts,js,vue}", "!**/node_modules/**", "!**/template/**", "!**/tests/**"],
   "coverageReporters": ["html", "text-summary"]
 }

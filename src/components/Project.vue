@@ -3,6 +3,7 @@
   <v-flex md4 xm2>
     <v-container>
       <v-card
+        :id="`project-${project.id}`"
         class="mx-auto"
         :flat="flat"
         :loading="loading"
@@ -12,17 +13,12 @@
         :width="width"
         :height="height"
       >
-        <v-img
-          v-if="media"
-          class="white--text"
-          height="200px"
-          src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-        >
-          <v-card-title class="align-end fill-height">I'm a title</v-card-title>
+        <v-img v-if="media" class="white--text" height="200px" :src="project.url">
+          <v-card-title class="align-end fill-height">{{project.imageTitle}}</v-card-title>
         </v-img>
-        <v-card-title v-else>I'm a title</v-card-title>
+        <v-card-title v-else>{{project.title}}</v-card-title>
 
-        <v-card-text>I'm card text</v-card-text>
+        <v-card-text>{{project.description}}</v-card-text>
         <v-card-actions v-if="actions">
           <v-btn icon>
             <v-icon>mdi-heart</v-icon>
