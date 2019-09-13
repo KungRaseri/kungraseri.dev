@@ -35,7 +35,15 @@ module.exports = {
     }
   },
   "collectCoverage": true,
-  "collectCoverageFrom": ["**/*.{ts,js,vue}", "!**/node_modules/**", "!**/template/**", "!**/tests/**"],
-  "coverageReporters": ["json", "text-summary"],
+  "collectCoverageFrom": ["src/**/*.{ts,js,vue}"],
+  "coverageReporters": ["html", "text-summary"],
+  "coverageThreshold": {
+    "global": {
+      "branches": 80,
+      "functions": 80,
+      "lines": 80,
+      "statements": -10
+    }
+  },
   "testResultsProcessor": "jest-sonar-reporter"
 }

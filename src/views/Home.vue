@@ -1,17 +1,10 @@
 <template>
-<div class="home">
-  <LandingPage />
-</div>
+  <v-layout row wrap></v-layout>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import LandingPage from '@/components/LandingPage.vue'; // @ is an alias to /src
 
-@Component({
-  components: {
-    LandingPage,
-  },
-})
+@Component
 export default class Home extends Vue {}
 </script>

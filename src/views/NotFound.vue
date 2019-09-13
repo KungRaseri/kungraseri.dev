@@ -1,7 +1,5 @@
 <template>
-  <div class="not-found">
-    <LandingPage />
-  </div>
+  <v-layout row wrap></v-layout>
 </template>
 
 <script lang="ts">

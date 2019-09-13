@@ -27,5 +27,9 @@ import Navigation from '@/components/Navigation.vue';
     this.$store.dispatch('initializeStore');
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  constructor() {
+    super();
+  }
+}
 </script>

@@ -1,6 +1,6 @@
 
 <template>
-  <v-layout>
+  <v-layout row wrap>
     <Project v-for="project in projects" v-bind:key="project.id" :project="project" />
   </v-layout>
 </template>
