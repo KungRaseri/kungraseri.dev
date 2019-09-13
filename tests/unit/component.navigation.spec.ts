@@ -1,22 +1,25 @@
 import Vuetify from 'vuetify';
 
-import { mount, createLocalVue } from '@vue/test-utils';
+import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils';
 
 import Navigation from '@/components/Navigation.vue';
 
 const localVue = createLocalVue();
+localVue.component('router-link', RouterLinkStub);
 localVue.use(Vuetify);
 
 describe('Navigation.vue', () => {
   const mountFunction = (options: any) => {
-    return mount(Navigation, {
+    return shallowMount(Navigation, {
       localVue,
       Vuetify,
       ...options,
     });
   };
   it('wrapper html matches snapshot', () => {
-    const wrapper = mountFunction({});
+    const wrapper = mountFunction({
+      propsData: { isAuthenticated: false },
+    });
 
     expect(wrapper.html()).toMatchSnapshot();
   });

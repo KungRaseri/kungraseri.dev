@@ -1,21 +1,22 @@
 import Vuetify from 'vuetify';
 
-import { mount, createLocalVue } from '@vue/test-utils';
+import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils';
 
 import Project from '@/components/Project.vue';
 
 const localVue = createLocalVue();
+localVue.component('router-link', RouterLinkStub);
 localVue.use(Vuetify);
 
-describe('Project.vue', () => {
-  const mountFunction = (options: any) => {
-    return mount(Project, {
-      localVue,
-      Vuetify,
-      ...options,
-    });
-  };
+const mountFunction = (options: any) => {
+  return shallowMount(Project, {
+    localVue,
+    Vuetify,
+    ...options,
+  });
+};
 
+describe('Project.vue', () => {
   const project = {
     id: 0,
     title: 'Test Title',

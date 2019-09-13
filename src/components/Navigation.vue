@@ -23,19 +23,15 @@
           <v-icon>library_music</v-icon>
         </v-btn>
         <v-spacer></v-spacer>
-        <v-btn flat href="https://twitch.tv/KungRaseri" target="_blank">
+        <v-btn flat to="https://twitch.tv/KungRaseri" target="_blank">
           <span class="mr-2">twitch</span>
           <v-icon>open_in_new</v-icon>
         </v-btn>
-        <v-btn flat href="https://twitter.com/KungRaseri" target="_blank">
+        <v-btn flat to="https://twitter.com/KungRaseri" target="_blank">
           <span class="mr-2">twitter</span>
           <v-icon>open_in_new</v-icon>
         </v-btn>
-        <v-btn
-          flat
-          href="https://dev.azure.com/KungRaseri/KungRaseri%20Productions"
-          target="_blank"
-        >
+        <v-btn flat to="https://dev.azure.com/KungRaseri/KungRaseri%20Productions" target="_blank">
           <span class="mr-2">source</span>
           <v-icon>open_in_new</v-icon>
         </v-btn>
