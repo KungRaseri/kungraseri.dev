@@ -2,21 +2,11 @@
 <template>
   <v-flex md4 xm2>
     <v-container>
-      <v-card
-        :id="`project-${project.id}`"
-        class="mx-auto"
-        :flat="flat"
-        :loading="loading"
-        :outlined="outlined"
-        :elevation="elevation"
-        :raised="raised"
-        :width="width"
-        :height="height"
-      >
-        <v-img v-if="media" class="white--text" height="200px" :src="project.url">
+      <v-card :id="`project-${project.id}`" class="mx-auto" flat outlined elevation raised>
+        <v-img class="white--text" height="200px" :src="project.image">
           <v-card-title class="align-end fill-height">{{project.imageTitle}}</v-card-title>
         </v-img>
-        <v-card-title v-else>{{project.title}}</v-card-title>
+        <v-card-title>{{project.title}}</v-card-title>
 
         <v-card-text>{{project.description}}</v-card-text>
         <v-card-actions v-if="actions">

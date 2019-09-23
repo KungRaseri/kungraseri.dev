@@ -1,5 +1,7 @@
 <template>
-  <v-layout row wrap></v-layout>
+  <v-layout row wrap>
+    We couldn't find what you were looking for.  Some features on the site are under construction. 
+  </v-layout>
 </template>
 
 <script lang="ts">

@@ -30,9 +30,9 @@ export default class Projects extends Vue {
     },
     {
       id: 3,
-      title: 'RetweetRP',
+      title: 'Redacted Roleplay',
       url: '#',
-      image: '',
+      image: 'src/assets/REDACTEDRP_SPLASH.gif',
       description: 'GTA V Roleplay Community',
     },
   ];
