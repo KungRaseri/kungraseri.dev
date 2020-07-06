@@ -3,19 +3,16 @@
   <v-flex md4 xm2>
     <v-container>
       <v-card :id="`project-${project.id}`" class="mx-auto" flat outlined elevation raised>
-        <v-img class="white--text" height="200px" :src="project.image">
-          <v-card-title class="align-end fill-height">{{project.imageTitle}}</v-card-title>
-        </v-img>
-        <v-card-title>{{project.title}}</v-card-title>
+        <a :href="project.url">
+          <v-img class="white--text" height="200px" :src="project.image">
+            <v-card-title class="align-end fill-height">{{project.imageTitle}}</v-card-title>
+          </v-img>
+        </a>
+        <v-card-title>
+          <h3>{{project.title}}</h3>
+        </v-card-title>
 
         <v-card-text>{{project.description}}</v-card-text>
-        <v-card-actions v-if="actions">
-          <v-btn icon>
-            <v-icon>mdi-heart</v-icon>
-          </v-btn>
-          <v-btn text>Click</v-btn>
-          <v-btn outlined>Click</v-btn>
-        </v-card-actions>
       </v-card>
     </v-container>
   </v-flex>

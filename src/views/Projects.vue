@@ -1,6 +1,6 @@
 
 <template>
-  <v-layout row wrap>
+  <v-layout row wrap justify-center>
     <Project v-for="project in projects" v-bind:key="project.id" :project="project" />
   </v-layout>
 </template>
@@ -17,23 +17,16 @@ export default class Projects extends Vue {
     {
       id: 1,
       title: 'KungRaseri Productions LLC',
-      url: '#',
+      url: 'https://kungraseri.dev',
       image: '',
       description: 'Freelancing, Streaming and Music services',
     },
     {
       id: 2,
-      title: 'Championship Arena',
-      url: '#',
-      image: '',
-      description: 'eSports tournament website',
-    },
-    {
-      id: 3,
-      title: 'Redacted Roleplay',
-      url: '#',
-      image: 'src/assets/REDACTEDRP_SPLASH.gif',
-      description: 'GTA V Roleplay Community',
+      title: '[REDACTED] Gaming',
+      url: 'https://redactedgaming.gg',
+      image: require('../assets/redacted_gaming.png'),
+      description: 'Gaming and Roleplay Community',
     },
   ];
 }
