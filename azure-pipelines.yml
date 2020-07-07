@@ -19,6 +19,25 @@ steps:
     yarn
     yarn build
   displayName: 'yarn install and build'
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'sonarcloud'
+    organization: 'kungraseri-productions-llc'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'kungraseri-dev'
+    cliProjectName: 'KungRaseri Productions Dashboard'
+    cliProjectVersion: '$(Build.BuildNumber)'
+    cliSources: 'src'
+    extraProperties: |
+      # Additional properties that will be passed to the scanner, 
+      # Put one key=value per line, example:
+      # sonar.exclusions=**/*.bin
+      sonar.exclusions=node_modules/**,dist/**,.vscode/**,tests/**
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 - task: CopyFiles@2
   inputs:
     SourceFolder: 'dist'
