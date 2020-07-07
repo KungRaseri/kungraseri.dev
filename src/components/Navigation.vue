@@ -22,23 +22,14 @@
         <v-icon>mdi-folder-music</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
-      <v-btn text href="https://twitch.tv/KungRaseri" target="_blank" large>
-        <span class="mr-2">twitch</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-      <v-btn text href="https://twitter.com/KungRaseri" target="_blank" large>
-        <span class="mr-2">twitter</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-      <v-btn
-        text
-        href="https://dev.azure.com/KungRaseri/KungRaseri%20Productions"
-        target="_blank"
-        large
-      >
-        <span class="mr-2">source</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <v-layout v-if="!$auth.loading" justify-end>
+        <v-flex xs1 v-if="!$auth.isAuthenticated">
+          <v-btn text @click="login">Log in</v-btn>
+        </v-flex>
+        <v-flex xs1 v-if="$auth.isAuthenticated">
+          <v-btn text @click="logout">Log out</v-btn>
+        </v-flex>
+      </v-layout>
     </v-app-bar>
   </v-layout>
 </template>
@@ -46,11 +37,20 @@
 </style>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component
 export default class NavigationComponent extends Vue {
   @Prop({ type: Boolean, default: false })
   public isAuthenticated: boolean = false;
+
+  login() {
+    this.$auth.loginWithRedirect();
+  }
+  logout() {
+    this.$auth.logout({
+      returnTo: window.location.origin
+    });
+  }
 }
 </script>

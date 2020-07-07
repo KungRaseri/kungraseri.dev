@@ -13,7 +13,7 @@
     "allowJs": true,
     "baseUrl": ".",
     "resolveJsonModule": true,
-    "types": ["webpack-env", "jest", "vuetify"],
+    "types": ["webpack-env", "jest", "vuetify", "auth0-js"],
     "paths": {
       "@/*": ["src/*"]
     },
