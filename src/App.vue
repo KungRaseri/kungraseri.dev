@@ -1,12 +1,9 @@
 <template>
-  <v-app dark>
-    <v-content>
-      <v-container fluid>
-        <Navigation v-bind:isAuthenticated="isAuthenticated"></Navigation>
-        <router-view></router-view>
-        <Footer></Footer>
-      </v-container>
-    </v-content>
+  <v-app>
+    <Navigation v-bind:isAuthenticated="isAuthenticated"></Navigation>
+    <v-layout row wrap>
+      <router-view></router-view>
+    </v-layout>
   </v-app>
 </template>
 

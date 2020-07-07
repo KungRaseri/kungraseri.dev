@@ -1,42 +1,40 @@
 <template>
-  <v-layout row wrap>
-    <v-container>
-      <v-navigation-drawer app v-if="isAuthenticated"></v-navigation-drawer>
-      <v-toolbar app>
-        <v-toolbar-title class="headline text-uppercase">
-          <v-btn flat tile to="/">
-            <span>KungRaseri</span>
-            <span class="font-weight-lighter">&nbsp;Productions</span>
-            <span class="font-weight-light">&nbsp;LLC</span>
-          </v-btn>
-        </v-toolbar-title>
-        <v-btn flat to="stream">
-          <span class="mr-2">stream</span>
-          <v-icon>theaters</v-icon>
+  <v-layout row class="ma-0 pa-0">
+    <v-navigation-drawer app v-if="isAuthenticated"></v-navigation-drawer>
+    <v-app-bar app>
+      <v-toolbar-title class="headline text-uppercase">
+        <v-btn text tile to="/">
+          <span>KungRaseri</span>
+          <span class="font-weight-lighter">&nbsp;Productions</span>
+          <span class="font-weight-light">&nbsp;LLC</span>
         </v-btn>
-        <v-btn flat to="projects">
-          <span class="mr-2">projects</span>
-          <v-icon>work</v-icon>
-        </v-btn>
-        <v-btn flat to="music">
-          <span class="mr-2">music</span>
-          <v-icon>library_music</v-icon>
-        </v-btn>
-        <v-spacer></v-spacer>
-        <v-btn flat href="https://twitch.tv/KungRaseri" target="_blank">
-          <span class="mr-2">twitch</span>
-          <v-icon>open_in_new</v-icon>
-        </v-btn>
-        <v-btn flat href="https://twitter.com/KungRaseri" target="_blank">
-          <span class="mr-2">twitter</span>
-          <v-icon>open_in_new</v-icon>
-        </v-btn>
-        <v-btn flat href="https://dev.azure.com/KungRaseri/KungRaseri%20Productions" target="_blank">
-          <span class="mr-2">source</span>
-          <v-icon>open_in_new</v-icon>
-        </v-btn>
-      </v-toolbar>
-    </v-container>
+      </v-toolbar-title>
+      <v-btn text to="stream">
+        <span class="mr-2">stream</span>
+        <v-icon>mdi-theater</v-icon>
+      </v-btn>
+      <v-btn text to="projects">
+        <span class="mr-2">projects</span>
+        <v-icon>mdi-dev-to</v-icon>
+      </v-btn>
+      <v-btn text to="music">
+        <span class="mr-2">music</span>
+        <v-icon>mdi-folder-music</v-icon>
+      </v-btn>
+      <v-spacer></v-spacer>
+      <v-btn text href="https://twitch.tv/KungRaseri" target="_blank">
+        <span class="mr-2">twitch</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+      <v-btn text href="https://twitter.com/KungRaseri" target="_blank">
+        <span class="mr-2">twitter</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+      <v-btn text href="https://dev.azure.com/KungRaseri/KungRaseri%20Productions" target="_blank">
+        <span class="mr-2">source</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+    </v-app-bar>
   </v-layout>
 </template>
 <style>

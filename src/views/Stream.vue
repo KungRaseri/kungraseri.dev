@@ -1,13 +1,7 @@
 
 <template>
-  <v-layout row align-center text-md-center wrap>
-    <v-flex>
-      <v-layout row align-center text-md-center wrap>
-        <v-flex>
-          <TwitchPlayer :width="'1280'" :height="'720'" :channel="channel"></TwitchPlayer>
-        </v-flex>
-      </v-layout>
-    </v-flex>
+  <v-layout row wrap justify-center>
+    <TwitchPlayer :width="'1280'" :height="'720'" :channel="channel"></TwitchPlayer>
   </v-layout>
 </template>
 
