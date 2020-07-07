@@ -1,26 +1,31 @@
 import Vue from 'vue';
-import Vuetify from 'vuetify';
+import Vuetify from 'vuetify/lib';
 import colors from 'vuetify/es5/util/colors';
 
-import 'vuetify/src/stylus/app.styl';
-import 'roboto-fontface/css/roboto/roboto-fontface.css';
-import 'material-design-icons-iconfont/dist/material-design-icons.css';
-import '@fortawesome/fontawesome-free/css/all.css';
-
+const options = {
+  theme: {
+    options: {
+      customProperties: true,
+    },
+    dark: true,
+    themes: {
+      dark: {
+        primary: colors.deepPurple.base,
+        secondary: colors.amber.base,
+        accent: colors.blue.base,
+        error: colors.red.base,
+        info: colors.lightBlue.base,
+        success: colors.green.lighten2,
+        warning: colors.yellow.lighten2,
+      },
+    },
+  },
+};
 
 Vue.use(Vuetify, {
-  theme: {
-    primary: colors.deepPurple,
-    secondary: colors.amber,
-    accent: colors.blue,
-    error: colors.red,
-    info: colors.lightBlue,
-    success: colors.green.lighten2,
-    warning: colors.yellow.lighten2,
-  },
-  customProperties: true,
   icons: {
-    iconfont: 'mdi || fa || md',
+    iconfont: 'mdi',
   },
 });
 
+export default new Vuetify(options);
