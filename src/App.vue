@@ -7,6 +7,12 @@
   </v-app>
 </template>
 
+<style scoped lang="scss">
+* {
+  font-family: "Blinker", sans-serif;
+}
+</style>
+
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import Navigation from '@/components/Navigation.vue';
