@@ -13,11 +13,25 @@
     "allowJs": true,
     "baseUrl": ".",
     "resolveJsonModule": true,
-    "types": ["webpack-env", "jest", "vuetify", "auth0-js"],
+    "types": [
+      "webpack-env",
+      "jest",
+      "vuetify",
+      "auth0-js",
+      "mocha",
+      "chai"
+    ],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
   },
   "include": [
     "src/**/*.ts",
@@ -26,5 +40,7 @@
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

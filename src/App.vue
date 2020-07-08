@@ -1,6 +1,11 @@
 <template>
   <v-app>
-    <Navigation v-bind:isAuthenticated="isAuthenticated"></Navigation>
+    <Navigation
+      :isAuthenticated="isAuthenticated"
+      :user="user"
+      @loginClicked="login"
+      @logoutClicked="logout"
+    ></Navigation>
     <v-layout row wrap>
       <router-view></router-view>
     </v-layout>
@@ -50,23 +55,69 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import Navigation from "@/components/Navigation.vue";
+import { IApp } from "./interfaces/IApp";
 
 @Component({
   components: {
     Navigation
-  },
-  data() {
-    return {
-      isAuthenticated: false
-    };
-  },
-  beforeCreate() {
-    this.$store.dispatch("initializeStore");
   }
 })
-export default class App extends Vue {
+export default class App extends Vue implements IApp {
+  public $auth: any;
+  public $logger: any;
+  public user: any = {};
+  public isAuthenticated = false;
+
   constructor() {
     super();
+  }
+
+  public created() {
+    this.$auth
+      .renewToken(this.$store.getters["UserProfile/isAuthenticated"])
+      .then((result: any) => {
+        console.log("renew-result", result);
+      })
+      .catch((err: any) => {
+        if (err.includes("not authenticated")) {
+          return;
+        }
+        console.log("err", err);
+      });
+  }
+
+  public mounted() {
+    this.initState();
+  }
+
+  public updated() {
+    this.initState();
+  }
+
+  public initState() {
+    this.isAuthenticated = this.$store.getters["UserProfile/isAuthenticated"];
+    if (this.isAuthenticated) {
+      this.user = this.$store.getters["UserProfile/User"];
+      this.$logger.identify(this.user.user_id, {
+        name: this.user.username,
+        email: this.user.name
+      });
+    }
+  }
+
+  public async login() {
+    this.$auth.login();
+  }
+
+  public handleLoginEvent(data: any) {
+    this.$store.commit("UserProfile/setToken", data.token);
+    this.$store.commit("UserProfile/setUser", data.profile);
+  }
+
+  public logout() {
+    this.$store.commit("UserProfile/setToken", null);
+    this.$store.commit("UserProfile/setUser", null);
+    this.$auth.logout();
   }
 }
 </script>

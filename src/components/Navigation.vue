@@ -22,12 +22,17 @@
         <v-icon>mdi-folder-music</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
-      <v-layout v-if="!$auth.loading" justify-end>
-        <v-flex xs1 v-if="!$auth.isAuthenticated">
-          <v-btn text @click="login">Log in</v-btn>
+      <v-layout justify-end>
+        <v-flex xs1>
+          <v-btn
+            text
+            v-show="!isAuthenticated"
+            color="primary"
+            @click="loginClicked"
+          >Login / Register</v-btn>
         </v-flex>
-        <v-flex xs1 v-if="$auth.isAuthenticated">
-          <v-btn text @click="logout">Log out</v-btn>
+        <v-flex xs1>
+          <v-btn text v-if="isAuthenticated" @click="logoutClicked">Logout</v-btn>
         </v-flex>
       </v-layout>
     </v-app-bar>
@@ -39,18 +44,16 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 
-@Component
+@Component({})
 export default class NavigationComponent extends Vue {
   @Prop({ type: Boolean, default: false })
   public isAuthenticated: boolean = false;
 
-  login() {
-    this.$auth.loginWithRedirect();
+  public loginClicked() {
+    this.$emit("loginClicked");
   }
-  logout() {
-    this.$auth.logout({
-      returnTo: window.location.origin
-    });
+  public logoutClicked() {
+    this.$emit("logoutClicked");
   }
 }
 </script>

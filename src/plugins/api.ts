@@ -4,7 +4,7 @@ import ICredentials from '@/interfaces/ICredentials';
 import IAccount from '@/interfaces/IAccount';
 import IToken from '@/interfaces/IToken';
 import * as signalR from '@aspnet/signalr';
-import * as ApplicationSettings from '@/ApplicationSettings.json';
+import * as ApplicationSettings from '../../appsettings.json';
 import ISettings from '@/interfaces/ISettings';
 
 const appSettingsJson: any = ApplicationSettings;
