@@ -1,20 +1,14 @@
 
 <template>
-  <v-flex md4 xm2>
-    <v-container>
-      <v-card :id="`project-${project.id}`" class="mx-auto" flat outlined elevation raised>
-        <a :href="project.url">
-          <v-img class="white--text" height="200px" :src="project.image">
-            <v-card-title class="align-end fill-height">{{project.imageTitle}}</v-card-title>
-          </v-img>
-        </a>
-        <v-card-title>
-          <h3>{{project.title}}</h3>
-        </v-card-title>
-
-        <v-card-text>{{project.description}}</v-card-text>
-      </v-card>
-    </v-container>
+  <v-flex md2 xm2 class="mx-2">
+    <v-card :id="`project-${project.id}`" flat>
+      <a :href="project.url">
+        <v-img class="white--text" contain max-height="500" :src="project.image">
+          <v-card-title class="align-end fill-height">{{project.title}}</v-card-title>
+        </v-img>
+      </a>
+      <v-card-text>{{project.description}}</v-card-text>
+    </v-card>
   </v-flex>
 </template>
 

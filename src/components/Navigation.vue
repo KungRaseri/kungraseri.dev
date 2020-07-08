@@ -1,6 +1,5 @@
 <template>
   <v-layout row class="ma-0 pa-0">
-    <v-navigation-drawer app v-if="isAuthenticated"></v-navigation-drawer>
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
         <v-btn text tile to="/" large>
@@ -21,18 +20,25 @@
         <span class="mr-2">music</span>
         <v-icon>mdi-folder-music</v-icon>
       </v-btn>
+      <v-divider vertical class="mx-3"></v-divider>
       <v-spacer></v-spacer>
-      <v-layout justify-end>
-        <v-flex xs1>
+      <v-layout row wrap justify-end>
+        <v-divider vertical class="mx-3"></v-divider>
+        <v-flex xs2>
           <v-btn
             text
-            v-show="!isAuthenticated"
+            large
+            v-if="!isAuthenticated"
             color="primary"
             @click="loginClicked"
           >Login / Register</v-btn>
-        </v-flex>
-        <v-flex xs1>
-          <v-btn text v-if="isAuthenticated" @click="logoutClicked">Logout</v-btn>
+          <v-btn
+            text
+            large
+            color="secondary"
+            v-else-if="isAuthenticated"
+            @click="logoutClicked"
+          >Logout</v-btn>
         </v-flex>
       </v-layout>
     </v-app-bar>
@@ -42,7 +48,7 @@
 </style>
 
 <script lang="ts">
-import { Component, Vue, Prop } from "vue-property-decorator";
+import { Component, Vue, Prop } from 'vue-property-decorator';
 
 @Component({})
 export default class NavigationComponent extends Vue {
@@ -50,10 +56,10 @@ export default class NavigationComponent extends Vue {
   public isAuthenticated: boolean = false;
 
   public loginClicked() {
-    this.$emit("loginClicked");
+    this.$emit('loginClicked');
   }
   public logoutClicked() {
-    this.$emit("logoutClicked");
+    this.$emit('logoutClicked');
   }
 }
 </script>

@@ -18,14 +18,14 @@ export default class Projects extends Vue {
       id: 1,
       title: 'KungRaseri Productions LLC',
       url: 'https://kungraseri.dev',
-      image: '',
-      description: 'Freelancing, Streaming and Music services',
+      image: require('../assets/logo.png'),
+      description: 'Development, Streaming and Music Production',
     },
     {
       id: 2,
       title: '[REDACTED] Gaming',
       url: 'https://redactedgaming.gg',
-      image: require('../assets/redacted_gaming.png'),
+      image: require('@/assets/redacted_gaming.png'),
       description: 'Gaming and Roleplay Community',
     },
   ];
