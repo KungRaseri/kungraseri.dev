@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import axios from 'axios';
-import * as ApplicationSettings from '@/ApplicationSettings.json';
+import * as ApplicationSettings from '../../appsettings.json';
 import ITwitchOAuthConfig from '@/interfaces/ITwitchOAuthConfig';
 import ISettings from '@/interfaces/ISettings';
 

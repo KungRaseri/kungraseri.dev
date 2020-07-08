@@ -2,11 +2,12 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/views/Home.vue';
 import Projects from '@/views/Projects.vue';
+import Music from '@/views/Music.vue';
 import Stream from '@/views/Stream.vue';
 import Register from '@/views/auth/Register.vue';
 import Login from '@/views/auth/Login.vue';
 import NotFound from '@/views/NotFound.vue';
-import TwitchExternalCallback from '@/views/auth/TwitchExternalCallback.vue';
+import ExternalCallback from '@/views/auth/ExternalCallback.vue';
 
 Vue.use(Router);
 
@@ -34,6 +35,11 @@ export default new Router({
       component: Projects,
     },
     {
+      path: '/music',
+      name: 'music',
+      component: Music,
+    },
+    {
       path: '/auth/register',
       name: 'register',
       component: Register,
@@ -44,9 +50,9 @@ export default new Router({
       component: Login,
     },
     {
-      path: '/auth/external/twitch/callback',
-      name: 'external-twitch-callback',
-      component: TwitchExternalCallback,
+      path: '/auth/external/callback',
+      name: 'external-callback',
+      component: ExternalCallback,
     },
   ],
 });

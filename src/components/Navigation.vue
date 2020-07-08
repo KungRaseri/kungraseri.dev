@@ -1,6 +1,5 @@
 <template>
   <v-layout row class="ma-0 pa-0">
-    <v-navigation-drawer app v-if="isAuthenticated"></v-navigation-drawer>
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
         <v-btn text tile to="/" large>
@@ -21,24 +20,27 @@
         <span class="mr-2">music</span>
         <v-icon>mdi-folder-music</v-icon>
       </v-btn>
+      <v-divider vertical class="mx-3"></v-divider>
       <v-spacer></v-spacer>
-      <v-btn text href="https://twitch.tv/KungRaseri" target="_blank" large>
-        <span class="mr-2">twitch</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-      <v-btn text href="https://twitter.com/KungRaseri" target="_blank" large>
-        <span class="mr-2">twitter</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-      <v-btn
-        text
-        href="https://dev.azure.com/KungRaseri/KungRaseri%20Productions"
-        target="_blank"
-        large
-      >
-        <span class="mr-2">source</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <v-layout row wrap justify-end>
+        <v-divider vertical class="mx-3"></v-divider>
+        <v-flex xs2>
+          <v-btn
+            text
+            large
+            v-if="!isAuthenticated"
+            color="primary"
+            @click="loginClicked"
+          >Login / Register</v-btn>
+          <v-btn
+            text
+            large
+            color="secondary"
+            v-else-if="isAuthenticated"
+            @click="logoutClicked"
+          >Logout</v-btn>
+        </v-flex>
+      </v-layout>
     </v-app-bar>
   </v-layout>
 </template>
@@ -48,9 +50,16 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
-@Component
+@Component({})
 export default class NavigationComponent extends Vue {
   @Prop({ type: Boolean, default: false })
   public isAuthenticated: boolean = false;
+
+  public loginClicked() {
+    this.$emit('loginClicked');
+  }
+  public logoutClicked() {
+    this.$emit('logoutClicked');
+  }
 }
 </script>
