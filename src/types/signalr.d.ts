@@ -1,0 +1,1 @@
+declare module '@latelier/vue-signalr';

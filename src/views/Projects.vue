@@ -18,7 +18,7 @@ export default class Projects extends Vue {
       id: 1,
       title: 'KungRaseri Productions LLC',
       url: 'https://kungraseri.dev',
-      image: require('../assets/logo.png'),
+      image: require('../assets/white_logo_transparent_background.png'),
       description: 'Development, Streaming and Music Production',
     },
     {
