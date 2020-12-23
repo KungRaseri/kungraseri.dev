@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from '@/views/Home.vue';
 import Projects from '@/views/Projects.vue';
 import Music from '@/views/Music.vue';
+import Games from '@/views/Games.vue';
 import Stream from '@/views/Stream.vue';
 import Register from '@/views/auth/Register.vue';
 import Login from '@/views/auth/Login.vue';
@@ -38,6 +39,11 @@ export default new Router({
       path: '/music',
       name: 'music',
       component: Music,
+    },
+    {
+      path: '/games',
+      name: 'games',
+      component: Games,
     },
     {
       path: '/auth/register',

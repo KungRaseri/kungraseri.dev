@@ -1,27 +1,27 @@
 
 <template>
   <v-flex md2 xm2 class="mx-2">
-    <v-card :id="`project-${project.id}`" flat>
-      <a :href="project.url">
+    <v-card :id="`game-${game.id}`">
+      <a :href="game.url">
         <v-img
-          class="white--text project"
+          class="white--text game"
           contain
           min-height="250"
           max-height="500"
-          :src="project.image"
+          :src="game.image"
         >
           <v-card-title class="align-end fill-height">{{
-            project.title
+            game.title
           }}</v-card-title>
         </v-img>
       </a>
-      <v-card-text>{{ project.description }}</v-card-text>
+      <v-card-text>{{ game.description }}</v-card-text>
     </v-card>
   </v-flex>
 </template>
 
 <style lang="scss" scoped>
-.project {
+.game {
   background: #000;
 }
 </style>
@@ -30,8 +30,8 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component
-export default class Project extends Vue {
+export default class GameComponent extends Vue {
   @Prop({ type: Object })
-  public project: object | undefined;
+  public game: object | undefined;
 }
 </script>
