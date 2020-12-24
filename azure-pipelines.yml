@@ -4,7 +4,12 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- main
+  branches:
+   include:
+     - main
+  paths:
+    exclude:
+     - docs
 
 pool:
   vmImage: 'ubuntu-latest'
