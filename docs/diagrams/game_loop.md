@@ -1,3 +1,4 @@
+::: mermaid
 graph LR
     s[Splash];
     mm[Main Menu];
@@ -7,6 +8,10 @@ graph LR
     q[[Close Game]];
     s--Game / Asset Loading--> mm;
     mm--New Game-->ng;
+    ng--Back-->mm
     mm--Load Game-->lg;
+    lg--Back-->mm
     mm--Options-->opt;
+    opt--Back-->mm
     mm--Quit Game-->q;
+:::
