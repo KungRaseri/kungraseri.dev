@@ -1,8 +1,12 @@
-journey
-    title Game Loop
-    section Main Menu
-        Start Game: User
-        Options: User
-        Quit: User
-    section Game
-        Pause: User
+graph LR
+    s[Splash];
+    mm[Main Menu];
+    ng(Character Selection);
+    lg(Save Game Selection);
+    opt[Options Menu];
+    q[[Close Game]];
+    s--Game / Asset Loading--> mm;
+    mm--New Game-->ng;
+    mm--Load Game-->lg;
+    mm--Options-->opt;
+    mm--Quit Game-->q;
