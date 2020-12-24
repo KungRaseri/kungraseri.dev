@@ -12,7 +12,7 @@ import { Vue as VueIntegration } from '@sentry/integrations';
 import AuthPlugin from "@/plugins/auth";
 import './registerServiceWorker';
 
-import { domain, clientId, sentry_dsn, environment } from "../appsettings.json";
+import { sentry_dsn, environment } from "../appsettings.json";
 
 
 const store = createStore();

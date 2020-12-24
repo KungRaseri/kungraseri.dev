@@ -34,8 +34,6 @@ export default class Games extends Vue {
   ];
 
   created() {
-    const that = this;
-
     Vue.prototype.$socket.start({
       log: true,
     });

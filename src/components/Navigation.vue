@@ -3,9 +3,6 @@
     <v-toolbar-title>
       <a href="/">
         <v-img contain max-height="75" width="250" :src="logoPath"></v-img>
-        <!-- <span class="font-weight-bold">KungRaseri</span>
-          <span class="font-weight-lighter">&nbsp;Productions</span>
-          <span class="font-weight-light">&nbsp;LLC</span> -->
       </a>
     </v-toolbar-title>
     <v-btn text to="stream" large>
@@ -45,8 +42,6 @@
     </v-layout>
   </v-app-bar>
 </template>
-<style>
-</style>
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
