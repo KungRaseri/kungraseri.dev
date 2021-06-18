@@ -1,7 +1,7 @@
 <template>
-  <v-layout class="ma-0 pa-0" justify-center align-center fill-height>
+  <v-layout row wrap class="ma-0 pa-0" justify-center align-center fill-height>
     <v-sheet elevation="1" width="90%" height="90%">
-      <GameComponent
+      <GamePanel
         :game="game"
         v-for="game in games"
         :key="game.id"
@@ -19,27 +19,20 @@ body {
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import GameComponent from "@/components/Game/GameComponent.vue";
+import GamePanel from "@/components/GamePanel.vue";
 
-@Component({ components: { GameComponent } })
+@Component({ components: { GamePanel } })
 export default class Games extends Vue {
   games: any = [
     {
       id: 1,
-      title: "Browser Game",
-      url: "games/1",
-      image: require("../assets/white_logo_transparent_background.png"),
-      description: "Become a hero in this browser game!",
+      title: "Legends of Dranos",
+      url: "games/legends-of-dranos",
+      image: require("../legends-of-dranos/assets/dranos_cover.png"),
+      description: "Become a legend in the world of Dranos!",
     },
   ];
 
-  created() {
-    Vue.prototype.$socket.start({
-      log: true,
-    });
-  }
-  sockets: any = {
-    PlayerJoined(data: any) {},
-  };
+  created() {}
 }
 </script>

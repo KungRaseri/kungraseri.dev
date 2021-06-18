@@ -1,14 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/views/Home.vue';
-import Projects from '@/views/Projects.vue';
-import Music from '@/views/Music.vue';
-import Games from '@/views/Games.vue';
-import Stream from '@/views/Stream.vue';
-import Register from '@/views/auth/Register.vue';
-import Login from '@/views/auth/Login.vue';
 import NotFound from '@/views/NotFound.vue';
-import ExternalCallback from '@/views/auth/ExternalCallback.vue';
 
 Vue.use(Router);
 
@@ -28,37 +21,42 @@ export default new Router({
     {
       path: '/stream',
       name: 'stream',
-      component: Stream,
+      component: () => import(/* webpackChunkName: "Stream" */ '@/views/Stream.vue'),
     },
     {
       path: '/projects',
       name: 'projects',
-      component: Projects,
+      component: () => import(/* webpackChunkName: "Projects" */ '@/views/Projects.vue'),
     },
     {
       path: '/music',
       name: 'music',
-      component: Music,
+      component: () => import(/* webpackChunkName: "Music" */ '@/views/Music.vue'),
     },
     {
       path: '/games',
       name: 'games',
-      component: Games,
+      component: () => import(/* webpackChunkName: "Games" */ '@/views/Games.vue'),
+    },
+    {
+      path: '/games/legends-of-dranos',
+      name: 'legends-of-dranos',
+      component: () => import(/* webpackChunkName: "legends-of-dranos" */ '@/legends-of-dranos/views/Main.vue'),
     },
     {
       path: '/auth/register',
       name: 'register',
-      component: Register,
+      component: () => import(/* webpackChunkName: "Register" */ '@/views/auth/Register.vue'),
     },
     {
       path: '/auth/login',
       name: 'login',
-      component: Login,
+      component: () => import(/* webpackChunkName: "Login" */ '@/views/auth/Login.vue'),
     },
     {
       path: '/auth/external/callback',
       name: 'external-callback',
-      component: ExternalCallback,
+      component: () => import(/* webpackChunkName: "ExternalCallback" */ '@/views/auth/ExternalCallback.vue'),
     },
   ],
 });

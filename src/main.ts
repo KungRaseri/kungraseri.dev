@@ -20,7 +20,9 @@ const store = createStore();
 Sentry.init({
   dsn: sentry_dsn,
   environment: environment,
-  integrations: [new VueIntegration({ Vue, attachProps: true })],
+  integrations: [
+    new VueIntegration({ Vue, attachProps: true })
+  ],
 });
 
 router.beforeEach((to: Route, from: Route, next: any) => {

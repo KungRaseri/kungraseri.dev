@@ -25,6 +25,15 @@
               <v-spacer></v-spacer>
               <v-btn
                 text
+                href="https://www.guilded.gg/i/mk397GKE"
+                target="_blank"
+                large
+              >
+                <span class="mr-2">guilded</span>
+                <v-icon>mdi-open-in-new</v-icon>
+              </v-btn>
+              <v-btn
+                text
                 href="https://twitch.tv/KungRaseri"
                 target="_blank"
                 large

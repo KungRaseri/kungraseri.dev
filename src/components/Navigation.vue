@@ -5,15 +5,19 @@
         <v-img contain max-height="75" width="250" :src="logoPath"></v-img>
       </a>
     </v-toolbar-title>
-    <v-btn text to="stream" large>
+    <v-btn text to="/stream" large>
       <span class="mr-2">stream</span>
       <v-icon>mdi-theater</v-icon>
     </v-btn>
-    <v-btn text to="projects" large>
+    <v-btn text to="/projects" large>
       <span class="mr-2">projects</span>
       <v-icon>mdi-dev-to</v-icon>
     </v-btn>
-    <v-btn text to="music" large>
+    <!-- <v-btn text to="/games" large>
+      <span class="mr-2">games</span>
+      <v-icon>mdi-gamepad-variant</v-icon>
+    </v-btn> -->
+    <v-btn text to="/music" large>
       <span class="mr-2">music</span>
       <v-icon>mdi-folder-music</v-icon>
     </v-btn>

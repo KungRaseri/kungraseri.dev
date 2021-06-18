@@ -15,7 +15,6 @@
     "resolveJsonModule": true,
     "types": [
       "@types/node",
-      "@nuxt/types",
       "webpack-env",
       "vuetify",
       "auth0-js",
