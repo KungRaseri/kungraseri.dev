@@ -3,6 +3,7 @@ node_modules
 /build
 /.svelte-kit
 /.vercel
+/vue_backup
 /package
 .env
 .env.*
