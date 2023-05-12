@@ -15,10 +15,11 @@
 	let user: any;
 </script>
 
-<AppShell>
+<AppShell slotPageContent="">
 	<svelte:fragment slot="header">
 		<Navigation {isAuthenticated} />
 	</svelte:fragment>
+
 	<slot />
 
 	<svelte:fragment slot="pageFooter">
@@ -46,11 +47,7 @@
 							<span class="mr-2">twitter</span>
 							<OpenInNew />
 						</a>
-						<a
-							class="btn"
-							href="https://github.com/kungraseri/kungraseri.dev"
-							target="_blank"
-						>
+						<a class="btn" href="https://github.com/kungraseri/kungraseri.dev" target="_blank">
 							<span class="mr-2">source</span>
 							<OpenInNew />
 						</a>
