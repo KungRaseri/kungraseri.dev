@@ -24,17 +24,9 @@
 		</a>
 	</svelte:fragment>
 	<div>
-		<a href="/stream" class="btn">
-			<span class="mr-2">stream</span>
-			<Theater />
-		</a>
 		<a href="/projects" class="btn">
 			<span class="mr-2">projects</span>
 			<DevTo />
-		</a>
-		<a href="/games" class="btn">
-			<span class="mr-2">games</span>
-			<GamepadVariant />
 		</a>
 		<a href="/music" class="btn">
 			<span class="mr-2">music</span>
