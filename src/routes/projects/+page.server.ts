@@ -37,7 +37,7 @@ export const load = (async () => {
             id: 3,
             title: "Red Syndicate",
             url: "https://redsyndicate.org",
-            image: "#",
+            image: "https://via.placeholder.com/480x320?text=Red%20Syndicate",
             description: "Software and Website Development",
             actions: [
                 {
@@ -54,7 +54,7 @@ export const load = (async () => {
             id: 4,
             title: "Uncharted Lands",
             url: "https://ul.redsyndicate.org",
-            image: "/assets/settlers-hero-new-world.png",
+            image: "https://via.placeholder.com/480x320?text=Uncharted%20Lands",
             description: "Open-source settlement and resource management browser-based game",
             actions: [
                 {
