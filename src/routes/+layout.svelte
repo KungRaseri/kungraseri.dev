@@ -47,6 +47,10 @@
 							<span class="mr-2">twitter</span>
 							<OpenInNew />
 						</a>
+						<a rel="me" class="btn" href="https://mastodon.social/@kungraseri" target="_blank">
+							<span class="mr-2">mastodon</span>
+							<OpenInNew />
+						</a>
 						<a class="btn" href="https://github.com/kungraseri/kungraseri.dev" target="_blank">
 							<span class="mr-2">source</span>
 							<OpenInNew />
