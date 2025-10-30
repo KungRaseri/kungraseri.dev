@@ -12,8 +12,5 @@ export default {
 	theme: {
 		extend: {}
 	},
-	plugins: [
-		forms,
-		typography
-	]
+	plugins: [forms, typography]
 } satisfies Config;
