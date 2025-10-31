@@ -1,16 +1,9 @@
 <script lang="ts">
 	import { AppBar } from '@skeletonlabs/skeleton';
+	import ThemeSelector from './ThemeSelector.svelte';
 
-	import Theater from 'svelte-material-icons/Theater.svelte';
 	import DevTo from 'svelte-material-icons/DevTo.svelte';
 	import FolderMusic from 'svelte-material-icons/FolderMusic.svelte';
-	import GamepadVariant from 'svelte-material-icons/GamepadVariant.svelte';
-
-	export let isAuthenticated: boolean = false;
-
-	function loginClicked() {}
-
-	function logoutClicked() {}
 </script>
 
 <AppBar background="bg-surface-100-800-token" border="border-b border-surface-300-700-token">
@@ -34,12 +27,15 @@
 		</a>
 	</div>
 	<svelte:fragment slot="trail">
-		<div class="flex flex-wrap justify-end">
+		<div class="flex items-center gap-2">
+			<ThemeSelector />
+			<!-- Uncomment when auth is ready
 			{#if isAuthenticated}
 				<a href="/" class="btn btn-sm variant-filled-primary">Logout</a>
 			{:else}
 				<a href="/" class="btn btn-sm variant-filled-primary">Login / Register</a>
 			{/if}
+			-->
 		</div>
 	</svelte:fragment>
 </AppBar>

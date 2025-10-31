@@ -30,10 +30,10 @@
 					</span>
 				</div>
 				<div class="flex flex-wrap gap-2 justify-start md:justify-end items-center">
-					<a class="btn btn-sm variant-ghost-surface" href="https://www.guilded.gg/i/mk397GKE" target="_blank">
+					<!-- <a class="btn btn-sm variant-ghost-surface" href="https://www.guilded.gg/i/mk397GKE" target="_blank">
 						<span class="mr-1">guilded</span>
 						<OpenInNew />
-					</a>
+					</a> -->
 					<a class="btn btn-sm variant-ghost-surface" href="https://twitch.tv/KungRaseri" target="_blank">
 						<span class="mr-1">twitch</span>
 						<OpenInNew />
