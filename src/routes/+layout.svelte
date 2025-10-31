@@ -19,41 +19,39 @@
 	<slot />
 
 	<svelte:fragment slot="pageFooter">
-		<footer class="w-full">
-			<div class="card rounded-none">
-				<section class="p-4 grid grid-cols-2">
-					<div class="px-5 py-2.5">
-						<span class="mx-1">&copy; {new Date().getFullYear()}</span>-
-						<span class="mx-1 uppercase">
-							<span class="bold">KungRaseri</span>
-							<span class="font-weight-lighter">&nbsp;Productions</span>
-							<span class="font-weight-light">&nbsp;LLC</span>
-						</span>
-					</div>
-					<div class="text-right">
-						<a class="btn" href="https://www.guilded.gg/i/mk397GKE" target="_blank">
-							<span class="mr-2">guilded</span>
-							<OpenInNew />
-						</a>
-						<a class="btn" href="https://twitch.tv/KungRaseri" target="_blank">
-							<span class="mr-2">twitch</span>
-							<OpenInNew />
-						</a>
-						<a class="btn" href="https://twitter.com/KungRaseri" target="_blank">
-							<span class="mr-2">twitter</span>
-							<OpenInNew />
-						</a>
-						<a rel="me" class="btn" href="https://mastodon.social/@kungraseri" target="_blank">
-							<span class="mr-2">mastodon</span>
-							<OpenInNew />
-						</a>
-						<a class="btn" href="https://github.com/kungraseri/kungraseri.dev" target="_blank">
-							<span class="mr-2">source</span>
-							<OpenInNew />
-						</a>
-					</div>
-				</section>
-			</div>
+		<footer class="w-full bg-surface-100-800-token border-t border-surface-300-700-token">
+			<section class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+				<div class="px-5 py-2.5">
+					<span class="mx-1">&copy; {new Date().getFullYear()}</span>-
+					<span class="mx-1 uppercase">
+						<span class="font-bold">KungRaseri</span>
+						<span class="font-light">&nbsp;Productions</span>
+						<span class="font-extralight">&nbsp;LLC</span>
+					</span>
+				</div>
+				<div class="flex flex-wrap gap-2 justify-start md:justify-end items-center">
+					<a class="btn btn-sm variant-ghost-surface" href="https://www.guilded.gg/i/mk397GKE" target="_blank">
+						<span class="mr-1">guilded</span>
+						<OpenInNew />
+					</a>
+					<a class="btn btn-sm variant-ghost-surface" href="https://twitch.tv/KungRaseri" target="_blank">
+						<span class="mr-1">twitch</span>
+						<OpenInNew />
+					</a>
+					<a class="btn btn-sm variant-ghost-surface" href="https://twitter.com/KungRaseri" target="_blank">
+						<span class="mr-1">twitter</span>
+						<OpenInNew />
+					</a>
+					<a rel="me" class="btn btn-sm variant-ghost-surface" href="https://mastodon.social/@kungraseri" target="_blank">
+						<span class="mr-1">mastodon</span>
+						<OpenInNew />
+					</a>
+					<a class="btn btn-sm variant-ghost-surface" href="https://github.com/kungraseri/kungraseri.dev" target="_blank">
+						<span class="mr-1">source</span>
+						<OpenInNew />
+					</a>
+				</div>
+			</section>
 		</footer>
 	</svelte:fragment>
 </AppShell>

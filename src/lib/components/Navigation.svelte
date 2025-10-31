@@ -13,9 +13,9 @@
 	function logoutClicked() {}
 </script>
 
-<AppBar app dense>
+<AppBar background="bg-surface-100-800-token" border="border-b border-surface-300-700-token">
 	<svelte:fragment slot="lead">
-		<a href="/" class="btn">
+		<a href="/" class="btn variant-ghost-surface">
 			<img
 				class="h-10"
 				src="assets/white_logo_transparent_background.png"
@@ -23,22 +23,22 @@
 			/>
 		</a>
 	</svelte:fragment>
-	<div>
-		<a href="/projects" class="btn">
+	<div class="flex gap-2">
+		<a href="/projects" class="btn variant-ghost-surface">
 			<span class="mr-2">projects</span>
 			<DevTo />
 		</a>
-		<a href="/music" class="btn">
+		<a href="/music" class="btn variant-ghost-surface">
 			<span class="mr-2">music</span>
 			<FolderMusic />
 		</a>
 	</div>
 	<svelte:fragment slot="trail">
-		<div class="row wrap justify-end">
+		<div class="flex flex-wrap justify-end">
 			{#if isAuthenticated}
-				<a href="/" class="btn-sm">Logout</a>
+				<a href="/" class="btn btn-sm variant-filled-primary">Logout</a>
 			{:else}
-				<a href="/" class="btn-sm">Login / Register</a>
+				<a href="/" class="btn btn-sm variant-filled-primary">Login / Register</a>
 			{/if}
 		</div>
 	</svelte:fragment>
