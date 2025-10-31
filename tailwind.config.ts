@@ -10,7 +10,14 @@ export default {
 		join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
 	],
 	theme: {
-		extend: {}
+		extend: {
+			fontFamily: {
+				sans: ['Quicksand', 'system-ui', 'sans-serif']
+			}
+		}
 	},
-	plugins: [forms, typography]
+	plugins: [
+		forms,
+		typography
+	]
 } satisfies Config;
