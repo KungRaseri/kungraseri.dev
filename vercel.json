@@ -1,0 +1,10 @@
+{
+	"framework": "sveltekit",
+	"buildCommand": "npm run build",
+	"devCommand": "npm run dev",
+	"installCommand": "npm install --legacy-peer-deps",
+	"outputDirectory": ".svelte-kit",
+	"env": {
+		"NODE_VERSION": "22.x"
+	}
+}
