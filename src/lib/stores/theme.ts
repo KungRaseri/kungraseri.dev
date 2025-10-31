@@ -48,7 +48,7 @@ export async function loadTheme(themeName: ThemeName) {
 		const link = document.createElement('link');
 		link.id = 'theme-css';
 		link.rel = 'stylesheet';
-		link.href = `/src/lib/themes/${themeName}.css`;
+		link.href = `/themes/${themeName}.css`;
 		document.head.appendChild(link);
 
 		// Save to localStorage
