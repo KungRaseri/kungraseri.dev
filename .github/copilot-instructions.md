@@ -40,9 +40,81 @@ Colors are accessed via Tailwind utilities:
 ```
 
 ### Dark Mode
-Always implement dark mode variants using Tailwind's dark variant:
+Always implement dark mode variants using Tailwind's `dark:` variant with class-based toggling:
+
+**How Dark Mode Works:**
+- Dark mode is controlled by adding/removing the `dark` class on the `<html>` element
+- Use Tailwind's `dark:` variant for all dark mode styles
+- Store preference in localStorage as `theme-mode`
+- Initialize dark mode in the root layout's `onMount`
+
+**Dark Mode Pattern:**
+```svelte
+<script lang="ts">
+  import { onMount } from 'svelte';
+  import { browser } from '$app/environment';
+  
+  // Initialize in root layout
+  onMount(() => {
+    if (browser) {
+      const isDark = localStorage.getItem('theme-mode') === 'dark';
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+      }
+    }
+  });
+</script>
+```
+
+**Toggle Dark Mode:**
+```svelte
+function toggleDarkMode(isDark: boolean) {
+  if (isDark) {
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme-mode', 'dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('theme-mode', 'light');
+  }
+}
+```
+
+**Using Dark Mode in Components:**
 ```svelte
 <div class="bg-surface-100 dark:bg-surface-900 text-surface-900 dark:text-surface-100">
+```
+
+### Theming System
+Skeleton uses a powerful theming system with CSS custom properties:
+
+**How Themes Work:**
+- Themes are activated via the `data-theme` attribute on the `<html>` element
+- Import themes in your global stylesheet (app.css)
+- Current theme: `nouveau` (gold and dark tones with luxurious feel)
+
+**Importing Themes:**
+```css
+/* In app.css */
+@import '@skeletonlabs/skeleton/themes/nouveau';
+@import '@skeletonlabs/skeleton/themes/crimson'; /* Additional themes */
+```
+
+**Setting Active Theme:**
+```html
+<html data-theme="nouveau">
+```
+
+**Available Preset Themes:**
+- `nouveau` - Elegant gold and dark tones
+- `cerberus` - Bold and minimal
+- `crimson` - Bold reds with cool grays
+- `modern` - Clean and contemporary
+- And many more at https://www.skeleton.dev/docs/svelte/design/themes
+
+**Theme Switching:**
+For dynamic theme switching, modify the `data-theme` attribute:
+```typescript
+document.documentElement.setAttribute('data-theme', 'nouveau');
 ```
 
 ### Preset Classes
@@ -241,17 +313,184 @@ Always pair form inputs with proper labels and error handling:
 </label>
 ```
 
-## State Management
+## Svelte 5 Runes Mode (REQUIRED)
 
-Use Svelte 5 runes for reactive state:
+**THIS PROJECT USES SVELTE 5 RUNES MODE EXCLUSIVELY**
+
+### Core Runes
+
+**$state** - Reactive state declaration:
+```svelte
+<script lang="ts">
+  let count = $state(0);
+  let user = $state({ name: 'John', age: 30 });
+</script>
+```
+
+**$derived** - Computed/derived values:
 ```svelte
 <script lang="ts">
   let count = $state(0);
   let doubled = $derived(count * 2);
+  let isEven = $derived(count % 2 === 0);
+</script>
+```
+
+**$effect** - Side effects (use sparingly, prefer onMount for initialization):
+```svelte
+<script lang="ts">
+  import { onMount } from 'svelte';
   
+  let count = $state(0);
+  
+  // ❌ DON'T use $effect for initialization
+  // $effect(() => {
+  //   count = loadFromStorage();
+  // });
+  
+  // ✅ DO use onMount for initialization
+  onMount(() => {
+    count = loadFromStorage();
+  });
+  
+  // ✅ DO use $effect for reactive side effects
   $effect(() => {
     console.log('Count changed:', count);
+    saveToStorage(count);
   });
+</script>
+```
+
+**$props** - Component props:
+```svelte
+<script lang="ts">
+  interface Props {
+    title: string;
+    count?: number;
+  }
+  
+  let { title, count = 0 }: Props = $props();
+</script>
+```
+
+### Event Handlers
+
+Use lowercase event handlers (Svelte 5 syntax):
+```svelte
+<!-- ✅ Correct: lowercase -->
+<button onclick={() => count++}>Click</button>
+<input oninput={(e) => value = e.currentTarget.value} />
+
+<!-- ❌ Incorrect: old syntax -->
+<button on:click={() => count++}>Click</button>
+```
+
+### Snippets (Render Props Pattern)
+
+Use snippets instead of slots for render props:
+```svelte
+<script lang="ts">
+  import { Switch } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Switch>
+  <Switch.Control>
+    <Switch.Thumb>
+      <Switch.Context>
+        {#snippet children(api)}
+          {#if api().checked}
+            <SunIcon />
+          {:else}
+            <MoonIcon />
+          {/if}
+        {/snippet}
+      </Switch.Context>
+    </Switch.Thumb>
+  </Switch.Control>
+</Switch>
+```
+
+### Binding Patterns
+
+```svelte
+<script lang="ts">
+  let value = $state('');
+  let checked = $state(false);
+</script>
+
+<input bind:value />
+<input type="checkbox" bind:checked />
+```
+
+### Class Directives
+
+Use class: directive for conditional classes:
+```svelte
+<script lang="ts">
+  let isActive = $state(false);
+</script>
+
+<button class="btn" class:preset-filled-primary={isActive}>
+  Button
+</button>
+```
+
+### Lifecycle
+
+```svelte
+<script lang="ts">
+  import { onMount, onDestroy } from 'svelte';
+  
+  onMount(() => {
+    console.log('Component mounted');
+    return () => {
+      console.log('Component will unmount');
+    };
+  });
+  
+  onDestroy(() => {
+    console.log('Component destroyed');
+  });
+</script>
+```
+
+### Common Runes Patterns
+
+**Toggle state:**
+```svelte
+<script lang="ts">
+  let isOpen = $state(false);
+  const toggle = () => isOpen = !isOpen;
+</script>
+
+<button onclick={toggle}>Toggle</button>
+```
+
+**Form handling:**
+```svelte
+<script lang="ts">
+  let formData = $state({ name: '', email: '' });
+  
+  const handleSubmit = () => {
+    console.log(formData);
+  };
+</script>
+
+<form onsubmit={handleSubmit}>
+  <input bind:value={formData.name} />
+  <input bind:value={formData.email} />
+</form>
+```
+
+**Derived with conditions:**
+```svelte
+<script lang="ts">
+  let items = $state<string[]>([]);
+  let filter = $state('');
+  
+  let filteredItems = $derived(
+    items.filter(item => item.includes(filter))
+  );
 </script>
 ```
 
@@ -325,6 +564,11 @@ Use Tailwind hover variants with Skeleton presets:
 ❌ **Don't** use `@apply` directive in `<style>` tags
 ❌ **Don't** import components from `@skeletonlabs/skeleton` (use `/skeleton-svelte`)
 ❌ **Don't** use the old `card` utility class without proper presets
+❌ **Don't** use old Svelte event syntax `on:click` (use `onclick`)
+❌ **Don't** use `let:` for slots (use snippets with `{#snippet}`)
+❌ **Don't** use `export let prop` (use `let { prop } = $props()`)
+❌ **Don't** use `$:` for reactive statements (use `$derived`)
+❌ **Don't** use `$effect` for component initialization (use `onMount`)
 
 ## Do's
 
@@ -334,6 +578,11 @@ Use Tailwind hover variants with Skeleton presets:
 ✅ **Do** compose components with sub-components
 ✅ **Do** use Svelte 5 syntax (runes, snippets)
 ✅ **Do** leverage Tailwind utilities for spacing, sizing, layout
+✅ **Do** use lowercase event handlers: `onclick`, `onchange`, `oninput`
+✅ **Do** use `$state` for reactive variables
+✅ **Do** use `$derived` for computed values
+✅ **Do** use `$props()` for component props
+✅ **Do** use `onMount` for component initialization and side effects that run once
 
 ## Testing Changes
 
@@ -344,8 +593,29 @@ Always verify:
 4. ARIA labels are present
 5. No console errors or warnings
 
+## Button with Icons
+
+**CRITICAL:** Buttons with icons MUST use `flex items-center gap-2` to properly align icons inline with text:
+
+```svelte
+<!-- ✅ CORRECT: Icon inline with text -->
+<button class="btn preset-tonal flex items-center gap-2">
+  <span>Click Me</span>
+  <IconComponent class="size-5" />
+</button>
+
+<!-- ❌ INCORRECT: Icon will wrap to next line -->
+<button class="btn preset-tonal">
+  <span>Click Me</span>
+  <IconComponent class="size-5" />
+</button>
+```
+
 ## Resources
 
+- **[Skeleton Svelte LLM Documentation](https://www.skeleton.dev/llms-svelte.txt)** - Comprehensive guide for AI/LLM integration with Skeleton
+- **[Svelte LLM Documentation](https://svelte.dev/llms-full.txt)** - Complete Svelte documentation optimized for LLMs
+- **[SvelteKit LLM Documentation](https://svelte.dev/docs/kit/llms.txt)** - Full SvelteKit documentation for LLMs
 - [Skeleton Docs](https://www.skeleton.dev/docs/svelte)
 - [Tailwind CSS v4 Docs](https://tailwindcss.com/docs)
 - [Svelte 5 Docs](https://svelte.dev/docs/svelte/overview)

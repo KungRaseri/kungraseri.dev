@@ -2,8 +2,7 @@
 	import ThemeSelector from './ThemeSelector.svelte';
 	import LightSwitch from './LightSwitch.svelte';
 
-	import DevTo from 'svelte-material-icons/DevTo.svelte';
-	import FolderMusic from 'svelte-material-icons/FolderMusic.svelte';
+	import { CodeXml, Music } from 'lucide-svelte';
 </script>
 
 <nav class="w-full bg-surface-100 dark:bg-surface-900 border-b border-surface-300 dark:border-surface-700">
@@ -19,13 +18,13 @@
 
 		<!-- Center Nav -->
 		<div class="flex gap-2 flex-1 justify-center">
-			<a href="/projects" class="btn preset-tonal">
+			<a href="/projects" class="btn preset-tonal flex items-center gap-2">
 				<span>projects</span>
-				<DevTo />
+				<CodeXml class="size-5" />
 			</a>
-			<a href="/music" class="btn preset-tonal">
+			<a href="/music" class="btn preset-tonal flex items-center gap-2">
 				<span>music</span>
-				<FolderMusic />
+				<Music class="size-5" />
 			</a>
 		</div>
 
@@ -35,9 +34,9 @@
 			<ThemeSelector />
 			<!-- Uncomment when auth is ready
 			{#if isAuthenticated}
-				<a href="/" class="btn btn-sm variant-filled-primary">Logout</a>
+				<a href="/" class="btn btn-sm preset-filled-primary">Logout</a>
 			{:else}
-				<a href="/" class="btn btn-sm variant-filled-primary">Login / Register</a>
+				<a href="/" class="btn btn-sm preset-filled-primary">Login / Register</a>
 			{/if}
 			-->
 		</div>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { currentTheme, themes, loadTheme, type ThemeName } from '$lib/stores/theme';
 
-	let showDropdown = false;
+	let showDropdown = $state(false);
 
 	function selectTheme(themeName: ThemeName) {
 		loadTheme(themeName);
@@ -31,7 +31,7 @@
 
 <div class="relative" use:clickOutside>
 	<button
-		on:click={toggleDropdown}
+		onclick={toggleDropdown}
 		class="btn-icon btn-icon-lg hover:preset-tonal"
 		aria-label="Select Theme"
 		title="Select Theme"
@@ -54,13 +54,13 @@
 
 	{#if showDropdown}
 		<div
-			class="absolute right-0 mt-2 w-72 bg-surface-50 dark:bg-surface-900 rounded-lg shadow-xl z-50 overflow-hidden border border-surface-300 dark:border-surface-700"
+			class="card absolute right-0 mt-2 w-72 preset-filled-surface-100-900 rounded-lg shadow-xl z-50 overflow-hidden border border-surface-300 dark:border-surface-700"
 		>
 			<div class="p-2">
 				<h3 class="px-3 py-2 text-sm font-semibold text-surface-900 dark:text-surface-100">Select Theme</h3>
 				{#each Object.entries(themes) as [key, theme]}
 					<button
-						on:click={() => selectTheme(key as ThemeName)}
+						onclick={() => selectTheme(key as ThemeName)}
 						class="w-full text-left px-3 py-2 rounded-md hover:preset-tonal"
 						class:preset-filled-primary-500={$currentTheme === key}
 					>

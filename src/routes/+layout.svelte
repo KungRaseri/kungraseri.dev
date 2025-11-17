@@ -3,15 +3,26 @@
 	import '../app.css';
 
 	import Navigation from '$lib/components/Navigation.svelte';
+	import { ExternalLink } from 'lucide-svelte';
+	import { onMount } from 'svelte';
+	import { browser } from '$app/environment';
 
-	import OpenInNew from 'svelte-material-icons/OpenInNew.svelte';
+	// Initialize dark mode from localStorage on mount
+	onMount(() => {
+		if (browser) {
+			const isDark = localStorage.getItem('theme-mode') === 'dark';
+			if (isDark) {
+				document.documentElement.classList.add('dark');
+			}
+		}
+	});
 
 	let isAuthenticated: boolean = false;
 	let user: any;
 </script>
 
 <div class="flex flex-col h-full">
-	<Navigation {isAuthenticated} />
+	<Navigation />
 
 	<main class="flex-1 overflow-y-auto">
 		<slot />
@@ -28,21 +39,21 @@
 				</span>
 			</div>
 			<div class="flex flex-wrap gap-2 justify-start md:justify-end items-center">
-				<a class="btn btn-sm preset-tonal" href="https://twitch.tv/KungRaseri" target="_blank">
-					<span class="mr-1">twitch</span>
-					<OpenInNew />
+				<a class="btn btn-sm preset-tonal flex items-center gap-2" href="https://twitch.tv/KungRaseri" target="_blank">
+					<span>twitch</span>
+					<ExternalLink class="size-4" />
 				</a>
-				<a class="btn btn-sm preset-tonal" href="https://twitter.com/KungRaseri" target="_blank">
-					<span class="mr-1">twitter</span>
-					<OpenInNew />
+				<a class="btn btn-sm preset-tonal flex items-center gap-2" href="https://twitter.com/KungRaseri" target="_blank">
+					<span>twitter</span>
+					<ExternalLink class="size-4" />
 				</a>
-				<a rel="me" class="btn btn-sm preset-tonal" href="https://mastodon.social/@kungraseri" target="_blank">
-					<span class="mr-1">mastodon</span>
-					<OpenInNew />
+				<a rel="me" class="btn btn-sm preset-tonal flex items-center gap-2" href="https://mastodon.social/@kungraseri" target="_blank">
+					<span>mastodon</span>
+					<ExternalLink class="size-4" />
 				</a>
-				<a class="btn btn-sm preset-tonal" href="https://github.com/kungraseri/kungraseri.dev" target="_blank">
-					<span class="mr-1">source</span>
-					<OpenInNew />
+				<a class="btn btn-sm preset-tonal flex items-center gap-2" href="https://github.com/kungraseri/kungraseri.dev" target="_blank">
+					<span>source</span>
+					<ExternalLink class="size-4" />
 				</a>
 			</div>
 		</section>
