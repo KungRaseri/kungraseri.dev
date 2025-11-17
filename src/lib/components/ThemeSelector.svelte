@@ -32,7 +32,7 @@
 <div class="relative" use:clickOutside>
 	<button
 		onclick={toggleDropdown}
-		class="btn-icon btn-icon-lg hover:preset-tonal"
+		class="btn-icon btn-icon-lg hover:preset-filled-primary-500 transition-all duration-200"
 		aria-label="Select Theme"
 		title="Select Theme"
 	>

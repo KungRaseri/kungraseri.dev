@@ -85,7 +85,7 @@
 				<p class="text-surface-600 dark:text-surface-400 mb-4">
 					Open-source settlement and resource management browser-based game
 				</p>
-				<a href="https://ul.redsyndicate.org" target="_blank" class="btn preset-filled-primary-500">
+				<a href="https://ul.redsyndicate.org" target="_blank" class="btn preset-filled-primary-500 hover:preset-filled-primary-600 transition-all duration-200">
 					Play Now
 				</a>
 			</div>
@@ -97,7 +97,7 @@
 				<a
 					href="https://soundcloud.com/kungraseri/sets/emergent"
 					target="_blank"
-					class="btn preset-filled-secondary-500"
+					class="btn preset-filled-secondary-500 hover:preset-filled-primary-500 transition-all duration-200"
 				>
 					Listen on SoundCloud
 				</a>
@@ -113,16 +113,16 @@
 				Interested in collaboration or just want to chat? Reach out on social media.
 			</p>
 			<div class="flex flex-wrap gap-4 justify-center">
-				<a href="https://twitch.tv/KungRaseri" target="_blank" class="btn preset-filled-primary-500">
+				<a href="https://twitch.tv/KungRaseri" target="_blank" class="btn preset-filled-primary-500 hover:preset-filled-primary-600 transition-all duration-200">
 					Twitch
 				</a>
-				<a href="https://twitter.com/KungRaseri" target="_blank" class="btn preset-filled-primary-500">
+				<a href="https://twitter.com/KungRaseri" target="_blank" class="btn preset-filled-primary-500 hover:preset-filled-primary-600 transition-all duration-200">
 					Twitter
 				</a>
 				<a
 					href="https://mastodon.social/@kungraseri"
 					target="_blank"
-					class="btn preset-filled-primary-500"
+					class="btn preset-filled-primary-500 hover:preset-filled-primary-600 transition-all duration-200"
 				>
 					Mastodon
 				</a>

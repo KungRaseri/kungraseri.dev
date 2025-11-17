@@ -20,7 +20,7 @@
 	<footer class="card-footer">
 		<div class="flex justify-center gap-2">
 			{#each project.actions as action}
-				<a href={action.href} class="btn btn-sm preset-tonal-secondary">{action.text}</a>
+				<a href={action.href} class="btn btn-sm preset-tonal-secondary hover:preset-filled-primary-500 transition-all duration-200">{action.text}</a>
 			{/each}
 		</div>
 	</footer>

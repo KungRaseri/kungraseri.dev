@@ -11,7 +11,7 @@
 		<p class="text-surface-700 dark:text-surface-300">
 			{$page.error?.message || "We couldn't find what you were looking for. Some features on the site are under construction."}
 		</p>
-		<a href="/" class="btn preset-filled-primary-500">
+		<a href="/" class="btn preset-filled-primary-500 hover:preset-filled-primary-600 transition-all duration-200">
 			Return Home
 		</a>
 	</div>
