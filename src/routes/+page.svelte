@@ -22,9 +22,9 @@
 		<!-- Development -->
 		<a
 			href="/projects"
-			class="card hover:scale-105 transition-transform duration-200 cursor-pointer"
+			class="preset-outlined hover:preset-tonal-primary transition-all duration-200 cursor-pointer rounded-lg p-6"
 		>
-			<div class="flex flex-col items-center text-center p-6">
+			<div class="flex flex-col items-center text-center">
 				<div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mb-4">
 					<CodeBraces size="32" class="text-white" />
 				</div>
@@ -40,8 +40,8 @@
 		</a>
 
 		<!-- Music -->
-		<a href="/music" class="card hover:scale-105 transition-transform duration-200 cursor-pointer">
-			<div class="flex flex-col items-center text-center p-6">
+		<a href="/music" class="preset-outlined hover:preset-tonal-secondary transition-all duration-200 cursor-pointer rounded-lg p-6">
+			<div class="flex flex-col items-center text-center">
 				<div class="w-16 h-16 bg-secondary-500 rounded-full flex items-center justify-center mb-4">
 					<FolderMusic size="32" class="text-white" />
 				</div>
@@ -61,9 +61,9 @@
 		<a
 			href="https://twitch.tv/KungRaseri"
 			target="_blank"
-			class="card hover:scale-105 transition-transform duration-200 cursor-pointer"
+			class="preset-outlined hover:preset-tonal-tertiary transition-all duration-200 cursor-pointer rounded-lg p-6"
 		>
-			<div class="flex flex-col items-center text-center p-6">
+			<div class="flex flex-col items-center text-center">
 				<div class="w-16 h-16 bg-tertiary-500 rounded-full flex items-center justify-center mb-4">
 					<TwitchIcon size="32" class="text-white" />
 				</div>
@@ -83,16 +83,16 @@
 	<section class="py-8">
 		<h2 class="text-3xl font-bold text-center mb-6">Featured Work</h2>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-			<div class="card p-6">
+			<div class="preset-tonal-surface rounded-lg p-6">
 				<h4 class="text-xl font-bold mb-3">Uncharted Lands</h4>
 				<p class="text-surface-600 dark:text-surface-400 mb-4">
 					Open-source settlement and resource management browser-based game
 				</p>
-				<a href="https://ul.redsyndicate.org" target="_blank" class="btn preset-filled-primary-500">
+				<a href="https://ul.redsyndicate.org" target="_blank" class="preset-filled-primary inline-block px-4 py-2 rounded-lg">
 					Play Now
 				</a>
 			</div>
-			<div class="card p-6">
+			<div class="preset-tonal-surface rounded-lg p-6">
 				<h4 class="text-xl font-bold mb-3">Latest Album: Emergent</h4>
 				<p class="text-surface-600 dark:text-surface-400 mb-4">
 					Released in 2020, featuring electronic soundscapes and ambient production
@@ -100,7 +100,7 @@
 				<a
 					href="https://soundcloud.com/kungraseri/sets/emergent"
 					target="_blank"
-					class="btn preset-filled-secondary-500"
+					class="preset-filled-secondary inline-block px-4 py-2 rounded-lg"
 				>
 					Listen on SoundCloud
 				</a>
@@ -111,23 +111,23 @@
 	<!-- Call to Action -->
 	<section class="py-8 text-center">
 		<div
-			class="card p-8 bg-gradient-to-r from-primary-500/10 to-secondary-500/10 border-2 border-primary-500/20"
+			class="preset-tonal rounded-lg p-8"
 		>
 			<h2 class="text-3xl font-bold mb-4">Let's Connect</h2>
 			<p class="text-lg text-surface-600 dark:text-surface-400 mb-6">
 				Interested in collaboration or just want to chat? Reach out on social media.
 			</p>
 			<div class="flex flex-wrap gap-4 justify-center">
-				<a href="https://twitch.tv/KungRaseri" target="_blank" class="btn preset-filled-primary-500">
+				<a href="https://twitch.tv/KungRaseri" target="_blank" class="preset-filled-primary px-4 py-2 rounded-lg">
 					Twitch
 				</a>
-				<a href="https://twitter.com/KungRaseri" target="_blank" class="btn preset-filled-primary-500">
+				<a href="https://twitter.com/KungRaseri" target="_blank" class="preset-filled-primary px-4 py-2 rounded-lg">
 					Twitter
 				</a>
 				<a
 					href="https://mastodon.social/@kungraseri"
 					target="_blank"
-					class="btn preset-filled-primary-500"
+					class="preset-filled-primary px-4 py-2 rounded-lg"
 				>
 					Mastodon
 				</a>

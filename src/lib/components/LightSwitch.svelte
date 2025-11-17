@@ -23,9 +23,9 @@
 	</script>
 </svelte:head>
 
-<Switch {checked} {onCheckedChange}>
-	<Switch.Control>
-		<Switch.Thumb />
+<Switch {checked} {onCheckedChange} class="preset-tonal">
+	<Switch.Control class="preset-tonal">
+		<Switch.Thumb class="preset-filled-primary" />
 	</Switch.Control>
 	<Switch.HiddenInput />
 </Switch>

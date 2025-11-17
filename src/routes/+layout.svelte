@@ -17,9 +17,9 @@
 		<slot />
 	</main>
 
-	<footer class="w-full bg-surface-100-900 border-t border-surface-300-700">
+	<footer class="w-full bg-surface-100 dark:bg-surface-900 border-t border-surface-300 dark:border-surface-700">
 		<section class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-			<div class="px-5 py-2.5">
+			<div class="px-5 py-2.5 text-surface-900 dark:text-surface-100">
 				<span class="mx-1">© {new Date().getFullYear()}</span>-
 				<span class="mx-1 uppercase">
 					<span class="font-bold">KungRaseri</span>
@@ -28,23 +28,19 @@
 				</span>
 			</div>
 			<div class="flex flex-wrap gap-2 justify-start md:justify-end items-center">
-				<!-- <a class="btn btn-sm variant-ghost-surface" href="https://www.guilded.gg/i/mk397GKE" target="_blank">
-					<span class="mr-1">guilded</span>
-					<OpenInNew />
-				</a> -->
-				<a class="btn btn-sm preset-tonal-surface border border-surface-500" href="https://twitch.tv/KungRaseri" target="_blank">
+				<a class="preset-tonal-surface px-3 py-1.5 text-sm rounded-lg inline-flex items-center gap-1" href="https://twitch.tv/KungRaseri" target="_blank">
 					<span class="mr-1">twitch</span>
 					<OpenInNew />
 				</a>
-				<a class="btn btn-sm preset-tonal-surface border border-surface-500" href="https://twitter.com/KungRaseri" target="_blank">
+				<a class="preset-tonal-surface px-3 py-1.5 text-sm rounded-lg inline-flex items-center gap-1" href="https://twitter.com/KungRaseri" target="_blank">
 					<span class="mr-1">twitter</span>
 					<OpenInNew />
 				</a>
-				<a rel="me" class="btn btn-sm preset-tonal-surface border border-surface-500" href="https://mastodon.social/@kungraseri" target="_blank">
+				<a rel="me" class="preset-tonal-surface px-3 py-1.5 text-sm rounded-lg inline-flex items-center gap-1" href="https://mastodon.social/@kungraseri" target="_blank">
 					<span class="mr-1">mastodon</span>
 					<OpenInNew />
 				</a>
-				<a class="btn btn-sm preset-tonal-surface border border-surface-500" href="https://github.com/kungraseri/kungraseri.dev" target="_blank">
+				<a class="preset-tonal-surface px-3 py-1.5 text-sm rounded-lg inline-flex items-center gap-1" href="https://github.com/kungraseri/kungraseri.dev" target="_blank">
 					<span class="mr-1">source</span>
 					<OpenInNew />
 				</a>

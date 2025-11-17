@@ -7,9 +7,9 @@
 </script>
 
 <nav class="w-full bg-surface-100 dark:bg-surface-900 border-b border-surface-300 dark:border-surface-700">
-	<div class="container mx-auto px-4 h-16 flex items-center justify-between">
+	<div class="container mx-auto px-4 h-16 flex items-center justify-between gap-4">
 		<!-- Logo -->
-		<a href="/" class="flex items-center">
+		<a href="/" class="flex items-center flex-shrink-0">
 			<img
 				class="h-10 w-auto"
 				src="/assets/white_logo_color_background.jpg"
@@ -18,19 +18,19 @@
 		</a>
 
 		<!-- Center Nav -->
-		<div class="flex gap-2">
-			<a href="/projects" class="flex items-center gap-2 px-4 py-2 rounded-lg border transition-colors bg-surface-50 dark:bg-surface-800 border-surface-300 dark:border-surface-600 hover:bg-surface-200 dark:hover:bg-surface-700 text-surface-900 dark:text-surface-100">
-				<span class="mr-2">projects</span>
+		<div class="flex gap-2 flex-1 justify-center">
+			<a href="/projects" class="preset-tonal px-4 py-2 rounded-lg flex items-center gap-2 hover:preset-tonal-primary transition-colors">
+				<span>projects</span>
 				<DevTo />
 			</a>
-			<a href="/music" class="flex items-center gap-2 px-4 py-2 rounded-lg border transition-colors bg-surface-50 dark:bg-surface-800 border-surface-300 dark:border-surface-600 hover:bg-surface-200 dark:hover:bg-surface-700 text-surface-900 dark:text-surface-100">
-				<span class="mr-2">music</span>
+			<a href="/music" class="preset-tonal px-4 py-2 rounded-lg flex items-center gap-2 hover:preset-tonal-primary transition-colors">
+				<span>music</span>
 				<FolderMusic />
 			</a>
 		</div>
 
 		<!-- Right Side -->
-		<div class="flex items-center gap-2">
+		<div class="flex items-center gap-2 flex-shrink-0">
 			<LightSwitch />
 			<ThemeSelector />
 			<!-- Uncomment when auth is ready

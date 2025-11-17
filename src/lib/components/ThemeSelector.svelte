@@ -32,7 +32,7 @@
 <div class="relative" use:clickOutside>
 	<button
 		on:click={toggleDropdown}
-		class="flex items-center gap-2 px-4 py-2 rounded-lg border transition-colors bg-surface-50 dark:bg-surface-800 border-surface-300 dark:border-surface-600 hover:bg-surface-200 dark:hover:bg-surface-700 text-surface-900 dark:text-surface-100"
+		class="preset-tonal px-4 py-2 rounded-lg flex items-center gap-2 hover:preset-tonal-primary transition-colors"
 		aria-label="Select Theme"
 	>
 		<svg
@@ -49,21 +49,21 @@
 				d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008z"
 			/>
 		</svg>
-		<span class="hidden md:inline">Theme</span>
+		<span>Theme</span>
 	</button>
 
 	{#if showDropdown}
 		<div
-			class="absolute right-0 mt-2 w-72 bg-surface-100 dark:bg-surface-900 border border-surface-300 dark:border-surface-700 rounded-lg shadow-lg z-50 overflow-hidden"
+			class="absolute right-0 mt-2 w-72 preset-tonal rounded-lg shadow-xl z-50 overflow-hidden border border-surface-300 dark:border-surface-700"
 		>
 			<div class="p-2">
-				<h3 class="px-3 py-2 text-sm font-semibold text-surface-900 dark:text-surface-50">Select Theme</h3>
+				<h3 class="px-3 py-2 text-sm font-semibold">Select Theme</h3>
 				{#each Object.entries(themes) as [key, theme]}
 					<button
 						on:click={() => selectTheme(key as ThemeName)}
-						class="w-full text-left px-3 py-2 rounded-md hover:bg-surface-200 dark:hover:bg-surface-800 transition-colors"
-						class:bg-primary-500={$currentTheme === key}
-						class:text-white={$currentTheme === key}
+						class="w-full text-left px-3 py-2 rounded-md transition-colors"
+						class:preset-filled-primary={$currentTheme === key}
+						class:hover:preset-tonal-primary={$currentTheme !== key}
 					>
 						<div class="font-medium">{theme.name}</div>
 						<div class="text-xs opacity-75 mt-0.5">{theme.description}</div>
@@ -73,10 +73,3 @@
 		</div>
 	{/if}
 </div>
-
-<style>
-	/* Close dropdown when clicking outside */
-	:global(body) {
-		-webkit-tap-highlight-color: transparent;
-	}
-</style>
