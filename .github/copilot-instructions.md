@@ -7,6 +7,13 @@ This is a personal portfolio and content website built with:
 - **Tailwind CSS v4** - Utility-first CSS framework
 - **TypeScript** - Type-safe development
 
+**Key Dependencies:**
+- `@skeletonlabs/skeleton` (^4.2.2) - Core CSS variables and theme system
+- `@skeletonlabs/skeleton-svelte` (^4.2.2) - Svelte components
+- `lucide-svelte` (^0.554.0) - Icon library
+- `svelte` (^5.43.2) - Svelte 5 with runes mode
+- `tailwindcss` (^4.0.0) - Tailwind CSS v4
+
 ## Core Principles
 
 ### 1. Embrace Web Standards
@@ -26,6 +33,38 @@ This is a personal portfolio and content website built with:
 
 ## Skeleton v4 Design System
 
+### CSS Import Structure
+The project uses a specific import order in `app.css`:
+
+```css
+@import 'tailwindcss';
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton/themes/nouveau';
+
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+
+/* Custom dark mode variant for manual control */
+@custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
+
+html, body {
+  height: 100%;
+  font-family: 'Titillium Web', sans-serif;
+  background-color: var(--body-background-color);
+  color: var(--base-font-color);
+}
+
+html[data-mode='dark'] body {
+  background-color: var(--body-background-color-dark);
+  color: var(--base-font-color-dark);
+}
+```
+
+**Important:** 
+- Import `@skeletonlabs/skeleton` (not `@skeletonlabs/skeleton-svelte`) for CSS variables
+- Import a base Skeleton theme (e.g., `nouveau`) for fallback styling
+- Custom themes from `/static/themes/` override these base styles dynamically
+
 ### Color System
 Skeleton uses a semantic color palette with the following keys:
 - `primary`, `secondary`, `tertiary` - Brand colors
@@ -40,43 +79,52 @@ Colors are accessed via Tailwind utilities:
 ```
 
 ### Dark Mode
-Always implement dark mode variants using Tailwind's `dark:` variant with class-based toggling:
+This project uses a **custom dark mode implementation** with the `data-mode` attribute instead of class-based toggling:
 
 **How Dark Mode Works:**
-- Dark mode is controlled by adding/removing the `dark` class on the `<html>` element
-- Use Tailwind's `dark:` variant for all dark mode styles
-- Store preference in localStorage as `theme-mode`
-- Initialize dark mode in the root layout's `onMount`
+- Dark mode is controlled by setting `data-mode="dark"` on the `<html>` element
+- Uses a custom Tailwind variant defined in `app.css`: `@custom-variant dark`
+- Use Tailwind's `dark:` variant for all dark mode styles (it maps to `data-mode="dark"`)
+- Store preference in localStorage as `mode`
+- Initialize on component mount (LightSwitch component handles this)
 
-**Dark Mode Pattern:**
+**CSS Configuration (app.css):**
+```css
+@import '@skeletonlabs/skeleton';
+
+/* Custom dark mode variant for data-mode attribute */
+@custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
+
+html[data-mode='dark'] body {
+  background-color: var(--body-background-color-dark);
+  color: var(--base-font-color-dark);
+}
+```
+
+**Dark Mode Toggle Pattern (LightSwitch.svelte):**
 ```svelte
 <script lang="ts">
   import { onMount } from 'svelte';
   import { browser } from '$app/environment';
   
-  // Initialize in root layout
+  let checked = $state(false);
+  
   onMount(() => {
     if (browser) {
-      const isDark = localStorage.getItem('theme-mode') === 'dark';
-      if (isDark) {
-        document.documentElement.classList.add('dark');
-      }
+      const mode = localStorage.getItem('mode') || 'light';
+      checked = mode === 'dark';
     }
   });
-</script>
-```
-
-**Toggle Dark Mode:**
-```svelte
-function toggleDarkMode(isDark: boolean) {
-  if (isDark) {
-    document.documentElement.classList.add('dark');
-    localStorage.setItem('theme-mode', 'dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-    localStorage.setItem('theme-mode', 'light');
+  
+  function onCheckedChange(event: { checked: boolean }) {
+    if (!browser) return;
+    
+    const mode = event.checked ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-mode', mode);
+    localStorage.setItem('mode', mode);
+    checked = event.checked;
   }
-}
+</script>
 ```
 
 **Using Dark Mode in Components:**
@@ -84,38 +132,133 @@ function toggleDarkMode(isDark: boolean) {
 <div class="bg-surface-100 dark:bg-surface-900 text-surface-900 dark:text-surface-100">
 ```
 
+**Important:** The `dark:` variant works because of the `@custom-variant` directive in `app.css`.
+
 ### Theming System
-Skeleton uses a powerful theming system with CSS custom properties:
+This project uses a **hybrid theme system** supporting both Skeleton preset themes and custom themes:
 
 **How Themes Work:**
-- Themes are activated via the `data-theme` attribute on the `<html>` element
-- Import themes in your global stylesheet (app.css)
-- Current theme: `nouveau` (gold and dark tones with luxurious feel)
+- **Preset Themes**: Imported from `@skeletonlabs/skeleton/themes/` in `app.css`
+- **Custom Themes**: CSS files stored in `/static/themes/` directory loaded dynamically
+- Each theme file uses Tailwind's `@theme` directive to define color palettes
+- Theme selection is managed by a Svelte store (`src/lib/stores/theme.ts`)
+- Current theme preference is stored in localStorage as `selectedTheme`
+- The `data-theme` attribute on `<html>` element tracks the active theme
 
-**Importing Themes:**
+**Two Separate Systems:**
+1. **Theme (color palette)**: Controls the color scheme and visual style
+2. **Mode (light/dark)**: `data-mode="light"` or `data-mode="dark"` - independent of theme
+
+**Available Themes:**
+
+*Skeleton Preset Themes (imported in app.css):*
+- `nouveau` - Art nouveau inspired with elegant curves
+- `crimson` - Bold reds with strong contrast
+- `vintage` - Retro styling with warm tones
+- `terminus` - Dark terminal-inspired theme
+
+*Custom Themes (from /static/themes/):*
+- `gold-nouveau` - Elegant gold and dark tones with luxurious feel (default)
+- `cyber-night` - Neon blues and cyans with dark backgrounds for futuristic look
+- `forest-sage` - Natural greens and earthy tones for calming experience
+- `crimson-steel` - Bold reds with cool grays for powerful aesthetic
+
+**Security Measures:**
+⚠️ **Critical**: To prevent CSS injection attacks, the theme system implements:
+1. **Whitelist validation**: Only themes in `ALLOWED_THEMES` Set can be loaded
+2. **Input sanitization**: Theme names are sanitized to remove dangerous characters
+3. **Type safety**: TypeScript `ThemeName` union type enforces valid values
+4. **Dual loading strategy**: Preset themes bundled in CSS, custom themes loaded dynamically
+
+**Theme Structure for Custom Themes (`/static/themes/{theme-name}.css`):**
 ```css
-/* In app.css */
-@import '@skeletonlabs/skeleton/themes/nouveau';
-@import '@skeletonlabs/skeleton/themes/crimson'; /* Additional themes */
+/* Theme file uses @theme directive */
+@theme {
+  /* Primary colors */
+  --color-primary-50: 254 252 232;
+  --color-primary-500: 202 138 4;
+  /* ... all color shades */
+  
+  /* Body colors for light/dark mode */
+  --body-background-color: 255 255 255;
+  --body-background-color-dark: 15 23 42;
+  --base-font-color: 30 41 59;
+  --base-font-color-dark: 226 232 240;
+}
 ```
 
-**Setting Active Theme:**
-```html
-<html data-theme="nouveau">
-```
-
-**Available Preset Themes:**
-- `nouveau` - Elegant gold and dark tones
-- `cerberus` - Bold and minimal
-- `crimson` - Bold reds with cool grays
-- `modern` - Clean and contemporary
-- And many more at https://www.skeleton.dev/docs/svelte/design/themes
-
-**Theme Switching:**
-For dynamic theme switching, modify the `data-theme` attribute:
+**Theme Switching Implementation:**
 ```typescript
-document.documentElement.setAttribute('data-theme', 'nouveau');
+// src/lib/stores/theme.ts
+export type ThemeName = 
+  | 'nouveau' | 'crimson' | 'vintage' | 'terminus'  // Preset themes
+  | 'gold-nouveau' | 'cyber-night' | 'forest-sage' | 'crimson-steel';  // Custom
+
+const ALLOWED_THEMES = new Set<ThemeName>([
+  'nouveau', 'crimson', 'vintage', 'terminus',
+  'gold-nouveau', 'cyber-night', 'forest-sage', 'crimson-steel'
+]);
+
+export const themes: Record<ThemeName, { name: string; description: string; isPreset?: boolean }> = {
+  'nouveau': { name: 'Nouveau', description: '...', isPreset: true },
+  'gold-nouveau': { name: 'Gold Nouveau', description: '...', isPreset: false }
+};
+
+function sanitizeThemeName(themeName: string): string {
+  return themeName.replaceAll(/[^a-z0-9-]/gi, '');
+}
+
+export async function loadTheme(themeName: ThemeName) {
+  if (!browser) return;
+  
+  // Validate against whitelist
+  if (!ALLOWED_THEMES.has(themeName)) {
+    console.error(`Invalid theme name: ${themeName}`);
+    return;
+  }
+  
+  // Sanitize to prevent CSS injection
+  const sanitizedTheme = sanitizeThemeName(themeName);
+  
+  // Set data-theme attribute
+  document.documentElement.dataset.theme = sanitizedTheme;
+  
+  // Only load CSS file for custom themes (presets are imported in app.css)
+  const isPreset = themes[themeName]?.isPreset;
+  if (!isPreset) {
+    const link = document.createElement('link');
+    link.id = 'theme-css';
+    link.rel = 'stylesheet';
+    link.href = `/themes/${sanitizedTheme}.css`;
+    document.head.appendChild(link);
+  }
+  
+  localStorage.setItem('selectedTheme', themeName);
+  currentTheme.set(themeName);
+}
 ```
+
+**Importing Preset Themes in app.css:**
+```css
+@import '@skeletonlabs/skeleton';
+
+/* Import Skeleton Preset Themes */
+@import '@skeletonlabs/skeleton/themes/nouveau';
+@import '@skeletonlabs/skeleton/themes/crimson';
+@import '@skeletonlabs/skeleton/themes/vintage';
+@import '@skeletonlabs/skeleton/themes/terminus';
+```
+
+**Using Themes in Components:**
+All color utilities automatically use the active theme's color palette:
+```svelte
+<div class="bg-primary-500 text-primary-50">
+  <!-- Colors come from active theme -->
+</div>
+```
+
+**Important Security Note:**
+Never inject user-provided CSS directly into the DOM. Always use the whitelist + sanitization approach shown above.
 
 ### Preset Classes
 Skeleton provides reusable preset styles for common UI patterns:

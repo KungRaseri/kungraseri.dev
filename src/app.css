@@ -1,6 +1,11 @@
 @import 'tailwindcss';
 @import '@skeletonlabs/skeleton';
+
+/* Import Skeleton Preset Themes */
 @import '@skeletonlabs/skeleton/themes/nouveau';
+@import '@skeletonlabs/skeleton/themes/crimson';
+@import '@skeletonlabs/skeleton/themes/vintage';
+@import '@skeletonlabs/skeleton/themes/terminus';
 
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/typography";

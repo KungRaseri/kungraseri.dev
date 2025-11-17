@@ -8,10 +8,10 @@
 <nav class="w-full bg-surface-100 dark:bg-surface-900 border-b border-surface-300 dark:border-surface-700">
 	<div class="container mx-auto px-4 h-16 flex items-center justify-between gap-4">
 		<!-- Logo -->
-		<a href="/" class="flex items-center flex-shrink-0">
+		<a href="/" class="btn preset-tonal flex items-center flex-shrink-0">
 			<img
 				class="h-10 w-auto"
-				src="/assets/white_logo_color_background.jpg"
+				src="/assets/logo_transparent_background.png"
 				alt="kungraseri productions logo"
 			/>
 		</a>
