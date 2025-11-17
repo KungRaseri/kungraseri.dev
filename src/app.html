@@ -5,6 +5,22 @@
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" >
 		<meta name="viewport" content="width=device-width" >
 		<title>KungRaseri Productions</title>
+		<!-- Prevent dark mode flash by setting attribute before render -->
+		<script>
+			try {
+				const mode = localStorage.getItem('mode');
+				const theme = localStorage.getItem('selectedTheme');
+				if (mode === 'dark') {
+					document.documentElement.dataset.mode = 'dark';
+				}
+				if (theme) {
+					document.documentElement.dataset.theme = theme;
+				}
+			} catch (e) {
+				// Silently fail if localStorage is not available
+				console.error('Failed to initialize theme:', e);
+			}
+		</script>
 		%sveltekit.head%
 	</head>
 

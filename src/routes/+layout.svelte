@@ -4,18 +4,6 @@
 
 	import Navigation from '$lib/components/Navigation.svelte';
 	import { ExternalLink } from 'lucide-svelte';
-	import { onMount } from 'svelte';
-	import { browser } from '$app/environment';
-
-	// Initialize dark mode from localStorage on mount
-	onMount(() => {
-		if (browser) {
-			const isDark = localStorage.getItem('mode') === 'dark';
-			if (isDark) {
-				document.documentElement.setAttribute('data-mode', 'dark');
-			}
-		}
-	});
 
 	let isAuthenticated: boolean = false;
 	let user: any;
