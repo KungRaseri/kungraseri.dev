@@ -91,75 +91,191 @@
 @layer components {
 	/* Button Base Styles */
 	.btn {
-		@apply inline-flex items-center justify-center px-4 py-2 font-medium text-sm rounded-md transition-colors;
-		@apply bg-surface-200 hover:bg-primary-500 hover:text-white dark:bg-surface-700 dark:hover:bg-primary-600;
-		@apply text-surface-900 dark:text-surface-50;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: var(--spacing-2) var(--spacing-4);
+		font-weight: 500;
+		font-size: var(--text-sm);
+		border-radius: var(--radius-md);
+		transition-property: color, background-color, border-color;
+		transition-duration: 150ms;
+		background-color: rgb(var(--color-surface-200));
+		color: rgb(var(--color-surface-900));
+	}
+	
+	.btn:hover {
+		background-color: rgb(var(--color-primary-500));
+		color: white;
+	}
+	
+	@variant dark {
+		.btn {
+			background-color: rgb(var(--color-surface-700));
+			color: rgb(var(--color-surface-50));
+		}
+		
+		.btn:hover {
+			background-color: rgb(var(--color-primary-600));
+		}
 	}
 
 	.btn-sm {
-		@apply px-3 py-1.5 text-xs;
+		padding: var(--spacing-1\.5) var(--spacing-3);
+		font-size: var(--text-xs);
 	}
 
 	/* Card Styles */
 	.card {
-		@apply bg-surface-100 dark:bg-surface-800 rounded-lg shadow-md p-4;
-		@apply border border-surface-300 dark:border-surface-700;
+		background-color: rgb(var(--color-surface-100));
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-md);
+		padding: var(--spacing-4);
+		border-width: 1px;
+		border-color: rgb(var(--color-surface-300));
+	}
+	
+	@variant dark {
+		.card {
+			background-color: rgb(var(--color-surface-800));
+			border-color: rgb(var(--color-surface-700));
+		}
 	}
 
 	/* Variants */
 	.variant-filled-primary {
-		@apply bg-primary-500 text-white hover:bg-primary-600;
+		background-color: rgb(var(--color-primary-500));
+		color: white;
+	}
+	
+	.variant-filled-primary:hover {
+		background-color: rgb(var(--color-primary-600));
 	}
 
 	.variant-filled-secondary {
-		@apply bg-secondary-500 text-white hover:bg-secondary-600;
+		background-color: rgb(var(--color-secondary-500));
+		color: white;
+	}
+	
+	.variant-filled-secondary:hover {
+		background-color: rgb(var(--color-secondary-600));
 	}
 
 	.variant-ghost-surface {
-		@apply bg-transparent hover:bg-primary-500 hover:text-white dark:hover:bg-primary-600;
+		background-color: transparent;
+	}
+	
+	.variant-ghost-surface:hover {
+		background-color: rgb(var(--color-primary-500));
+		color: white;
+	}
+	
+	@variant dark {
+		.variant-ghost-surface:hover {
+			background-color: rgb(var(--color-primary-600));
+		}
 	}
 
 	/* Skeleton Token Classes - Light/Dark Background Tokens */
 	.bg-surface-50-900-token {
-		@apply bg-surface-50 dark:bg-surface-900;
+		background-color: rgb(var(--color-surface-50));
+	}
+	
+	@variant dark {
+		.bg-surface-50-900-token {
+			background-color: rgb(var(--color-surface-900));
+		}
 	}
 
 	.bg-surface-100-800-token {
-		@apply bg-surface-100 dark:bg-surface-800;
+		background-color: rgb(var(--color-surface-100));
+	}
+	
+	@variant dark {
+		.bg-surface-100-800-token {
+			background-color: rgb(var(--color-surface-800));
+		}
 	}
 
 	.bg-surface-200-700-token {
-		@apply bg-surface-200 dark:bg-surface-700;
+		background-color: rgb(var(--color-surface-200));
+	}
+	
+	@variant dark {
+		.bg-surface-200-700-token {
+			background-color: rgb(var(--color-surface-700));
+		}
 	}
 
 	.bg-surface-300-600-token {
-		@apply bg-surface-300 dark:bg-surface-600;
+		background-color: rgb(var(--color-surface-300));
+	}
+	
+	@variant dark {
+		.bg-surface-300-600-token {
+			background-color: rgb(var(--color-surface-600));
+		}
 	}
 
 	/* Text Color Tokens */
 	.text-surface-900-50-token {
-		@apply text-surface-900 dark:text-surface-50;
+		color: rgb(var(--color-surface-900));
+	}
+	
+	@variant dark {
+		.text-surface-900-50-token {
+			color: rgb(var(--color-surface-50));
+		}
 	}
 
 	.text-surface-800-100-token {
-		@apply text-surface-800 dark:text-surface-100;
+		color: rgb(var(--color-surface-800));
+	}
+	
+	@variant dark {
+		.text-surface-800-100-token {
+			color: rgb(var(--color-surface-100));
+		}
 	}
 
 	/* Border Tokens */
 	.border-surface-300-700-token {
-		@apply border-surface-300 dark:border-surface-700;
+		border-color: rgb(var(--color-surface-300));
+	}
+	
+	@variant dark {
+		.border-surface-300-700-token {
+			border-color: rgb(var(--color-surface-700));
+		}
 	}
 
 	/* Ring Tokens */
 	.ring-surface-300-700-token {
-		@apply ring-surface-300 dark:ring-surface-700;
+		--tw-ring-color: rgb(var(--color-surface-300));
+	}
+	
+	@variant dark {
+		.ring-surface-300-700-token {
+			--tw-ring-color: rgb(var(--color-surface-700));
+		}
 	}
 }
 
 /*place global styles here */
 html,
 body {
-	@apply h-full overflow-hidden bg-surface-50 dark:bg-surface-900 text-surface-900 dark:text-surface-50;
+	height: 100%;
+	overflow: hidden;
+	background-color: rgb(var(--color-surface-50));
+	color: rgb(var(--color-surface-900));
+}
+
+@variant dark {
+	html,
+	body {
+		background-color: rgb(var(--color-surface-900));
+		color: rgb(var(--color-surface-50));
+	}
 }
 
 @font-face {
