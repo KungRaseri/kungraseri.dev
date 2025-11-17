@@ -107,5 +107,5 @@ export async function loadTheme(themeName: ThemeName) {
 
 // Initialize theme on load
 if (browser) {
-	await loadTheme(getInitialTheme());
+	void loadTheme(getInitialTheme());
 }
