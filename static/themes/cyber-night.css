@@ -1,5 +1,6 @@
 /* Cyber Night Theme - Neon blues and cyans with dark backgrounds */
-:root {
+
+@theme {
 	/* Primary - Electric Blue */
 	--color-primary-50: 240 249 255;
 	--color-primary-100: 224 242 254;
@@ -83,4 +84,92 @@
 	--color-surface-700: 51 65 85;
 	--color-surface-800: 30 41 59;
 	--color-surface-900: 15 23 42;
+}
+
+@layer base {
+	:root {
+		/* Primary - Electric Blue */
+		--color-primary-50: 240 249 255;
+		--color-primary-100: 224 242 254;
+		--color-primary-200: 186 230 253;
+		--color-primary-300: 125 211 252;
+		--color-primary-400: 56 189 248;
+		--color-primary-500: 14 165 233;
+		--color-primary-600: 2 132 199;
+		--color-primary-700: 3 105 161;
+		--color-primary-800: 7 89 133;
+		--color-primary-900: 12 74 110;
+
+		/* Secondary - Neon Cyan */
+		--color-secondary-50: 236 254 255;
+		--color-secondary-100: 207 250 254;
+		--color-secondary-200: 165 243 252;
+		--color-secondary-300: 103 232 249;
+		--color-secondary-400: 34 211 238;
+		--color-secondary-500: 6 182 212;
+		--color-secondary-600: 8 145 178;
+		--color-secondary-700: 14 116 144;
+		--color-secondary-800: 21 94 117;
+		--color-secondary-900: 22 78 99;
+
+		/* Tertiary - Purple Haze */
+		--color-tertiary-50: 250 245 255;
+		--color-tertiary-100: 243 232 255;
+		--color-tertiary-200: 233 213 255;
+		--color-tertiary-300: 216 180 254;
+		--color-tertiary-400: 192 132 252;
+		--color-tertiary-500: 168 85 247;
+		--color-tertiary-600: 147 51 234;
+		--color-tertiary-700: 126 34 206;
+		--color-tertiary-800: 107 33 168;
+		--color-tertiary-900: 88 28 135;
+
+		/* Success - Matrix Green */
+		--color-success-50: 240 253 244;
+		--color-success-100: 220 252 231;
+		--color-success-200: 187 247 208;
+		--color-success-300: 134 239 172;
+		--color-success-400: 74 222 128;
+		--color-success-500: 34 197 94;
+		--color-success-600: 22 163 74;
+		--color-success-700: 21 128 61;
+		--color-success-800: 22 101 52;
+		--color-success-900: 20 83 45;
+
+		/* Warning - Neon Orange */
+		--color-warning-50: 255 247 237;
+		--color-warning-100: 255 237 213;
+		--color-warning-200: 254 215 170;
+		--color-warning-300: 253 186 116;
+		--color-warning-400: 251 146 60;
+		--color-warning-500: 249 115 22;
+		--color-warning-600: 234 88 12;
+		--color-warning-700: 194 65 12;
+		--color-warning-800: 154 52 18;
+		--color-warning-900: 124 45 18;
+
+		/* Error - Hot Pink */
+		--color-error-50: 253 242 248;
+		--color-error-100: 252 231 243;
+		--color-error-200: 251 207 232;
+		--color-error-300: 249 168 212;
+		--color-error-400: 244 114 182;
+		--color-error-500: 236 72 153;
+		--color-error-600: 219 39 119;
+		--color-error-700: 190 24 93;
+		--color-error-800: 157 23 77;
+		--color-error-900: 131 24 67;
+
+		/* Surface - Deep Blues */
+		--color-surface-50: 248 250 252;
+		--color-surface-100: 241 245 249;
+		--color-surface-200: 226 232 240;
+		--color-surface-300: 203 213 225;
+		--color-surface-400: 148 163 184;
+		--color-surface-500: 100 116 139;
+		--color-surface-600: 71 85 105;
+		--color-surface-700: 51 65 85;
+		--color-surface-800: 30 41 59;
+		--color-surface-900: 15 23 42;
+	}
 }

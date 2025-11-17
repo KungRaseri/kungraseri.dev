@@ -1,14 +1,93 @@
 @import "@skeletonlabs/skeleton-svelte";
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
 
+@theme {
+	/* Color Palette */
+	--color-primary-50: 254 242 242;
+	--color-primary-100: 254 226 226;
+	--color-primary-200: 254 202 202;
+	--color-primary-300: 252 165 165;
+	--color-primary-400: 248 113 113;
+	--color-primary-500: 239 68 68;
+	--color-primary-600: 220 38 38;
+	--color-primary-700: 185 28 28;
+	--color-primary-800: 153 27 27;
+	--color-primary-900: 127 29 29;
+
+	--color-secondary-50: 254 252 232;
+	--color-secondary-100: 254 249 195;
+	--color-secondary-200: 254 240 138;
+	--color-secondary-300: 253 224 71;
+	--color-secondary-400: 250 204 21;
+	--color-secondary-500: 234 179 8;
+	--color-secondary-600: 202 138 4;
+	--color-secondary-700: 161 98 7;
+	--color-secondary-800: 133 77 14;
+	--color-secondary-900: 113 63 18;
+
+	--color-tertiary-50: 240 253 250;
+	--color-tertiary-100: 204 251 241;
+	--color-tertiary-200: 153 246 228;
+	--color-tertiary-300: 94 234 212;
+	--color-tertiary-400: 45 212 191;
+	--color-tertiary-500: 20 184 166;
+	--color-tertiary-600: 13 148 136;
+	--color-tertiary-700: 15 118 110;
+	--color-tertiary-800: 17 94 89;
+	--color-tertiary-900: 19 78 74;
+
+	--color-success-50: 240 253 244;
+	--color-success-100: 220 252 231;
+	--color-success-200: 187 247 208;
+	--color-success-300: 134 239 172;
+	--color-success-400: 74 222 128;
+	--color-success-500: 34 197 94;
+	--color-success-600: 22 163 74;
+	--color-success-700: 21 128 61;
+	--color-success-800: 22 101 52;
+	--color-success-900: 20 83 45;
+
+	--color-warning-50: 254 252 232;
+	--color-warning-100: 254 249 195;
+	--color-warning-200: 254 240 138;
+	--color-warning-300: 253 224 71;
+	--color-warning-400: 250 204 21;
+	--color-warning-500: 234 179 8;
+	--color-warning-600: 202 138 4;
+	--color-warning-700: 161 98 7;
+	--color-warning-800: 133 77 14;
+	--color-warning-900: 113 63 18;
+
+	--color-error-50: 254 242 242;
+	--color-error-100: 254 226 226;
+	--color-error-200: 254 202 202;
+	--color-error-300: 252 165 165;
+	--color-error-400: 248 113 113;
+	--color-error-500: 239 68 68;
+	--color-error-600: 220 38 38;
+	--color-error-700: 185 28 28;
+	--color-error-800: 153 27 27;
+	--color-error-900: 127 29 29;
+
+	--color-surface-50: 250 250 249;
+	--color-surface-100: 245 245 244;
+	--color-surface-200: 231 229 228;
+	--color-surface-300: 214 211 209;
+	--color-surface-400: 168 162 158;
+	--color-surface-500: 120 113 108;
+	--color-surface-600: 87 83 78;
+	--color-surface-700: 68 64 60;
+	--color-surface-800: 41 37 36;
+	--color-surface-900: 28 25 23;
+
+	--font-sans: 'Quicksand', system-ui, sans-serif;
+}
+
 @layer base {
 	:root {
-		/* Color Palette */
+		/* Color Palette Variables for CSS usage */
 		--color-primary-50: 254 242 242;
 		--color-primary-100: 254 226 226;
 		--color-primary-200: 254 202 202;
