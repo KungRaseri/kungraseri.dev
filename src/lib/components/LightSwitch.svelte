@@ -23,9 +23,10 @@
 	</script>
 </svelte:head>
 
-<Switch {checked} {onCheckedChange} class="preset-tonal">
-	<Switch.Control class="preset-tonal">
-		<Switch.Thumb class="preset-filled-primary" />
+<Switch {checked} {onCheckedChange}>
+	<Switch.Control class="preset-filled-surface-300-700 data-[state=checked]:preset-filled-primary-500">
+		<Switch.Thumb />
 	</Switch.Control>
+	<Switch.Label class="text-sm">{checked ? '🌙 Dark' : '☀️ Light'}</Switch.Label>
 	<Switch.HiddenInput />
 </Switch>

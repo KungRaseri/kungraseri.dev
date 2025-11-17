@@ -19,11 +19,11 @@
 
 		<!-- Center Nav -->
 		<div class="flex gap-2 flex-1 justify-center">
-			<a href="/projects" class="preset-tonal px-4 py-2 rounded-lg flex items-center gap-2 hover:preset-tonal-primary transition-colors">
+			<a href="/projects" class="btn preset-tonal">
 				<span>projects</span>
 				<DevTo />
 			</a>
-			<a href="/music" class="preset-tonal px-4 py-2 rounded-lg flex items-center gap-2 hover:preset-tonal-primary transition-colors">
+			<a href="/music" class="btn preset-tonal">
 				<span>music</span>
 				<FolderMusic />
 			</a>

@@ -2,7 +2,7 @@
 @import 'tailwindcss';
 
 /* Import Skeleton styles */
-@import '@skeletonlabs/skeleton-svelte/styles/all.css';
+@import '@skeletonlabs/skeleton-svelte';
 
 /* Custom dark mode variant for data-mode attribute */
 @custom-variant dark (&:where([data-mode='dark'], [data-mode='dark'] *));

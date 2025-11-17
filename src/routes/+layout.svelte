@@ -28,19 +28,19 @@
 				</span>
 			</div>
 			<div class="flex flex-wrap gap-2 justify-start md:justify-end items-center">
-				<a class="preset-tonal-surface px-3 py-1.5 text-sm rounded-lg inline-flex items-center gap-1" href="https://twitch.tv/KungRaseri" target="_blank">
+				<a class="btn btn-sm preset-tonal" href="https://twitch.tv/KungRaseri" target="_blank">
 					<span class="mr-1">twitch</span>
 					<OpenInNew />
 				</a>
-				<a class="preset-tonal-surface px-3 py-1.5 text-sm rounded-lg inline-flex items-center gap-1" href="https://twitter.com/KungRaseri" target="_blank">
+				<a class="btn btn-sm preset-tonal" href="https://twitter.com/KungRaseri" target="_blank">
 					<span class="mr-1">twitter</span>
 					<OpenInNew />
 				</a>
-				<a rel="me" class="preset-tonal-surface px-3 py-1.5 text-sm rounded-lg inline-flex items-center gap-1" href="https://mastodon.social/@kungraseri" target="_blank">
+				<a rel="me" class="btn btn-sm preset-tonal" href="https://mastodon.social/@kungraseri" target="_blank">
 					<span class="mr-1">mastodon</span>
 					<OpenInNew />
 				</a>
-				<a class="preset-tonal-surface px-3 py-1.5 text-sm rounded-lg inline-flex items-center gap-1" href="https://github.com/kungraseri/kungraseri.dev" target="_blank">
+				<a class="btn btn-sm preset-tonal" href="https://github.com/kungraseri/kungraseri.dev" target="_blank">
 					<span class="mr-1">source</span>
 					<OpenInNew />
 				</a>
