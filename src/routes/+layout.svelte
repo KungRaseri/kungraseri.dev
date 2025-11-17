@@ -2,7 +2,6 @@
 	// Most of your app wide CSS should be put in this file
 	import '../app.postcss';
 
-	import { AppShell } from '@skeletonlabs/skeleton';
 	import Navigation from '$lib/components/Navigation.svelte';
 
 	import OpenInNew from 'svelte-material-icons/OpenInNew.svelte';
@@ -11,47 +10,45 @@
 	let user: any;
 </script>
 
-<AppShell slotPageContent="">
-	<svelte:fragment slot="header">
-		<Navigation {isAuthenticated} />
-	</svelte:fragment>
+<div class="flex flex-col h-full">
+	<Navigation {isAuthenticated} />
 
-	<slot />
+	<main class="flex-1 overflow-y-auto">
+		<slot />
+	</main>
 
-	<svelte:fragment slot="pageFooter">
-		<footer class="w-full bg-surface-100-800-token border-t border-surface-300-700-token">
-			<section class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-				<div class="px-5 py-2.5">
-					<span class="mx-1">&copy; {new Date().getFullYear()}</span>-
-					<span class="mx-1 uppercase">
-						<span class="font-bold">KungRaseri</span>
-						<span class="font-light">&nbsp;Productions</span>
-						<span class="font-extralight">&nbsp;LLC</span>
-					</span>
-				</div>
-				<div class="flex flex-wrap gap-2 justify-start md:justify-end items-center">
-					<!-- <a class="btn btn-sm variant-ghost-surface" href="https://www.guilded.gg/i/mk397GKE" target="_blank">
-						<span class="mr-1">guilded</span>
-						<OpenInNew />
-					</a> -->
-					<a class="btn btn-sm variant-ghost-surface" href="https://twitch.tv/KungRaseri" target="_blank">
-						<span class="mr-1">twitch</span>
-						<OpenInNew />
-					</a>
-					<a class="btn btn-sm variant-ghost-surface" href="https://twitter.com/KungRaseri" target="_blank">
-						<span class="mr-1">twitter</span>
-						<OpenInNew />
-					</a>
-					<a rel="me" class="btn btn-sm variant-ghost-surface" href="https://mastodon.social/@kungraseri" target="_blank">
-						<span class="mr-1">mastodon</span>
-						<OpenInNew />
-					</a>
-					<a class="btn btn-sm variant-ghost-surface" href="https://github.com/kungraseri/kungraseri.dev" target="_blank">
-						<span class="mr-1">source</span>
-						<OpenInNew />
-					</a>
-				</div>
-			</section>
-		</footer>
-	</svelte:fragment>
-</AppShell>
+	<footer class="w-full bg-surface-100-800-token border-t border-surface-300-700-token">
+		<section class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+			<div class="px-5 py-2.5">
+				<span class="mx-1">&copy; {new Date().getFullYear()}</span>-
+				<span class="mx-1 uppercase">
+					<span class="font-bold">KungRaseri</span>
+					<span class="font-light">&nbsp;Productions</span>
+					<span class="font-extralight">&nbsp;LLC</span>
+				</span>
+			</div>
+			<div class="flex flex-wrap gap-2 justify-start md:justify-end items-center">
+				<!-- <a class="btn btn-sm variant-ghost-surface" href="https://www.guilded.gg/i/mk397GKE" target="_blank">
+					<span class="mr-1">guilded</span>
+					<OpenInNew />
+				</a> -->
+				<a class="btn btn-sm variant-ghost-surface" href="https://twitch.tv/KungRaseri" target="_blank">
+					<span class="mr-1">twitch</span>
+					<OpenInNew />
+				</a>
+				<a class="btn btn-sm variant-ghost-surface" href="https://twitter.com/KungRaseri" target="_blank">
+					<span class="mr-1">twitter</span>
+					<OpenInNew />
+				</a>
+				<a rel="me" class="btn btn-sm variant-ghost-surface" href="https://mastodon.social/@kungraseri" target="_blank">
+					<span class="mr-1">mastodon</span>
+					<OpenInNew />
+				</a>
+				<a class="btn btn-sm variant-ghost-surface" href="https://github.com/kungraseri/kungraseri.dev" target="_blank">
+					<span class="mr-1">source</span>
+					<OpenInNew />
+				</a>
+			</div>
+		</section>
+	</footer>
+</div>
