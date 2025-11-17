@@ -1,10 +1,14 @@
 <script lang="ts">
 	import type { Project } from '$lib/types';
 
-	export let project: Project;
+	interface Props {
+		project: Project;
+	}
+
+	let { project }: Props = $props();
 </script>
 
-<div class="card card-hover">
+<div class="card card-hover preset-filled-surface-100-900 overflow-hidden">
 	<a href={project.url}>
 		<img class="bg-black/50 w-full aspect-video" src={project.image} alt={project.title} />
 	</a>
@@ -14,9 +18,9 @@
 	<section class="p-4">{project.description}</section>
 
 	<footer class="card-footer">
-		<div class="btn-group flex justify-center gap-1">
+		<div class="flex justify-center gap-2">
 			{#each project.actions as action}
-				<a href={action.href} class="btn btn-sm variant-soft-secondary">{action.text}</a>
+				<a href={action.href} class="btn btn-sm preset-tonal-secondary">{action.text}</a>
 			{/each}
 		</div>
 	</footer>
