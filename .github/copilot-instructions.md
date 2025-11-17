@@ -157,12 +157,6 @@ This project uses a **hybrid theme system** supporting both Skeleton preset them
 - `vintage` - Retro styling with warm tones
 - `terminus` - Dark terminal-inspired theme
 
-*Custom Themes (from /static/themes/):*
-- `gold-nouveau` - Elegant gold and dark tones with luxurious feel (default)
-- `cyber-night` - Neon blues and cyans with dark backgrounds for futuristic look
-- `forest-sage` - Natural greens and earthy tones for calming experience
-- `crimson-steel` - Bold reds with cool grays for powerful aesthetic
-
 **Security Measures:**
 ⚠️ **Critical**: To prevent CSS injection attacks, the theme system implements:
 1. **Whitelist validation**: Only themes in `ALLOWED_THEMES` Set can be loaded
