@@ -12,7 +12,7 @@
 		if (browser) {
 			const isDark = localStorage.getItem('mode') === 'dark';
 			if (isDark) {
-				document.documentElement.classList.add('dark');
+				document.documentElement.setAttribute('data-mode', 'dark');
 			}
 		}
 	});
