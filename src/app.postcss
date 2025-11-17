@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
+
 @layer base {
 	:root {
 		/* Color Palette */

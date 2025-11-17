@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { AppBar } from '@skeletonlabs/skeleton';
 	import ThemeSelector from './ThemeSelector.svelte';
+	import LightSwitch from './LightSwitch.svelte';
 
 	import DevTo from 'svelte-material-icons/DevTo.svelte';
 	import FolderMusic from 'svelte-material-icons/FolderMusic.svelte';
@@ -11,7 +12,7 @@
 		<a href="/" class="btn variant-ghost-surface">
 			<img
 				class="h-10"
-				src="assets/white_logo_transparent_background.png"
+				src="assets/white_logo_color_background.png"
 				alt="kungraseri productions logo"
 			/>
 		</a>
@@ -28,6 +29,7 @@
 	</div>
 	<svelte:fragment slot="trail">
 		<div class="flex items-center gap-2">
+			<LightSwitch />
 			<ThemeSelector />
 			<!-- Uncomment when auth is ready
 			{#if isAuthenticated}
