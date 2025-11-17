@@ -14,9 +14,9 @@
 	<section class="p-4">{project.description}</section>
 
 	<footer class="card-footer">
-		<div class="btn-group flex justify-center gap-1">
+		<div class=" flex justify-center gap-1">
 			{#each project.actions as action}
-				<a href={action.href} class="btn btn-sm variant-soft-secondary">{action.text}</a>
+				<a href={action.href} class="btn btn-sm preset-tonal-secondary">{action.text}</a>
 			{/each}
 		</div>
 	</footer>

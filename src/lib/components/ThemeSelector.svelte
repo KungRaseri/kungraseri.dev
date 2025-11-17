@@ -32,7 +32,7 @@
 <div class="relative" use:clickOutside>
 	<button
 		on:click={toggleDropdown}
-		class="btn variant-ghost-surface flex items-center gap-2"
+		class="btn preset-tonal-surface border border-surface-500 flex items-center gap-2"
 		aria-label="Select Theme"
 	>
 		<svg
@@ -54,14 +54,14 @@
 
 	{#if showDropdown}
 		<div
-			class="absolute right-0 mt-2 w-72 bg-surface-100-800-token border border-surface-300-700-token rounded-lg shadow-lg z-50 overflow-hidden"
+			class="absolute right-0 mt-2 w-72 bg-surface-100-900 border border-surface-300-700 rounded-lg shadow-lg z-50 overflow-hidden"
 		>
 			<div class="p-2">
-				<h3 class="px-3 py-2 text-sm font-semibold text-surface-900-50-token">Select Theme</h3>
+				<h3 class="px-3 py-2 text-sm font-semibold text-surface-950-50">Select Theme</h3>
 				{#each Object.entries(themes) as [key, theme]}
 					<button
 						on:click={() => selectTheme(key as ThemeName)}
-						class="w-full text-left px-3 py-2 rounded-md hover:bg-surface-200-700-token transition-colors"
+						class="w-full text-left px-3 py-2 rounded-md hover:bg-surface-200-800 transition-colors"
 						class:bg-primary-500={$currentTheme === key}
 						class:text-white={$currentTheme === key}
 					>

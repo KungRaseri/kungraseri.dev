@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Switch } from '@skeletonlabs/skeleton';
+	import { Switch } from '@skeletonlabs/skeleton-svelte';
 
 	let checked = $state(false);
 

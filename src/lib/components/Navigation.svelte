@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { AppBar } from '@skeletonlabs/skeleton';
+	import { AppBar } from '@skeletonlabs/skeleton-svelte';
 	import ThemeSelector from './ThemeSelector.svelte';
 	import LightSwitch from './LightSwitch.svelte';
 
@@ -7,9 +7,9 @@
 	import FolderMusic from 'svelte-material-icons/FolderMusic.svelte';
 </script>
 
-<AppBar background="bg-surface-100-800-token" border="border-b border-surface-300-700-token">
+<AppBar background="bg-surface-100-900" border="border-b border-surface-300-700">
 	<svelte:fragment slot="lead">
-		<a href="/" class="btn variant-ghost-surface">
+		<a href="/" class="btn preset-tonal-surface border border-surface-500">
 			<img
 				class="h-10"
 				src="assets/white_logo_color_background.png"
@@ -18,11 +18,11 @@
 		</a>
 	</svelte:fragment>
 	<div class="flex gap-2">
-		<a href="/projects" class="btn variant-ghost-surface">
+		<a href="/projects" class="btn preset-tonal-surface border border-surface-500">
 			<span class="mr-2">projects</span>
 			<DevTo />
 		</a>
-		<a href="/music" class="btn variant-ghost-surface">
+		<a href="/music" class="btn preset-tonal-surface border border-surface-500">
 			<span class="mr-2">music</span>
 			<FolderMusic />
 		</a>
