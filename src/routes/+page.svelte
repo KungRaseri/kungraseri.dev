@@ -113,6 +113,9 @@
 				Interested in collaboration or just want to chat? Reach out on social media.
 			</p>
 			<div class="flex flex-wrap gap-4 justify-center">
+				<a href="https://discord.gg/eUuBSP6Qcb" target="_blank" class="btn preset-filled-primary-500 hover:preset-filled-primary-600 transition-all duration-200">
+					Discord
+				</a>
 				<a href="https://twitch.tv/KungRaseri" target="_blank" class="btn preset-filled-primary-500 hover:preset-filled-primary-600 transition-all duration-200">
 					Twitch
 				</a>

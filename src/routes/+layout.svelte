@@ -31,6 +31,14 @@
 			<div class="flex flex-wrap gap-2 justify-start md:justify-end items-center">
 				<a
 					class="btn btn-sm preset-tonal hover:preset-filled-primary-500 flex items-center gap-2 transition-all duration-200"
+					href="https://discord.gg/eUuBSP6Qcb"
+					target="_blank"
+				>
+					<span>discord</span>
+					<ExternalLink class="size-4" />
+				</a>
+				<a
+					class="btn btn-sm preset-tonal hover:preset-filled-primary-500 flex items-center gap-2 transition-all duration-200"
 					href="https://twitch.tv/KungRaseri"
 					target="_blank"
 				>
