@@ -152,10 +152,15 @@ This project uses a **hybrid theme system** supporting both Skeleton preset them
 **Available Themes:**
 
 *Skeleton Preset Themes (imported in app.css):*
-- `nouveau` - Art nouveau inspired with elegant curves
+- `nouveau` - Art nouveau inspired with elegant curves (default)
 - `crimson` - Bold reds with strong contrast
 - `vintage` - Retro styling with warm tones
 - `terminus` - Dark terminal-inspired theme
+
+Custom themes can be added by:
+1. Creating CSS file in `/static/themes/{theme-name}.css`
+2. Adding theme definition to `src/lib/stores/theme.ts` ThemeName union type
+3. Adding to `ALLOWED_THEMES` Set and `themes` Record
 
 **Security Measures:**
 ⚠️ **Critical**: To prevent CSS injection attacks, the theme system implements:
@@ -185,17 +190,15 @@ This project uses a **hybrid theme system** supporting both Skeleton preset them
 ```typescript
 // src/lib/stores/theme.ts
 export type ThemeName = 
-  | 'nouveau' | 'crimson' | 'vintage' | 'terminus'  // Preset themes
-  | 'gold-nouveau' | 'cyber-night' | 'forest-sage' | 'crimson-steel';  // Custom
+  | 'nouveau' | 'crimson' | 'vintage' | 'terminus';  // Preset themes
 
 const ALLOWED_THEMES = new Set<ThemeName>([
-  'nouveau', 'crimson', 'vintage', 'terminus',
-  'gold-nouveau', 'cyber-night', 'forest-sage', 'crimson-steel'
+  'nouveau', 'crimson', 'vintage', 'terminus'
 ]);
 
 export const themes: Record<ThemeName, { name: string; description: string; isPreset?: boolean }> = {
   'nouveau': { name: 'Nouveau', description: '...', isPreset: true },
-  'gold-nouveau': { name: 'Gold Nouveau', description: '...', isPreset: false }
+  'crimson': { name: 'Crimson', description: '...', isPreset: true }
 };
 
 function sanitizeThemeName(themeName: string): string {
@@ -661,7 +664,52 @@ src/
 │   ├── +layout.svelte  # Root layout
 │   ├── +page.svelte    # Homepage
 │   └── [route]/        # Feature routes
+│       ├── +page.svelte       # Route UI
+│       └── +page.server.ts    # Server-side data loading
 └── app.css             # Global styles
+static/
+├── assets/             # Images, icons, media
+├── fonts/              # Custom fonts
+└── themes/             # Custom theme CSS files
+```
+
+## SvelteKit Data Loading Pattern
+
+Use `+page.server.ts` files for server-side data loading:
+```typescript
+// src/routes/projects/+page.server.ts
+import type { Project } from '$lib/types';
+import type { PageServerLoad } from './$types';
+
+export const load = (async () => {
+  const projects: Project[] = [
+    {
+      id: 1,
+      title: 'Project Name',
+      url: 'https://example.com',
+      image: '/assets/image.png',
+      description: 'Project description',
+      actions: [
+        { text: 'Website', href: 'https://example.com' },
+        { text: 'Source', href: 'https://github.com/...' }
+      ]
+    }
+  ];
+  return { projects };
+}) satisfies PageServerLoad;
+```
+
+Access data in the page component:
+```svelte
+<!-- src/routes/projects/+page.svelte -->
+<script lang="ts">
+  import type { PageData } from './$types';
+  let { data }: { data: PageData } = $props();
+</script>
+
+{#each data.projects as project}
+  <div>{project.title}</div>
+{/each}
 ```
 
 ## Common Patterns
@@ -757,3 +805,38 @@ Always verify:
 - [Tailwind CSS v4 Docs](https://tailwindcss.com/docs)
 - [Svelte 5 Docs](https://svelte.dev/docs/svelte/overview)
 - [SvelteKit Docs](https://svelte.dev/docs/kit)
+
+## Developer Workflows
+
+### Development
+```bash
+npm run dev              # Start dev server at localhost:5173
+npm run build            # Build for production
+npm run preview          # Preview production build
+```
+
+### Testing
+```bash
+npm run test             # Run Playwright e2e tests
+npm run test:unit        # Run Vitest unit tests
+```
+
+### Code Quality
+```bash
+npm run check            # Run svelte-check for type errors
+npm run check:watch      # Run svelte-check in watch mode
+npm run lint             # Lint with ESLint and Prettier
+npm run format           # Format code with Prettier
+```
+
+### Deployment
+This project deploys to Vercel using `@sveltejs/adapter-vercel`:
+- Builds automatically on push to main branch
+- Uses `--legacy-peer-deps` flag during install (see `vercel.json`)
+- Configured in `svelte.config.js` with `adapter-vercel`
+
+**Important:** If deploying manually, use:
+```bash
+npm install --legacy-peer-deps
+npm run build
+```

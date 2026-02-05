@@ -2,7 +2,7 @@
 	import ThemeSelector from './ThemeSelector.svelte';
 	import LightSwitch from './LightSwitch.svelte';
 
-	import { CodeXml, Music } from 'lucide-svelte';
+	import { CodeXml, Music, WrenchIcon } from 'lucide-svelte';
 </script>
 
 <nav
@@ -35,6 +35,13 @@
 			>
 				<span>music</span>
 				<Music class="size-5" />
+			</a>
+			<a
+				href="/tools"
+				class="btn preset-tonal hover:preset-filled-primary-500 flex items-center gap-2 transition-all duration-200"
+			>
+				<span>tools</span>
+				<WrenchIcon class="size-5" />
 			</a>
 		</div>
 		<!-- Right Side -->
