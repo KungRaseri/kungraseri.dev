@@ -6,7 +6,8 @@
 		CodeIcon,
 		TypeIcon,
 		LockKeyholeIcon,
-		QrCodeIcon
+		QrCodeIcon,
+		SearchIcon
 	} from 'lucide-svelte';
 	import type { PageData } from './$types';
 
@@ -21,6 +22,35 @@
 		LockKeyhole: LockKeyholeIcon,
 		QrCode: QrCodeIcon
 	};
+
+	let searchQuery = $state('');
+
+	// Filter tools based on search
+	const filteredTools = $derived(() => {
+		if (!searchQuery.trim()) return data.tools;
+		
+		const query = searchQuery.toLowerCase();
+		return data.tools.filter(tool => 
+			tool.title.toLowerCase().includes(query) ||
+			tool.description.toLowerCase().includes(query) ||
+			tool.tags.some(tag => tag.toLowerCase().includes(query)) ||
+			tool.category.toLowerCase().includes(query)
+		);
+	});
+
+	// Get filtered categories
+	const filteredCategories = $derived(() => {
+		const tools = filteredTools();
+		return tools.reduce((acc, tool) => {
+			if (!acc[tool.category]) {
+				acc[tool.category] = [];
+			}
+			acc[tool.category].push(tool);
+			return acc;
+		}, {} as Record<string, typeof data.tools>);
+	});
+
+	const categoryOrder = ['Security', 'Design', 'Development', 'Generators', 'Encoders'];
 </script>
 
 <svelte:head>
@@ -40,31 +70,62 @@
 		</p>
 	</div>
 
-	<!-- Tools Grid -->
-	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-		{#each data.tools as tool}
-			{@const Icon = iconMap[tool.icon]}
-			<a
-				href="/tools/{tool.slug}"
-				class="card preset-outlined-surface-200 hover:preset-tonal-primary p-6 space-y-3 transition-all duration-200"
-			>
-				<div class="flex items-start justify-between">
-					<div class="flex items-center gap-3">
-						<div class="preset-filled-primary p-2 rounded-lg">
-							<Icon class="size-6" />
-						</div>
-						<h2 class="text-xl font-bold">{tool.title}</h2>
+	<!-- Search Bar -->
+	<div class="max-w-2xl">
+		<div class="relative">
+			<SearchIcon class="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-surface-500" />
+			<input
+				type="text"
+				placeholder="Search tools..."
+				bind:value={searchQuery}
+				class="input w-full pl-12 preset-outlined"
+			/>
+		</div>
+	</div>
+
+	<!-- Categories -->
+	<div class="space-y-8">
+		{#each categoryOrder as categoryName}
+			{@const categoryTools = filteredCategories()[categoryName]}
+			{#if categoryTools && categoryTools.length > 0}
+				<section class="space-y-4">
+					<h2 class="text-2xl font-bold text-primary-500">{categoryName}</h2>
+					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+						{#each categoryTools as tool}
+							{@const Icon = iconMap[tool.icon]}
+							<a
+								href="/tools/{tool.slug}"
+								class="card preset-outlined hover:preset-tonal-primary p-6 space-y-3 transition-all duration-200"
+							>
+								<div class="flex items-start gap-3">
+									<div class="preset-filled-primary p-2 rounded-lg shrink-0">
+										<Icon class="size-6" />
+									</div>
+									<div class="space-y-2 flex-1 min-w-0">
+										<h3 class="text-xl font-bold">{tool.title}</h3>
+										<p class="text-surface-700 dark:text-surface-300 text-sm">
+											{tool.description}
+										</p>
+									</div>
+								</div>
+								<div class="flex flex-wrap gap-2">
+									{#each tool.tags as tag}
+										<span class="chip preset-tonal text-xs">{tag}</span>
+									{/each}
+								</div>
+							</a>
+						{/each}
 					</div>
-				</div>
-				<p class="text-surface-700 dark:text-surface-300">
-					{tool.description}
-				</p>
-				<div class="flex flex-wrap gap-2">
-					{#each tool.tags as tag}
-						<span class="chip preset-tonal text-sm">{tag}</span>
-					{/each}
-				</div>
-			</a>
+				</section>
+			{/if}
 		{/each}
+		
+		{#if Object.keys(filteredCategories()).length === 0}
+			<div class="text-center py-12">
+				<p class="text-xl text-surface-600 dark:text-surface-400">
+					No tools found matching "{searchQuery}"
+				</p>
+			</div>
+		{/if}
 	</div>
 </div>

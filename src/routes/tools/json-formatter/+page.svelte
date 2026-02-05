@@ -6,38 +6,78 @@
 	let error = $state('');
 	let copied = $state(false);
 	let indent = $state(2);
+	let isProcessing = $state(false);
 	
-	function formatJSON() {
+	async function formatJSON() {
 		if (!input.trim()) {
 			output = '';
 			error = '';
 			return;
 		}
 		
+		isProcessing = true;
 		try {
-			const parsed = JSON.parse(input);
-			output = JSON.stringify(parsed, null, indent);
-			error = '';
+			const response = await fetch('/api/tools/json-formatter', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					text: input,
+					action: 'format',
+					indent
+				})
+			});
+
+			const data = await response.json();
+			
+			if (data.error) {
+				error = data.error;
+				output = '';
+			} else {
+				output = data.result;
+				error = '';
+			}
 		} catch (err) {
-			error = err instanceof Error ? err.message : 'Invalid JSON';
+			console.error('Failed to format JSON:', err);
+			error = 'Failed to format JSON';
 			output = '';
+		} finally {
+			isProcessing = false;
 		}
 	}
 	
-	function minifyJSON() {
+	async function minifyJSON() {
 		if (!input.trim()) {
 			output = '';
 			error = '';
 			return;
 		}
 		
+		isProcessing = true;
 		try {
-			const parsed = JSON.parse(input);
-			output = JSON.stringify(parsed);
-			error = '';
+			const response = await fetch('/api/tools/json-formatter', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					text: input,
+					action: 'minify'
+				})
+			});
+
+			const data = await response.json();
+			
+			if (data.error) {
+				error = data.error;
+				output = '';
+			} else {
+				output = data.result;
+				error = '';
+			}
 		} catch (err) {
-			error = err instanceof Error ? err.message : 'Invalid JSON';
+			console.error('Failed to minify JSON:', err);
+			error = 'Failed to minify JSON';
 			output = '';
+		} finally {
+			isProcessing = false;
 		}
 	}
 	
@@ -139,7 +179,7 @@
 				class="input w-full min-h-[500px] font-mono text-sm"
 				bind:value={input}
 				placeholder="Paste JSON here..."
-			/>
+			></textarea>
 		</div>
 
 		<!-- Output -->

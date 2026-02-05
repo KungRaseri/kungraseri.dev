@@ -2,7 +2,6 @@
 	import { KeyRoundIcon, CopyIcon, CheckIcon, RefreshCwIcon, Volume2Icon } from 'lucide-svelte';
 	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
 
-	import words from '$lib/data/words.json';
 	import phoneticAlphabetRaw from '$lib/data/phonetic.json';
 
 	const phoneticAlphabet = phoneticAlphabetRaw as Record<string, string>;
@@ -19,76 +18,69 @@
 	let copied = $state(false);
 	let showPhonetics = $state(false);
 
-	const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-	const lowercase = 'abcdefghijklmnopqrstuvwxyz';
-	const numbers = '0123456789';
-	const symbols = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+	let isGenerating = $state(false);
 
-	function generateSimplePassword() {
-		const array = new Uint32Array(4);
-		crypto.getRandomValues(array);
+	async function generateSimplePassword() {
+		isGenerating = true;
+		try {
+			const response = await fetch('/api/tools/password', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ mode: 'simple' })
+			});
 
-		// Pick two random words
-		const word1 = words[array[0] % words.length];
-		const word2 = words[array[1] % words.length];
-
-		// Pick a random symbol
-		const symbol = symbols[array[2] % symbols.length];
-
-		// Generate 2-3 random digits
-		const digitCount = 2 + (array[3] % 2); // 2 or 3
-		const digitArray = new Uint32Array(digitCount);
-		crypto.getRandomValues(digitArray);
-		let digits = Array.from(digitArray)
-			.map((n) => n % 10)
-			.join('');
-
-		// Build initial password
-		let generatedPassword = `${word1}${symbol}${word2}${digits}`;
-
-		// Ensure minimum length of 13 characters by adding more digits if needed
-		while (generatedPassword.length < 13) {
-			const extraDigitArray = new Uint32Array(1);
-			crypto.getRandomValues(extraDigitArray);
-			digits += extraDigitArray[0] % 10;
-			generatedPassword = `${word1}${symbol}${word2}${digits}`;
+			const data = await response.json();
+			password = data.password;
+			copied = false;
+			showPhonetics = false;
+		} catch (err) {
+			console.error('Failed to generate password:', err);
+			password = 'Error generating password';
+		} finally {
+			isGenerating = false;
 		}
-
-		password = generatedPassword;
-		copied = false;
-		showPhonetics = false;
 	}
 
-	function generateComplexPassword() {
-		let charset = '';
-		if (includeUppercase) charset += uppercase;
-		if (includeLowercase) charset += lowercase;
-		if (includeNumbers) charset += numbers;
-		if (includeSymbols) charset += symbols;
-
-		if (charset === '') {
+	async function generateComplexPassword() {
+		if (!includeUppercase && !includeLowercase && !includeNumbers && !includeSymbols) {
 			password = 'Please select at least one character type';
 			return;
 		}
 
-		let newPassword = '';
-		const array = new Uint32Array(length);
-		crypto.getRandomValues(array);
+		isGenerating = true;
+		try {
+			const response = await fetch('/api/tools/password', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					mode: 'complex',
+					length,
+					options: {
+						uppercase: includeUppercase,
+						lowercase: includeLowercase,
+						numbers: includeNumbers,
+						symbols: includeSymbols
+					}
+				})
+			});
 
-		for (let i = 0; i < length; i++) {
-			newPassword += charset[array[i] % charset.length];
+			const data = await response.json();
+			password = data.password;
+			copied = false;
+			showPhonetics = false;
+		} catch (err) {
+			console.error('Failed to generate password:', err);
+			password = 'Error generating password';
+		} finally {
+			isGenerating = false;
 		}
-
-		password = newPassword;
-		copied = false;
-		showPhonetics = false;
 	}
 
-	function generatePassword() {
+	async function generatePassword() {
 		if (mode === 'simple') {
-			generateSimplePassword();
+			await generateSimplePassword();
 		} else {
-			generateComplexPassword();
+			await generateComplexPassword();
 		}
 	}
 

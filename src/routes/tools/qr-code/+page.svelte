@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { QrCodeIcon, DownloadIcon, CopyIcon, CheckIcon } from 'lucide-svelte';
 	import { onMount } from 'svelte';
-	import QRCode from 'qrcode';
 
 	let inputText = $state('https://kungraseri.dev');
 	let qrCodeDataUrl = $state('');
 	let copied = $state(false);
 	let size = $state(256);
 	let errorLevel = $state<'L' | 'M' | 'Q' | 'H'>('M');
+	let isGenerating = $state(false);
 
 	async function generateQRCode() {
 		if (!inputText.trim()) {
@@ -15,14 +15,24 @@
 			return;
 		}
 
+		isGenerating = true;
 		try {
-			qrCodeDataUrl = await QRCode.toDataURL(inputText, {
-				width: size,
-				margin: 2,
-				errorCorrectionLevel: errorLevel
+			const response = await fetch('/api/tools/qr-code', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					text: inputText,
+					size,
+					errorCorrectionLevel: errorLevel
+				})
 			});
+
+			const data = await response.json();
+			qrCodeDataUrl = data.dataUrl;
 		} catch (err) {
 			console.error('Failed to generate QR code:', err);
+		} finally {
+			isGenerating = false;
 		}
 	}
 
