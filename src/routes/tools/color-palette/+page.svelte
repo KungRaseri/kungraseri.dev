@@ -2,9 +2,11 @@
 	import { PaletteIcon, RefreshCwIcon, CopyIcon, CheckIcon } from 'lucide-svelte';
 	
 	type ColorScheme = 'monochromatic' | 'complementary' | 'triadic' | 'analogous' | 'split-complementary';
+	type PaletteMode = 'harmony' | 'material';
 	
 	let baseColor = $state('#3b82f6');
 	let scheme = $state<ColorScheme>('complementary');
+	let mode = $state<PaletteMode>('harmony');
 	let colors = $state<string[]>([]);
 	let copiedColor = $state<string | null>(null);
 	
@@ -66,6 +68,11 @@
 	}
 	
 	function generatePalette() {
+		if (mode === 'material') {
+			generateMaterialPalette();
+			return;
+		}
+		
 		const [h, s, l] = hexToHSL(baseColor);
 		const newColors: string[] = [];
 		
@@ -115,6 +122,24 @@
 		colors = newColors;
 	}
 	
+	function generateMaterialPalette() {
+		const [h, s, l] = hexToHSL(baseColor);
+		const shades = [
+			{ name: '50', lightness: 95 },
+			{ name: '100', lightness: 90 },
+			{ name: '200', lightness: 80 },
+			{ name: '300', lightness: 70 },
+			{ name: '400', lightness: 60 },
+			{ name: '500', lightness: 50 },
+			{ name: '600', lightness: 40 },
+			{ name: '700', lightness: 30 },
+			{ name: '800', lightness: 20 },
+			{ name: '900', lightness: 10 }
+		];
+		
+		colors = shades.map(shade => hslToHex(h, s, shade.lightness));
+	}
+	
 	function randomColor() {
 		const randomHex = Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
 		baseColor = '#' + randomHex;
@@ -159,6 +184,31 @@
 
 	<!-- Controls -->
 	<div class="card preset-outlined-surface-200 p-6 space-y-6">
+		<!-- Mode Selector -->
+		<div class="space-y-2">
+			<div class="label">
+				<span class="font-semibold">Palette Type</span>
+			</div>
+			<div class="grid grid-cols-2 gap-2">
+				<button 
+					class="btn transition-all duration-200"
+					class:preset-filled-primary={mode === 'harmony'}
+					class:preset-tonal={mode !== 'harmony'}
+					onclick={() => { mode = 'harmony'; generatePalette(); }}
+				>
+					Color Harmony
+				</button>
+				<button 
+					class="btn transition-all duration-200"
+					class:preset-filled-primary={mode === 'material'}
+					class:preset-tonal={mode !== 'material'}
+					onclick={() => { mode = 'material'; generatePalette(); }}
+				>
+					Material Design
+				</button>
+			</div>
+		</div>
+		
 		<!-- Base Color Picker -->
 		<div class="flex items-center gap-4">
 			<div class="space-y-2 flex-1">
@@ -190,68 +240,79 @@
 			</div>
 		</div>
 		
-		<!-- Color Scheme Selector -->
-		<div class="space-y-2">
-			<div class="label">
-				<span class="font-semibold">Color Scheme</span>
+		<!-- Color Scheme Selector (only for harmony mode) -->
+		{#if mode === 'harmony'}
+			<div class="space-y-2">
+				<div class="label">
+					<span class="font-semibold">Color Scheme</span>
+				</div>
+				<div class="grid grid-cols-2 md:grid-cols-5 gap-2">
+					<button 
+						class="btn transition-all duration-200"
+						class:preset-filled-primary={scheme === 'monochromatic'}
+						class:preset-tonal={scheme !== 'monochromatic'}
+						onclick={() => { scheme = 'monochromatic'; generatePalette(); }}
+					>
+						Monochromatic
+					</button>
+					<button 
+						class="btn transition-all duration-200"
+						class:preset-filled-primary={scheme === 'complementary'}
+						class:preset-tonal={scheme !== 'complementary'}
+						onclick={() => { scheme = 'complementary'; generatePalette(); }}
+					>
+						Complementary
+					</button>
+					<button 
+						class="btn transition-all duration-200"
+						class:preset-filled-primary={scheme === 'triadic'}
+						class:preset-tonal={scheme !== 'triadic'}
+						onclick={() => { scheme = 'triadic'; generatePalette(); }}
+					>
+						Triadic
+					</button>
+					<button 
+						class="btn transition-all duration-200"
+						class:preset-filled-primary={scheme === 'analogous'}
+						class:preset-tonal={scheme !== 'analogous'}
+						onclick={() => { scheme = 'analogous'; generatePalette(); }}
+					>
+						Analogous
+					</button>
+					<button 
+						class="btn transition-all duration-200"
+						class:preset-filled-primary={scheme === 'split-complementary'}
+						class:preset-tonal={scheme !== 'split-complementary'}
+						onclick={() => { scheme = 'split-complementary'; generatePalette(); }}
+					>
+						Split-Comp
+					</button>
+				</div>
 			</div>
-			<div class="grid grid-cols-2 md:grid-cols-5 gap-2">
-				<button 
-					class="btn transition-all duration-200"
-					class:preset-filled-primary={scheme === 'monochromatic'}
-					class:preset-tonal={scheme !== 'monochromatic'}
-					onclick={() => { scheme = 'monochromatic'; generatePalette(); }}
-				>
-					Monochromatic
-				</button>
-				<button 
-					class="btn transition-all duration-200"
-					class:preset-filled-primary={scheme === 'complementary'}
-					class:preset-tonal={scheme !== 'complementary'}
-					onclick={() => { scheme = 'complementary'; generatePalette(); }}
-				>
-					Complementary
-				</button>
-				<button 
-					class="btn transition-all duration-200"
-					class:preset-filled-primary={scheme === 'triadic'}
-					class:preset-tonal={scheme !== 'triadic'}
-					onclick={() => { scheme = 'triadic'; generatePalette(); }}
-				>
-					Triadic
-				</button>
-				<button 
-					class="btn transition-all duration-200"
-					class:preset-filled-primary={scheme === 'analogous'}
-					class:preset-tonal={scheme !== 'analogous'}
-					onclick={() => { scheme = 'analogous'; generatePalette(); }}
-				>
-					Analogous
-				</button>
-				<button 
-					class="btn transition-all duration-200"
-					class:preset-filled-primary={scheme === 'split-complementary'}
-					class:preset-tonal={scheme !== 'split-complementary'}
-					onclick={() => { scheme = 'split-complementary'; generatePalette(); }}
-				>
-					Split-Comp
-				</button>
-			</div>
-		</div>
+		{/if}
 	</div>
 
 	<!-- Color Palette Display -->
 	<div class="card preset-outlined-surface-200 p-6 space-y-4">
-		<h2 class="text-2xl font-bold">Generated Palette</h2>
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-			{#each colors as color}
+		<h2 class="text-2xl font-bold">
+			{mode === 'material' ? 'Material Design Shades' : 'Generated Palette'}
+		</h2>
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-{mode === 'material' ? '5' : '3'} gap-4">
+			{#each colors as color, index}
 				<div class="space-y-2">
 					<div 
 						class="w-full h-32 rounded-lg shadow-lg border-2 border-surface-300 dark:border-surface-700"
 						style="background-color: {color}"
 					></div>
 					<div class="flex items-center justify-between">
-						<span class="font-mono font-bold">{color}</span>
+						<div class="flex flex-col">
+							<span class="font-mono font-bold">{color}</span>
+							{#if mode === 'material'}
+								<span class="text-sm text-surface-600 dark:text-surface-400">
+									{['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'][index]}
+								</span>
+							{/if}
+						</div>
 						<button 
 							class="btn-icon preset-tonal flex items-center gap-2"
 							onclick={() => copyColor(color)}
@@ -271,13 +332,24 @@
 
 	<!-- Info -->
 	<div class="card preset-tonal-primary p-6 space-y-3">
-		<h3 class="text-lg font-bold">💡 Color Scheme Guide</h3>
-		<ul class="list-disc list-inside space-y-2 text-surface-700 dark:text-surface-300">
-			<li><strong>Monochromatic:</strong> Variations of a single hue - harmonious and elegant</li>
-			<li><strong>Complementary:</strong> Opposite colors on the wheel - high contrast and vibrant</li>
-			<li><strong>Triadic:</strong> Three evenly spaced colors - balanced and colorful</li>
-			<li><strong>Analogous:</strong> Adjacent colors on the wheel - serene and comfortable</li>
-			<li><strong>Split-Complementary:</strong> Base color plus two adjacent to its complement - dynamic yet balanced</li>
-		</ul>
+		{#if mode === 'harmony'}
+			<h3 class="text-lg font-bold">💡 Color Scheme Guide</h3>
+			<ul class="list-disc list-inside space-y-2 text-surface-700 dark:text-surface-300">
+				<li><strong>Monochromatic:</strong> Variations of a single hue - harmonious and elegant</li>
+				<li><strong>Complementary:</strong> Opposite colors on the wheel - high contrast and vibrant</li>
+				<li><strong>Triadic:</strong> Three evenly spaced colors - balanced and colorful</li>
+				<li><strong>Analogous:</strong> Adjacent colors on the wheel - serene and comfortable</li>
+				<li><strong>Split-Complementary:</strong> Base color plus two adjacent to its complement - dynamic yet balanced</li>
+			</ul>
+		{:else}
+			<h3 class="text-lg font-bold">💡 Material Design Palette</h3>
+			<ul class="list-disc list-inside space-y-2 text-surface-700 dark:text-surface-300">
+				<li>Generates 10 shades (50-900) based on your base color</li>
+				<li>50 is the lightest shade, 900 is the darkest</li>
+				<li>500 is typically used as the primary color</li>
+				<li>Use lighter shades (50-300) for backgrounds and surfaces</li>
+				<li>Use darker shades (700-900) for text and emphasis</li>
+			</ul>
+		{/if}
 	</div>
 </div>

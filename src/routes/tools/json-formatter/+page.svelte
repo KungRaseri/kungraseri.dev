@@ -115,9 +115,9 @@
 			
 			<!-- Indent Selector -->
 			<div class="flex items-center gap-2 ml-auto">
-				<span class="text-sm">Indent:</span>
+				<span class="text-sm text-surface-700 dark:text-surface-300">Indent:</span>
 				<select 
-					class="input px-3 py-1"
+					class="input px-3 py-1 bg-surface-50 dark:bg-surface-900 text-surface-900 dark:text-surface-100"
 					bind:value={indent}
 					onchange={formatJSON}
 				>
