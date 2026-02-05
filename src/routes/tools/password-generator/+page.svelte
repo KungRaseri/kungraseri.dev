@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { KeyRoundIcon, CopyIcon, CheckIcon, RefreshCwIcon, Volume2Icon } from 'lucide-svelte';
+	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
 
 	import words from '../data/words.json';
 	import phoneticAlphabetRaw from '../data/phonetic.json';
@@ -38,11 +39,22 @@
 		const digitCount = 2 + (array[3] % 2); // 2 or 3
 		const digitArray = new Uint32Array(digitCount);
 		crypto.getRandomValues(digitArray);
-		const digits = Array.from(digitArray)
+		let digits = Array.from(digitArray)
 			.map((n) => n % 10)
 			.join('');
 
-		password = `${word1}${symbol}${word2}${digits}`;
+		// Build initial password
+		let generatedPassword = `${word1}${symbol}${word2}${digits}`;
+
+		// Ensure minimum length of 13 characters by adding more digits if needed
+		while (generatedPassword.length < 13) {
+			const extraDigitArray = new Uint32Array(1);
+			crypto.getRandomValues(extraDigitArray);
+			digits += extraDigitArray[0] % 10;
+			generatedPassword = `${word1}${symbol}${word2}${digits}`;
+		}
+
+		password = generatedPassword;
 		copied = false;
 		showPhonetics = false;
 	}
@@ -204,33 +216,40 @@
 				>
 					<RefreshCwIcon class="size-5" />
 				</button>
-				{#if mode === 'simple'}
-					<button
+				<Dialog>
+					<Dialog.Trigger
 						class="btn-icon btn-icon-lg preset-tonal flex items-center gap-2"
-						onclick={() => (showPhonetics = !showPhonetics)}
 						aria-label="Show phonetics"
 					>
 						<Volume2Icon class="size-5" />
-					</button>
-				{/if}
+					</Dialog.Trigger>
+					<Portal>
+						<Dialog.Backdrop class="fixed inset-0 z-50 bg-surface-950/80" />
+						<Dialog.Positioner class="fixed inset-0 z-50 flex justify-center items-center p-4">
+							<Dialog.Content
+								class="card bg-surface-50 dark:bg-surface-900 w-full max-w-md max-h-[80vh] overflow-y-auto p-6 space-y-4 shadow-xl"
+							>
+								<!-- Single Column List -->
+								<div class="space-y-3">
+									{#each getPhonetics() as item}
+										<div class="flex items-center gap-4">
+											<!-- Character Box with Inset Styling -->
+											<div
+												class="w-10 h-10 flex items-center justify-center font-mono font-bold text-lg bg-surface-200 dark:bg-surface-800 rounded shadow-inner border border-surface-300 dark:border-surface-700"
+											>
+												{item.char}
+											</div>
+											<!-- Phonetic Word -->
+											<span class="text-lg">{item.phonetic}</span>
+										</div>
+									{/each}
+								</div>
+							</Dialog.Content>
+						</Dialog.Positioner>
+					</Portal>
+				</Dialog>
 			</div>
 		</div>
-
-		<!-- Phonetic Display (Simple Mode Only) -->
-		{#if mode === 'simple' && showPhonetics}
-			<div class="card preset-tonal-primary p-4 space-y-2">
-				<h3 class="font-bold">Phonetic Breakdown</h3>
-				<div class="grid grid-cols-2 md:grid-cols-3 gap-2">
-					{#each getPhonetics() as item}
-						<div class="flex items-center gap-2">
-							<span class="font-mono font-bold text-lg">{item.char}</span>
-							<span>=</span>
-							<span class="text-sm">{item.phonetic}</span>
-						</div>
-					{/each}
-				</div>
-			</div>
-		{/if}
 
 		<!-- Strength Indicator -->
 		<div class="space-y-2">
