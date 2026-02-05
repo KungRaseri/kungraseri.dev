@@ -7,6 +7,7 @@
 	let sha256Hash = $state('');
 	let sha512Hash = $state('');
 	let copiedHash = $state<string | null>(null);
+	let isGenerating = $state(false);
 	
 	async function generateHashes() {
 		if (!inputText) {
@@ -14,41 +15,30 @@
 			return;
 		}
 		
-		const encoder = new TextEncoder();
-		const data = encoder.encode(inputText);
+		isGenerating = true;
 		
-		// SHA-256 using Web Crypto API
 		try {
-			const sha256Buffer = await crypto.subtle.digest('SHA-256', data);
-			sha256Hash = Array.from(new Uint8Array(sha256Buffer))
-				.map(b => b.toString(16).padStart(2, '0'))
-				.join('');
+			const response = await fetch('/api/tools/hash', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ text: inputText })
+			});
+			
+			if (!response.ok) {
+				throw new Error('Failed to generate hashes');
+			}
+			
+			const data = await response.json();
+			md5Hash = data.hashes.md5;
+			sha1Hash = data.hashes.sha1;
+			sha256Hash = data.hashes.sha256;
+			sha512Hash = data.hashes.sha512;
 		} catch (err) {
-			sha256Hash = 'Error generating SHA-256';
+			console.error('Error generating hashes:', err);
+			md5Hash = sha1Hash = sha256Hash = sha512Hash = 'Error generating hashes';
+		} finally {
+			isGenerating = false;
 		}
-		
-		// SHA-512 using Web Crypto API
-		try {
-			const sha512Buffer = await crypto.subtle.digest('SHA-512', data);
-			sha512Hash = Array.from(new Uint8Array(sha512Buffer))
-				.map(b => b.toString(16).padStart(2, '0'))
-				.join('');
-		} catch (err) {
-			sha512Hash = 'Error generating SHA-512';
-		}
-		
-		// SHA-1 using Web Crypto API
-		try {
-			const sha1Buffer = await crypto.subtle.digest('SHA-1', data);
-			sha1Hash = Array.from(new Uint8Array(sha1Buffer))
-				.map(b => b.toString(16).padStart(2, '0'))
-				.join('');
-		} catch (err) {
-			sha1Hash = 'Error generating SHA-1';
-		}
-		
-		// MD5 - Note: Not available in Web Crypto API, using simple implementation
-		md5Hash = 'MD5 requires external library';
 	}
 	
 	async function copyHash(hash: string, type: string) {

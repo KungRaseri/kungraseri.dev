@@ -8,38 +8,39 @@
 	let output = $state('');
 	let error = $state('');
 	let copied = $state(false);
+	let isProcessing = $state(false);
 	
-	function encode() {
-		try {
-			error = '';
-			output = btoa(input);
-		} catch (err) {
-			error = 'Failed to encode: Invalid characters';
-			output = '';
-		}
-	}
-	
-	function decode() {
-		try {
-			error = '';
-			output = atob(input);
-		} catch (err) {
-			error = 'Failed to decode: Invalid Base64 string';
-			output = '';
-		}
-	}
-	
-	function process() {
+	async function process() {
 		if (!input.trim()) {
 			output = '';
 			error = '';
 			return;
 		}
 		
-		if (mode === 'encode') {
-			encode();
-		} else {
-			decode();
+		isProcessing = true;
+		error = '';
+		
+		try {
+			const response = await fetch('/api/tools/base64', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ text: input, mode })
+			});
+			
+			const data = await response.json();
+			
+			if (!response.ok) {
+				error = data.error || 'Failed to process';
+				output = '';
+			} else {
+				output = data.result;
+			}
+		} catch (err) {
+			console.error('Error processing Base64:', err);
+			error = 'Failed to process request';
+			output = '';
+		} finally {
+			isProcessing = false;
 		}
 	}
 	
@@ -50,6 +51,7 @@
 		input = output;
 		output = temp;
 		error = '';
+		process();
 	}
 	
 	async function copyOutput() {

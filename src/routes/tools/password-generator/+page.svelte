@@ -2,8 +2,8 @@
 	import { KeyRoundIcon, CopyIcon, CheckIcon, RefreshCwIcon, Volume2Icon } from 'lucide-svelte';
 	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
 
-	import words from '../data/words.json';
-	import phoneticAlphabetRaw from '../data/phonetic.json';
+	import words from '$lib/data/words.json';
+	import phoneticAlphabetRaw from '$lib/data/phonetic.json';
 
 	const phoneticAlphabet = phoneticAlphabetRaw as Record<string, string>;
 
