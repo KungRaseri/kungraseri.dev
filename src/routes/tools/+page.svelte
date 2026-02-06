@@ -7,7 +7,11 @@
 		TypeIcon,
 		LockKeyholeIcon,
 		QrCodeIcon,
-		SearchIcon
+		SearchIcon,
+		LinkIcon,
+		FingerprintIcon,
+		SearchCodeIcon,
+		DiffIcon
 	} from 'lucide-svelte';
 	import type { PageData } from './$types';
 
@@ -20,7 +24,11 @@
 		Code: CodeIcon,
 		Type: TypeIcon,
 		LockKeyhole: LockKeyholeIcon,
-		QrCode: QrCodeIcon
+		QrCode: QrCodeIcon,
+		Link: LinkIcon,
+		Fingerprint: FingerprintIcon,
+		SearchCode: SearchCodeIcon,
+		Diff: DiffIcon
 	};
 
 	let searchQuery = $state('');

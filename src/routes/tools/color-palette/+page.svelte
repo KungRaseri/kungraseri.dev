@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { PaletteIcon, RefreshCwIcon, CopyIcon, CheckIcon } from 'lucide-svelte';
+	import { PaletteIcon, RefreshCwIcon, CopyIcon, CheckIcon, ChevronRightIcon } from 'lucide-svelte';
 	
 	type ColorScheme = 'monochromatic' | 'complementary' | 'triadic' | 'analogous' | 'split-complementary';
 	type PaletteMode = 'harmony' | 'material';
@@ -59,12 +59,16 @@
 	<meta name="description" content="Generate beautiful color schemes and palettes" />
 </svelte:head>
 
-<div class="container mx-auto px-4 py-8 max-w-6xl space-y-8">
+<div class="container mx-auto px-4 py-8 space-y-6">
+	<!-- Breadcrumb -->
+	<nav class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400">
+		<a href="/tools" class="hover:text-primary-500 transition-colors">Tools</a>
+		<ChevronRightIcon class="size-4" />
+		<span class="text-surface-900 dark:text-surface-100">Color Palette Generator</span>
+	</nav>
+
 	<!-- Header -->
-	<div class="space-y-4">
-		<a href="/tools" class="anchor flex items-center gap-2 w-fit">
-			← Back to Tools
-		</a>
+	<div class="space-y-2">
 		<div class="flex items-center gap-3">
 			<PaletteIcon class="size-10 text-primary-500" />
 			<h1 class="text-4xl font-bold">Color Palette Generator</h1>

@@ -44,6 +44,22 @@ export const load = (async () => {
       tags: ['Generator', 'Utility']
     },
     {
+      slug: 'uuid',
+      title: 'UUID Generator',
+      description: 'Generate universally unique identifiers (UUID v4)',
+      icon: 'Fingerprint',
+      category: 'Generators',
+      tags: ['Generator', 'UUID', 'GUID']
+    },
+    {
+      slug: 'lorem-ipsum',
+      title: 'Lorem Ipsum Generator',
+      description: 'Generate placeholder text for designs and mockups',
+      icon: 'Type',
+      category: 'Generators',
+      tags: ['Generator', 'Text', 'Placeholder']
+    },
+    {
       slug: 'json-formatter',
       title: 'JSON Formatter',
       description: 'Format, validate, minify, and beautify JSON data',
@@ -52,12 +68,36 @@ export const load = (async () => {
       tags: ['Development', 'Data']
     },
     {
+      slug: 'regex-tester',
+      title: 'Regex Tester',
+      description: 'Test and debug regular expressions with real-time matching',
+      icon: 'SearchCode',
+      category: 'Development',
+      tags: ['Development', 'Regex', 'Testing']
+    },
+    {
+      slug: 'diff-checker',
+      title: 'Diff Checker',
+      description: 'Compare two texts and highlight differences',
+      icon: 'Diff',
+      category: 'Development',
+      tags: ['Development', 'Comparison', 'Diff']
+    },
+    {
       slug: 'base64',
       title: 'Base64 Encoder/Decoder',
       description: 'Encode and decode Base64 strings',
       icon: 'Type',
       category: 'Encoders',
       tags: ['Encoding', 'Data']
+    },
+    {
+      slug: 'url-encoder',
+      title: 'URL Encoder/Decoder',
+      description: 'Encode and decode URLs for safe transmission',
+      icon: 'Link',
+      category: 'Encoders',
+      tags: ['Encoding', 'URL']
     }
   ];
 
