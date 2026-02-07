@@ -24,7 +24,7 @@ export const load = (async () => {
 			id: 2,
 			title: 'Red Syndicate',
 			url: 'https://redsyndicate.org',
-			image: 'https://via.placeholder.com/480x320?text=Red%20Syndicate',
+			image: undefined,
 			description: 'Software and Website Development',
 			actions: [
 				{
@@ -41,7 +41,7 @@ export const load = (async () => {
 			id: 3,
 			title: 'Uncharted Lands',
 			url: 'https://ul.redsyndicate.org',
-			image: 'https://via.placeholder.com/480x320?text=Uncharted%20Lands',
+			image: undefined,
 			description: 'Open-source settlement and resource management browser-based game',
 			actions: [
 				{
@@ -55,15 +55,26 @@ export const load = (async () => {
 			]
 		},
 		{
-			id: 4,
-			title: '[REDACTED] Gaming',
-			url: 'https://kungraseri.dev',
-			image: '/assets/redacted_gaming.png',
-			description: 'Gaming and Roleplay Community',
+			id: 5,
+			title: 'Realm Engine',
+			url: 'https://github.com/KungRaseri/RealmEngine',
+			description: 'RPG development engine',
 			actions: [
 				{
 					text: 'Source',
-					href: 'https://dev.azure.com/kungraseri/REDACTED'
+					href: 'https://github.com/KungRaseri/RealmEngine'
+				}
+			]
+		},
+		{
+			id: 6,
+			title: 'Corelight Fall',
+			url: 'https://github.com/KungRaseri/corelight-fall',
+			description: 'Story-driven roleplaying game',
+			actions: [
+				{
+					text: 'Source',
+					href: 'https://github.com/KungRaseri/corelight-fall'
 				}
 			]
 		}
