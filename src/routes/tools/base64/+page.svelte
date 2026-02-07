@@ -133,7 +133,7 @@
 				bind:value={input}
 				oninput={process}
 				placeholder={mode === 'encode' ? 'Enter text to encode...' : 'Enter Base64 string to decode...'}
-			/>
+			></textarea>
 		</div>
 	</div>
 

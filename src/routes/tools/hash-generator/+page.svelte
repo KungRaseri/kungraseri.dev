@@ -87,7 +87,7 @@
 				bind:value={inputText}
 				oninput={generateHashes}
 				placeholder="Enter text to hash..."
-			/>
+			></textarea>
 		</div>
 	</div>
 

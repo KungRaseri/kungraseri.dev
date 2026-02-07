@@ -11,7 +11,16 @@
 		LinkIcon,
 		FingerprintIcon,
 		SearchCodeIcon,
-		DiffIcon
+		DiffIcon,
+		KeySquareIcon,
+		BinaryIcon,
+		LockIcon,
+		FileTextIcon,
+		ClockIcon,
+		ImageIcon,
+		FileJsonIcon,
+		TableIcon,
+		FileCodeIcon
 	} from 'lucide-svelte';
 	import type { PageData } from './$types';
 
@@ -28,7 +37,16 @@
 		Link: LinkIcon,
 		Fingerprint: FingerprintIcon,
 		SearchCode: SearchCodeIcon,
-		Diff: DiffIcon
+		Diff: DiffIcon,
+		KeySquare: KeySquareIcon,
+		Binary: BinaryIcon,
+		Lock: LockIcon,
+		FileText: FileTextIcon,
+		Clock: ClockIcon,
+		Image: ImageIcon,
+		FileJson: FileJsonIcon,
+		Table: TableIcon,
+		FileCode: FileCodeIcon
 	};
 
 	let searchQuery = $state('');
@@ -58,7 +76,7 @@
 		}, {} as Record<string, typeof data.tools>);
 	});
 
-	const categoryOrder = ['Security', 'Design', 'Development', 'Generators', 'Encoders'];
+	const categoryOrder = ['Security', 'Design', 'Development', 'Generators', 'Encoders', 'Converters'];
 </script>
 
 <svelte:head>

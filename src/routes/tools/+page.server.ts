@@ -98,6 +98,94 @@ export const load = (async () => {
       icon: 'Link',
       category: 'Encoders',
       tags: ['Encoding', 'URL']
+    },
+    {
+      slug: 'jwt-decoder',
+      title: 'JWT Decoder',
+      description: 'Decode and inspect JSON Web Tokens (JWT)',
+      icon: 'KeySquare',
+      category: 'Security',
+      tags: ['Security', 'JWT', 'Token']
+    },
+    {
+      slug: 'base-converter',
+      title: 'Base Converter',
+      description: 'Convert between binary, octal, decimal, and hexadecimal',
+      icon: 'Binary',
+      category: 'Converters',
+      tags: ['Converter', 'Number', 'Base']
+    },
+    {
+      slug: 'caesar-cipher',
+      title: 'Caesar Cipher',
+      description: 'Encode and decode text using Caesar cipher (ROT13)',
+      icon: 'Lock',
+      category: 'Security',
+      tags: ['Security', 'Cipher', 'Encoding']
+    },
+    {
+      slug: 'markdown-preview',
+      title: 'Markdown Previewer',
+      description: 'Live preview of markdown with HTML rendering',
+      icon: 'FileText',
+      category: 'Development',
+      tags: ['Development', 'Markdown', 'Preview']
+    },
+    {
+      slug: 'cron-expression',
+      title: 'Cron Expression Builder',
+      description: 'Build and test cron expressions with descriptions',
+      icon: 'Clock',
+      category: 'Development',
+      tags: ['Development', 'Cron', 'Scheduling']
+    },
+    {
+      slug: 'favicon-generator',
+      title: 'Favicon Generator',
+      description: 'Generate SVG favicons from text with custom colors',
+      icon: 'Image',
+      category: 'Design',
+      tags: ['Design', 'Favicon', 'SVG']
+    },
+    {
+      slug: 'csv-to-json',
+      title: 'CSV to JSON',
+      description: 'Convert CSV data to JSON format',
+      icon: 'FileJson',
+      category: 'Converters',
+      tags: ['Converter', 'CSV', 'JSON']
+    },
+    {
+      slug: 'json-to-csv',
+      title: 'JSON to CSV',
+      description: 'Convert JSON arrays to CSV format',
+      icon: 'Table',
+      category: 'Converters',
+      tags: ['Converter', 'JSON', 'CSV']
+    },
+    {
+      slug: 'xml-formatter',
+      title: 'XML Formatter',
+      description: 'Format and beautify XML with indentation',
+      icon: 'Code',
+      category: 'Development',
+      tags: ['Development', 'XML', 'Formatter']
+    },
+    {
+      slug: 'yaml-json',
+      title: 'YAML/JSON Converter',
+      description: 'Convert between YAML and JSON formats',
+      icon: 'FileCode',
+      category: 'Converters',
+      tags: ['Converter', 'YAML', 'JSON']
+    },
+    {
+      slug: 'image-to-base64',
+      title: 'Image to Base64',
+      description: 'Convert images to Base64 data URLs',
+      icon: 'Image',
+      category: 'Converters',
+      tags: ['Converter', 'Image', 'Base64']
     }
   ];
 
