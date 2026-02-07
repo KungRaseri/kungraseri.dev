@@ -186,6 +186,70 @@ export const load = (async () => {
       icon: 'Image',
       category: 'Converters',
       tags: ['Converter', 'Image', 'Base64']
+    },
+    {
+      slug: 'timestamp-converter',
+      title: 'Unix Timestamp Converter',
+      description: 'Convert Unix timestamps to human-readable dates and vice versa',
+      icon: 'Clock',
+      category: 'Utilities',
+      tags: ['Utility', 'Time', 'Converter']
+    },
+    {
+      slug: 'case-converter',
+      title: 'Text Case Converter',
+      description: 'Convert text between different case formats',
+      icon: 'Type',
+      category: 'Text Tools',
+      tags: ['Text', 'Converter', 'Case']
+    },
+    {
+      slug: 'subnet-calculator',
+      title: 'IP Subnet Calculator',
+      description: 'Calculate network ranges and subnet information',
+      icon: 'Network',
+      category: 'Network & Utilities',
+      tags: ['Network', 'IP', 'Subnet']
+    },
+    {
+      slug: 'html-entities',
+      title: 'HTML Entity Encoder',
+      description: 'Encode and decode HTML entities',
+      icon: 'Code',
+      category: 'Text Tools',
+      tags: ['Text', 'HTML', 'Encoding']
+    },
+    {
+      slug: 'slug-generator',
+      title: 'URL Slug Generator',
+      description: 'Convert text into URL-friendly slugs',
+      icon: 'Link',
+      category: 'Text Tools',
+      tags: ['Text', 'URL', 'Generator']
+    },
+    {
+      slug: 'password-strength',
+      title: 'Password Strength Tester',
+      description: 'Test password strength and get security recommendations',
+      icon: 'ShieldCheck',
+      category: 'Security',
+      tags: ['Security', 'Password', 'Testing']
+    },
+    {
+      slug: 'mac-lookup',
+      title: 'MAC Address Lookup',
+      description: 'Identify device manufacturers from MAC addresses',
+      icon: 'Wifi',
+      category: 'Network & Utilities',
+      tags: ['Network', 'MAC', 'Lookup']
+    },
+    {
+      slug: 'user-agent-parser',
+      title: 'User Agent Parser',
+      description: 'Parse and analyze HTTP User Agent strings',
+      icon: 'MonitorSmartphone',
+      category: 'Network & Utilities',
+      tags: ['Network', 'Parser', 'Browser']
     }
   ];
 

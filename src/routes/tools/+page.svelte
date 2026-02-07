@@ -20,7 +20,11 @@
 		ImageIcon,
 		FileJsonIcon,
 		TableIcon,
-		FileCodeIcon
+		FileCodeIcon,
+		NetworkIcon,
+		ShieldCheckIcon,
+		WifiIcon,
+		MonitorSmartphoneIcon
 	} from 'lucide-svelte';
 	import type { PageData } from './$types';
 
@@ -46,7 +50,11 @@
 		Image: ImageIcon,
 		FileJson: FileJsonIcon,
 		Table: TableIcon,
-		FileCode: FileCodeIcon
+		FileCode: FileCodeIcon,
+		Network: NetworkIcon,
+		ShieldCheck: ShieldCheckIcon,
+		Wifi: WifiIcon,
+		MonitorSmartphone: MonitorSmartphoneIcon
 	};
 
 	let searchQuery = $state('');
@@ -76,7 +84,7 @@
 		}, {} as Record<string, typeof data.tools>);
 	});
 
-	const categoryOrder = ['Security', 'Design', 'Development', 'Generators', 'Encoders', 'Converters'];
+	const categoryOrder = ['Security', 'Design', 'Development', 'Generators', 'Encoders', 'Converters', 'Text Tools', 'Network & Utilities', 'Utilities'];
 </script>
 
 <svelte:head>
