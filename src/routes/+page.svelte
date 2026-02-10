@@ -17,10 +17,7 @@
 	<!-- What I Do Section -->
 	<section class="py-8 grid grid-cols-1 md:grid-cols-3 gap-6">
 		<!-- Development -->
-		<a
-			href="/projects"
-			class="card preset-outlined hover:preset-tonal-primary p-6"
-		>
+		<a href="/projects" class="card preset-outlined hover:preset-tonal-primary p-6">
 			<div class="flex flex-col items-center text-center">
 				<div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mb-4">
 					<Braces class="size-8 text-white" />
@@ -81,12 +78,16 @@
 		<h2 class="text-3xl font-bold text-center mb-6">Featured Work</h2>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 			<div class="card preset-filled-surface-100-900 p-6">
-				<h4 class="text-xl font-bold mb-3">Uncharted Lands</h4>
+				<h4 class="text-xl font-bold mb-3">Realm Engine</h4>
 				<p class="text-surface-600 dark:text-surface-400 mb-4">
-					Open-source settlement and resource management browser-based game
+					RPG backend engine with gameplay systems and content generation. Game Engine agnostic, open-source, and built with C#.
 				</p>
-				<a href="https://ul.redsyndicate.org" target="_blank" class="btn preset-filled-primary-500 hover:preset-filled-primary-600 transition-all duration-200">
-					Play Now
+				<a
+					href="https://github.com/KungRaseri/RealmEngine"
+					target="_blank"
+					class="btn preset-filled-primary-500 hover:preset-filled-primary-600 transition-all duration-200"
+				>
+					View on GitHub
 				</a>
 			</div>
 			<div class="card preset-filled-surface-100-900 p-6">
@@ -113,13 +114,25 @@
 				Interested in collaboration or just want to chat? Reach out on social media.
 			</p>
 			<div class="flex flex-wrap gap-4 justify-center">
-				<a href="https://discord.gg/eUuBSP6Qcb" target="_blank" class="btn preset-filled-primary-500 hover:preset-filled-primary-600 transition-all duration-200">
+				<a
+					href="https://discord.gg/eUuBSP6Qcb"
+					target="_blank"
+					class="btn preset-filled-primary-500 hover:preset-filled-primary-600 transition-all duration-200"
+				>
 					Discord
 				</a>
-				<a href="https://twitch.tv/KungRaseri" target="_blank" class="btn preset-filled-primary-500 hover:preset-filled-primary-600 transition-all duration-200">
+				<a
+					href="https://twitch.tv/KungRaseri"
+					target="_blank"
+					class="btn preset-filled-primary-500 hover:preset-filled-primary-600 transition-all duration-200"
+				>
 					Twitch
 				</a>
-				<a href="https://twitter.com/KungRaseri" target="_blank" class="btn preset-filled-primary-500 hover:preset-filled-primary-600 transition-all duration-200">
+				<a
+					href="https://twitter.com/KungRaseri"
+					target="_blank"
+					class="btn preset-filled-primary-500 hover:preset-filled-primary-600 transition-all duration-200"
+				>
 					Twitter
 				</a>
 				<a
