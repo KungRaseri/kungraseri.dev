@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Music, Braces, Twitch, ChevronRight } from 'lucide-svelte';
+	import { Music, Braces, Wrench, ChevronRight } from 'lucide-svelte';
 </script>
 
 <div class="container mx-auto px-4 py-8 max-w-6xl">
@@ -7,7 +7,7 @@
 	<section class="text-center py-8 md:py-12">
 		<h1 class="text-4xl md:text-6xl font-bold mb-4 text-primary-500">KungRaseri Productions</h1>
 		<p class="text-xl md:text-2xl text-surface-600 dark:text-surface-300 mb-6">
-			Development • Streaming • Music Production
+			Development • Tools • Music Production
 		</p>
 		<p class="text-lg text-surface-700 dark:text-surface-400 max-w-2xl mx-auto">
 			Creating immersive digital experiences through code, sound, and community.
@@ -51,22 +51,21 @@
 			</div>
 		</a>
 
-		<!-- Streaming -->
+		<!-- Tools -->
 		<a
-			href="https://twitch.tv/KungRaseri"
-			target="_blank"
+			href="/tools"
 			class="card preset-outlined hover:preset-tonal-tertiary p-6"
 		>
 			<div class="flex flex-col items-center text-center">
 				<div class="w-16 h-16 bg-tertiary-500 rounded-full flex items-center justify-center mb-4">
-					<Twitch class="size-8 text-white" />
+					<Wrench class="size-8 text-white" />
 				</div>
-				<h3 class="text-2xl font-bold mb-3">Streaming</h3>
+				<h3 class="text-2xl font-bold mb-3">Tools</h3>
 				<p class="text-surface-600 dark:text-surface-400 mb-4">
-					Live coding, gaming, and creative sessions. Join the community on Twitch.
+					Useful developer tools and utilities. From converters to generators and more.
 				</p>
 				<div class="flex items-center text-tertiary-500 font-medium">
-					<span>Watch Live</span>
+					<span>Browse Tools</span>
 					<ChevronRight class="size-5" />
 				</div>
 			</div>
