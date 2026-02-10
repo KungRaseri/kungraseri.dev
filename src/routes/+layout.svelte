@@ -39,31 +39,6 @@
 				</a>
 				<a
 					class="btn btn-sm preset-tonal hover:preset-filled-primary-500 flex items-center gap-2 transition-all duration-200"
-					href="https://twitch.tv/KungRaseri"
-					target="_blank"
-				>
-					<span>twitch</span>
-					<ExternalLink class="size-4" />
-				</a>
-				<a
-					class="btn btn-sm preset-tonal hover:preset-filled-primary-500 flex items-center gap-2 transition-all duration-200"
-					href="https://twitter.com/KungRaseri"
-					target="_blank"
-				>
-					<span>twitter</span>
-					<ExternalLink class="size-4" />
-				</a>
-				<a
-					rel="me"
-					class="btn btn-sm preset-tonal hover:preset-filled-primary-500 flex items-center gap-2 transition-all duration-200"
-					href="https://mastodon.social/@kungraseri"
-					target="_blank"
-				>
-					<span>mastodon</span>
-					<ExternalLink class="size-4" />
-				</a>
-				<a
-					class="btn btn-sm preset-tonal hover:preset-filled-primary-500 flex items-center gap-2 transition-all duration-200"
 					href="https://github.com/kungraseri/kungraseri.dev"
 					target="_blank"
 				>

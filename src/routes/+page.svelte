@@ -120,27 +120,6 @@
 				>
 					Discord
 				</a>
-				<a
-					href="https://twitch.tv/KungRaseri"
-					target="_blank"
-					class="btn preset-filled-primary-500 hover:preset-filled-primary-600 transition-all duration-200"
-				>
-					Twitch
-				</a>
-				<a
-					href="https://twitter.com/KungRaseri"
-					target="_blank"
-					class="btn preset-filled-primary-500 hover:preset-filled-primary-600 transition-all duration-200"
-				>
-					Twitter
-				</a>
-				<a
-					href="https://mastodon.social/@kungraseri"
-					target="_blank"
-					class="btn preset-filled-primary-500 hover:preset-filled-primary-600 transition-all duration-200"
-				>
-					Mastodon
-				</a>
 			</div>
 		</div>
 	</section>
