@@ -72,7 +72,7 @@
 	<div class="grid md:grid-cols-2 gap-6">
 		<!-- Input -->
 		<div class="space-y-4">
-			<div class="card preset-outlined-surface-200-800 bg-surface-50 dark:bg-surface-900 p-6 space-y-4">
+			<div class="card preset-glass p-6 space-y-4">
 				<label class="label">
 					<span class="font-semibold mb-2 block">Input Text</span>
 					<textarea
@@ -107,7 +107,7 @@
 				</label>
 			</div>
 
-			<div class="card preset-tonal-surface p-4 space-y-2">
+			<div class="card preset-glass p-4 space-y-2">
 				<h3 class="font-semibold">What is a URL Slug?</h3>
 				<p class="text-sm text-surface-600 dark:text-surface-400">
 					A slug is the part of a URL that identifies a page in human-readable keywords. For
@@ -125,11 +125,11 @@
 		<!-- Output -->
 		<div class="space-y-4">
 			{#if error}
-				<div class="card preset-outlined-error-500 bg-error-50 dark:bg-error-950/20 p-6">
+				<div class="card preset-glass-error p-6">
 					<p class="text-error-700 dark:text-error-400">{error}</p>
 				</div>
 			{:else if result}
-				<div class="card preset-outlined-surface-200-800 bg-surface-50 dark:bg-surface-900 p-6 space-y-4">
+				<div class="card preset-glass p-6 space-y-4">
 					<div class="flex items-center justify-between">
 						<h2 class="text-xl font-bold">Generated Slug</h2>
 						<button

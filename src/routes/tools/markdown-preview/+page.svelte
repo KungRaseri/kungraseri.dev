@@ -51,7 +51,7 @@
 
 	<div class="grid md:grid-cols-2 gap-6">
 		<!-- Editor -->
-		<div class="card preset-outlined-surface-200-800 bg-surface-50 dark:bg-surface-900 p-6 space-y-3">
+		<div class="card preset-glass p-6 space-y-3">
 			<h2 class="text-xl font-bold">Editor</h2>
 			<textarea
 				bind:value={markdown}
@@ -61,7 +61,7 @@
 		</div>
 
 		<!-- Preview -->
-		<div class="card preset-outlined-surface-200-800 bg-surface-50 dark:bg-surface-900 p-6 space-y-3">
+		<div class="card preset-glass p-6 space-y-3">
 			<h2 class="text-xl font-bold">Preview</h2>
 			<div class="bg-surface-100 dark:bg-surface-800 p-6 rounded-lg min-h-96 prose dark:prose-invert max-w-none">
 				{#if loading}
@@ -73,7 +73,7 @@
 		</div>
 	</div>
 
-	<div class="card preset-tonal-surface p-4">
+	<div class="card preset-glass p-4">
 		<h3 class="font-semibold mb-2">Supported Markdown</h3>
 		<div class="grid md:grid-cols-2 gap-4 text-sm text-surface-600 dark:text-surface-400">
 			<ul class="space-y-1">

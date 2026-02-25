@@ -129,7 +129,7 @@
 							{@const Icon = iconMap[tool.icon]}
 							<a
 								href="/tools/{tool.slug}"
-								class="card preset-outlined hover:preset-tonal-primary p-6 space-y-3 transition-all duration-200"
+								class="card preset-glass hover:preset-glass-primary p-6 space-y-3 transition-all duration-200"
 							>
 								<div class="flex items-start gap-3">
 									<div class="preset-filled-primary p-2 rounded-lg shrink-0">

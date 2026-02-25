@@ -8,7 +8,7 @@
 	let { project }: Props = $props();
 </script>
 
-<div class="card card-hover preset-filled-surface-100-900 overflow-hidden">
+<div class="card card-hover preset-glass overflow-hidden">
 	<a href={project.url} class="block h-56 sm:h-64 overflow-hidden bg-surface-900">
 		{#if project.image}
 			<img class="w-full h-full object-contain" src={project.image} alt={project.title} />

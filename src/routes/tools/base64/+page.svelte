@@ -92,7 +92,7 @@
 	</div>
 
 	<!-- Mode Toggle -->
-	<div class="card preset-tonal-surface p-4">
+	<div class="card preset-glass p-4">
 		<div class="flex items-center gap-2">
 			<button 
 				class="btn flex-1 flex items-center justify-center gap-2 transition-all duration-200"
@@ -121,7 +121,7 @@
 	</div>
 
 	<!-- Input -->
-	<div class="card preset-outlined-surface-200 p-6 space-y-4">
+	<div class="card preset-glass p-6 space-y-4">
 		<div class="space-y-2">
 			<div class="label">
 				<span class="font-semibold">
@@ -139,7 +139,7 @@
 
 	<!-- Output -->
 	{#if output || error}
-		<div class="card preset-outlined-surface-200 p-6 space-y-4">
+		<div class="card preset-glass p-6 space-y-4">
 			<div class="flex items-center justify-between">
 				<div class="label">
 					<span class="font-semibold">
@@ -174,7 +174,7 @@
 	{/if}
 
 	<!-- Info -->
-	<div class="card preset-tonal-primary p-6 space-y-3">
+	<div class="card preset-glass-primary p-6 space-y-3">
 		<h3 class="text-lg font-bold">💡 Base64 Information</h3>
 		<ul class="list-disc list-inside space-y-2 text-surface-700 dark:text-surface-300">
 			<li>Base64 encoding converts binary data to ASCII text</li>

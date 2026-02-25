@@ -83,7 +83,7 @@
 		<!-- Left Column: Settings -->
 		<div class="space-y-6">
 			<!-- Controls -->
-			<div class="card preset-outlined-surface-200 p-6 space-y-6">
+			<div class="card preset-glass p-6 space-y-6">
 				<!-- Mode Selector -->
 				<div class="space-y-2">
 					<div class="label">
@@ -191,7 +191,7 @@
 			</div>
 
 			<!-- Info -->
-			<div class="card preset-tonal-primary p-6 space-y-3">
+			<div class="card preset-glass-primary p-6 space-y-3">
 				{#if mode === 'harmony'}
 					<h3 class="text-lg font-bold">💡 Color Scheme Guide</h3>
 					<ul class="list-disc list-inside space-y-2 text-surface-700 dark:text-surface-300">
@@ -216,7 +216,7 @@
 
 		<!-- Right Column: Color Palette Display -->
 		<div class="space-y-6">
-			<div class="card preset-outlined-surface-200 p-6 space-y-4 lg:sticky lg:top-8">
+			<div class="card preset-glass p-6 space-y-4 lg:sticky lg:top-8">
 				<h2 class="text-2xl font-bold">
 					{mode === 'material' ? 'Material Design Shades' : 'Generated Palette'}
 				</h2>

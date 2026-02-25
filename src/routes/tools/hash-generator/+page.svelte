@@ -77,7 +77,7 @@
 	</div>
 
 	<!-- Input -->
-	<div class="card preset-outlined-surface-200 p-6 space-y-4">
+	<div class="card preset-glass p-6 space-y-4">
 		<div class="space-y-2">
 			<div class="label">
 				<span class="font-semibold">Input Text</span>
@@ -95,7 +95,7 @@
 	{#if inputText}
 		<div class="space-y-4">
 			<!-- SHA-256 -->
-			<div class="card preset-outlined-surface-200 p-6 space-y-3">
+			<div class="card preset-glass p-6 space-y-3">
 				<div class="flex items-center justify-between">
 					<h3 class="text-xl font-bold">SHA-256</h3>
 					<button 
@@ -116,7 +116,7 @@
 			</div>
 
 			<!-- SHA-512 -->
-			<div class="card preset-outlined-surface-200 p-6 space-y-3">
+			<div class="card preset-glass p-6 space-y-3">
 				<div class="flex items-center justify-between">
 					<h3 class="text-xl font-bold">SHA-512</h3>
 					<button 
@@ -137,7 +137,7 @@
 			</div>
 
 			<!-- SHA-1 -->
-			<div class="card preset-outlined-surface-200 p-6 space-y-3">
+			<div class="card preset-glass p-6 space-y-3">
 				<div class="flex items-center justify-between">
 					<h3 class="text-xl font-bold">SHA-1 <span class="text-sm text-warning-500">(Legacy)</span></h3>
 					<button 
@@ -160,7 +160,7 @@
 	{/if}
 
 	<!-- Info -->
-	<div class="card preset-tonal-primary p-6 space-y-3">
+	<div class="card preset-glass-primary p-6 space-y-3">
 		<h3 class="text-lg font-bold">💡 Hash Security Notes</h3>
 		<ul class="list-disc list-inside space-y-2 text-surface-700 dark:text-surface-300">
 			<li><strong>SHA-256</strong> and <strong>SHA-512</strong> are recommended for secure applications</li>

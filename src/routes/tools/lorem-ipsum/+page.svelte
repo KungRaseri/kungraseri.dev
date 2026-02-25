@@ -71,7 +71,7 @@
 	</div>
 
 	<!-- Controls -->
-	<div class="card preset-tonal-surface p-6 space-y-4">
+	<div class="card preset-glass p-6 space-y-4">
 		<div class="space-y-2">
 			<div class="label">
 				<span class="font-semibold">Type</span>
@@ -148,14 +148,14 @@
 					{/if}
 				</button>
 			</div>
-			<div class="card preset-outlined p-6">
+			<div class="card preset-glass p-6">
 				<p class="text-surface-900 dark:text-surface-100 whitespace-pre-wrap leading-relaxed">
 					{output}
 				</p>
 			</div>
 		</div>
 	{:else}
-		<div class="card preset-tonal-surface p-12 text-center">
+		<div class="card preset-glass p-12 text-center">
 			<p class="text-surface-600 dark:text-surface-400">
 				Configure options and click "Generate" to create placeholder text
 			</p>

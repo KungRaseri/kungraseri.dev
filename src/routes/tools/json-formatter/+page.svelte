@@ -134,7 +134,7 @@
 	</div>
 
 	<!-- Controls -->
-	<div class="card preset-tonal-surface p-4">
+	<div class="card preset-glass p-4">
 		<div class="flex flex-wrap items-center gap-3">
 			<button 
 				class="btn preset-filled-primary flex items-center gap-2"
@@ -175,7 +175,7 @@
 
 	<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 		<!-- Input -->
-		<div class="card preset-outlined-surface-200 p-6 space-y-4">
+		<div class="card preset-glass p-6 space-y-4">
 			<div class="label">
 				<span class="font-semibold">Input JSON</span>
 			</div>
@@ -187,7 +187,7 @@
 		</div>
 
 		<!-- Output -->
-		<div class="card preset-outlined-surface-200 p-6 space-y-4">
+		<div class="card preset-glass p-6 space-y-4">
 			<div class="flex items-center justify-between">
 				<div class="label">
 					<span class="font-semibold">Output</span>
@@ -225,7 +225,7 @@
 	</div>
 
 	<!-- Info -->
-	<div class="card preset-tonal-primary p-6 space-y-3">
+	<div class="card preset-glass-primary p-6 space-y-3">
 		<h3 class="text-lg font-bold">💡 JSON Tips</h3>
 		<ul class="list-disc list-inside space-y-2 text-surface-700 dark:text-surface-300">
 			<li>JSON keys must be in double quotes</li>

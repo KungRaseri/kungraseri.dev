@@ -9,7 +9,7 @@
 </script>
 
 <a href={album.url}>
-	<div class="card card-hover preset-filled-surface-100-900 overflow-hidden">
+	<div class="card card-hover preset-glass overflow-hidden">
 		<div class="h-56 sm:h-64 overflow-hidden bg-surface-900">
 			{#if album.image}
 				<img class="w-full h-full object-contain" src={album.image} alt={album.title} />

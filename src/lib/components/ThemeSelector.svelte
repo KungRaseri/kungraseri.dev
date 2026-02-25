@@ -54,7 +54,7 @@
 
 	{#if showDropdown}
 		<div
-			class="card absolute right-0 mt-2 w-72 preset-filled-surface-100-900 rounded-lg shadow-xl z-50 overflow-hidden border border-surface-300 dark:border-surface-700"
+			class="card absolute right-0 mt-2 w-72 preset-glass rounded-lg shadow-xl z-50 overflow-hidden"
 		>
 			<div class="p-2">
 				<h3 class="px-3 py-2 text-sm font-semibold text-surface-900 dark:text-surface-100">Select Theme</h3>

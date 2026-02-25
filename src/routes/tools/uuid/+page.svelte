@@ -73,7 +73,7 @@
 	</div>
 
 	<!-- Controls -->
-	<div class="card preset-tonal-surface p-6 space-y-4">
+	<div class="card preset-glass p-6 space-y-4">
 		<div class="space-y-2">
 			<div class="label">
 				<span class="font-semibold">Number of UUIDs</span>
@@ -122,7 +122,7 @@
 			<h2 class="text-xl font-bold">Generated UUIDs</h2>
 			<div class="space-y-2">
 				{#each uuids as uuid, index}
-					<div class="card preset-outlined p-4 flex items-center justify-between gap-4">
+					<div class="card preset-glass p-4 flex items-center justify-between gap-4">
 						<code class="font-mono text-sm flex-1">{uuid}</code>
 						<button
 							onclick={() => copyUuid(uuid, index)}
@@ -139,7 +139,7 @@
 			</div>
 		</div>
 	{:else}
-		<div class="card preset-tonal-surface p-12 text-center">
+		<div class="card preset-glass p-12 text-center">
 			<p class="text-surface-600 dark:text-surface-400">
 				Click "Generate" to create UUIDs
 			</p>

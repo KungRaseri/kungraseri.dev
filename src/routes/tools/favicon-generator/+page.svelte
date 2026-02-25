@@ -77,7 +77,7 @@
 	<div class="grid md:grid-cols-2 gap-6">
 		<!-- Settings -->
 		<div class="space-y-4">
-			<div class="card preset-outlined-surface-200-800 bg-surface-50 dark:bg-surface-900 p-6 space-y-4">
+			<div class="card preset-glass p-6 space-y-4">
 				<label class="label">
 					<span class="font-semibold mb-2 block">Text</span>
 					<input
@@ -135,7 +135,7 @@
 				</label>
 			</div>
 
-			<div class="card preset-tonal-surface p-4 space-y-2">
+			<div class="card preset-glass p-4 space-y-2">
 				<h3 class="font-semibold">Common Sizes</h3>
 				<div class="flex flex-wrap gap-2">
 					{#each [16, 32, 48, 64, 128, 256] as presetSize}
@@ -150,11 +150,11 @@
 		<!-- Preview -->
 		<div class="space-y-4">
 			{#if result.error}
-				<div class="card preset-outlined-error-500 bg-error-50 dark:bg-error-950/20 p-6">
+				<div class="card preset-glass-error p-6">
 					<p class="text-error-700 dark:text-error-400">{result.error}</p>
 				</div>
 			{:else if result.dataUrl}
-				<div class="card preset-outlined-surface-200-800 bg-surface-50 dark:bg-surface-900 p-6 space-y-4">
+				<div class="card preset-glass p-6 space-y-4">
 					<h2 class="text-xl font-bold">Preview</h2>
 					<div
 						class="bg-surface-100 dark:bg-surface-800 p-8 rounded-lg flex items-center justify-center"
@@ -172,7 +172,7 @@
 				</div>
 
 				{#if result.svg}
-					<div class="card preset-outlined-surface-200-800 bg-surface-50 dark:bg-surface-900 p-6 space-y-3">
+				<div class="card preset-glass p-6 space-y-3">
 						<h2 class="text-xl font-bold">SVG Code</h2>
 						<pre
 							class="bg-surface-100 dark:bg-surface-800 p-4 rounded-lg overflow-x-auto text-xs font-mono">{result.svg}</pre>

@@ -82,7 +82,7 @@
 	<div class="grid md:grid-cols-2 gap-6">
 		<!-- Builder -->
 		<div class="space-y-4">
-			<div class="card preset-outlined-surface-200-800 bg-surface-50 dark:bg-surface-900 p-6 space-y-4">
+			<div class="card preset-glass p-6 space-y-4">
 				<div class="grid grid-cols-5 gap-2">
 					<div class="space-y-1">
 						<div class="text-xs font-semibold">Minute</div>
@@ -112,7 +112,7 @@
 				</div>
 			</div>
 
-			<div class="card preset-tonal-surface p-4 space-y-2">
+			<div class="card preset-glass p-4 space-y-2">
 				<h3 class="font-semibold">Special Characters</h3>
 				<ul class="text-sm text-surface-600 dark:text-surface-400 space-y-1">
 					<li>• <code class="text-xs">*</code> - Any value</li>
@@ -125,7 +125,7 @@
 
 		<!-- Presets & Description -->
 		<div class="space-y-4">
-			<div class="card preset-outlined-surface-200-800 bg-surface-50 dark:bg-surface-900 p-6 space-y-3">
+			<div class="card preset-glass p-6 space-y-3">
 				<h2 class="text-xl font-bold">Presets</h2>
 				<div class="space-y-2">
 					{#each presets as preset}
@@ -141,11 +141,11 @@
 			</div>
 
 			{#if error}
-				<div class="card preset-outlined-error-500 bg-error-50 dark:bg-error-950/20 p-6">
+				<div class="card preset-glass-error p-6">
 					<p class="text-error-700 dark:text-error-400">{error}</p>
 				</div>
 			{:else if description}
-				<div class="card preset-outlined-success-500 bg-success-50 dark:bg-success-950/20 p-6 space-y-2">
+				<div class="card preset-glass-success p-6 space-y-2">
 					<h2 class="text-xl font-bold text-success-700 dark:text-success-400">Description</h2>
 					<p class="text-surface-700 dark:text-surface-300 capitalize">{description}</p>
 				</div>

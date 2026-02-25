@@ -91,7 +91,7 @@
 	<div class="grid md:grid-cols-2 gap-6">
 		<!-- Input -->
 		<div class="space-y-4">
-			<div class="card preset-outlined-surface-200-800 bg-surface-50 dark:bg-surface-900 p-6 space-y-4">
+			<div class="card preset-glass p-6 space-y-4">
 				<div class="flex gap-2">
 					<button
 						onclick={() => {
@@ -134,7 +134,7 @@
 				</button>
 			</div>
 
-			<div class="card preset-tonal-surface p-4 space-y-2">
+			<div class="card preset-glass p-4 space-y-2">
 				<h3 class="font-semibold">Common HTML Entities</h3>
 				<div class="grid grid-cols-3 gap-2 text-xs">
 					{#each commonEntities as { entity, char, name }}
@@ -151,11 +151,11 @@
 		<!-- Output -->
 		<div class="space-y-4">
 			{#if error}
-				<div class="card preset-outlined-error-500 bg-error-50 dark:bg-error-950/20 p-6">
+				<div class="card preset-glass-error p-6">
 					<p class="text-error-700 dark:text-error-400">{error}</p>
 				</div>
 			{:else if result}
-				<div class="card preset-outlined-surface-200-800 bg-surface-50 dark:bg-surface-900 p-6 space-y-4">
+				<div class="card preset-glass p-6 space-y-4">
 					<div class="flex items-center justify-between">
 						<h2 class="text-xl font-bold">Result</h2>
 						<button

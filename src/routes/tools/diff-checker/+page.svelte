@@ -167,17 +167,17 @@ in the moonlight`;
 	<!-- Stats -->
 	{#if diff.length > 0}
 		<div class="flex gap-4 flex-wrap">
-			<div class="card preset-outlined p-3 flex items-center gap-2">
-				<div class="w-3 h-3 rounded-full bg-success-500"></div>
-				<span class="font-semibold">{stats.additions}</span>
-				<span class="text-surface-600 dark:text-surface-400">additions</span>
-			</div>
-			<div class="card preset-outlined p-3 flex items-center gap-2">
-				<div class="w-3 h-3 rounded-full bg-error-500"></div>
-				<span class="font-semibold">{stats.deletions}</span>
-				<span class="text-surface-600 dark:text-surface-400">deletions</span>
-			</div>
-			<div class="card preset-outlined p-3 flex items-center gap-2">
+		<div class="card preset-glass p-3 flex items-center gap-2">
+			<div class="w-3 h-3 rounded-full bg-success-500"></div>
+			<span class="font-semibold">{stats.additions}</span>
+			<span class="text-surface-600 dark:text-surface-400">additions</span>
+		</div>
+		<div class="card preset-glass p-3 flex items-center gap-2">
+			<div class="w-3 h-3 rounded-full bg-error-500"></div>
+			<span class="font-semibold">{stats.deletions}</span>
+			<span class="text-surface-600 dark:text-surface-400">deletions</span>
+		</div>
+		<div class="card preset-glass p-3 flex items-center gap-2">
 				<div class="w-3 h-3 rounded-full bg-surface-400"></div>
 				<span class="font-semibold">{stats.unchanged}</span>
 				<span class="text-surface-600 dark:text-surface-400">unchanged</span>
@@ -189,7 +189,7 @@ in the moonlight`;
 	{#if diff.length > 0}
 		<div class="space-y-3">
 			<h2 class="text-xl font-bold">Differences</h2>
-			<div class="card preset-outlined overflow-hidden">
+		<div class="card preset-glass overflow-hidden">
 				<div class="font-mono text-sm">
 					{#each diff as item}
 						<div class="{getLineClass(item.type)} px-4 py-1">
@@ -200,13 +200,13 @@ in the moonlight`;
 			</div>
 		</div>
 	{:else if text1 || text2}
-		<div class="card preset-tonal-surface p-12 text-center">
+		<div class="card preset-glass p-12 text-center">
 			<p class="text-surface-600 dark:text-surface-400">
 				Texts are identical
 			</p>
 		</div>
 	{:else}
-		<div class="card preset-tonal-surface p-12 text-center">
+		<div class="card preset-glass p-12 text-center">
 			<p class="text-surface-600 dark:text-surface-400">
 				Enter texts to compare
 			</p>
