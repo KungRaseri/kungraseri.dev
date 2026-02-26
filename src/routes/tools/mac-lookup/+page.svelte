@@ -79,7 +79,7 @@
 	<div class="grid md:grid-cols-2 gap-6">
 		<!-- Input -->
 		<div class="space-y-4">
-			<div class="card preset-glass p-6 space-y-4">
+			<div class="card preset-blur p-6 space-y-4">
 				<label class="label">
 					<span class="font-semibold mb-2 block">MAC Address</span>
 					<input
@@ -95,7 +95,7 @@
 				</button>
 			</div>
 
-			<div class="card preset-glass p-4 space-y-3">
+			<div class="card preset-blur p-4 space-y-3">
 				<h3 class="font-semibold">Example MAC Addresses</h3>
 				<div class="space-y-2">
 					{#each examples as example}
@@ -110,7 +110,7 @@
 				</div>
 			</div>
 
-			<div class="card preset-glass p-4 space-y-2">
+			<div class="card preset-blur p-4 space-y-2">
 				<h3 class="font-semibold">About MAC Addresses</h3>
 				<p class="text-sm text-surface-600 dark:text-surface-400">
 					A MAC (Media Access Control) address is a unique identifier assigned to network
@@ -122,11 +122,11 @@
 		<!-- Output -->
 		<div class="space-y-4">
 			{#if error}
-				<div class="card preset-glass-error p-6">
+				<div class="card preset-blur-error p-6">
 					<p class="text-error-700 dark:text-error-400">{error}</p>
 				</div>
 			{:else if result}
-				<div class="card preset-glass p-6 space-y-4">
+				<div class="card preset-blur p-6 space-y-4">
 					<h2 class="text-xl font-bold">Lookup Result</h2>
 
 					<div class="space-y-3">
@@ -186,7 +186,7 @@
 					{/if}
 				</div>
 			{:else}
-				<div class="card preset-glass p-6">
+				<div class="card preset-blur p-6">
 					<p class="text-center text-surface-600 dark:text-surface-400">
 						Enter a MAC address to lookup the vendor
 					</p>

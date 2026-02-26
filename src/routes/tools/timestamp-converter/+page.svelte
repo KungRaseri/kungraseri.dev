@@ -88,7 +88,7 @@
 	<div class="grid md:grid-cols-2 gap-6">
 		<!-- Input -->
 		<div class="space-y-4">
-			<div class="card preset-glass p-6 space-y-4">
+			<div class="card preset-blur p-6 space-y-4">
 				<div class="flex gap-2">
 					<button
 						onclick={toggleMode}
@@ -126,7 +126,7 @@
 				</button>
 			</div>
 
-			<div class="card preset-glass p-4 space-y-2">
+			<div class="card preset-blur p-4 space-y-2">
 				<h3 class="font-semibold">What is Unix Timestamp?</h3>
 				<p class="text-sm text-surface-600 dark:text-surface-400">
 					Unix timestamp is the number of seconds that have elapsed since January 1, 1970 (UTC).
@@ -138,11 +138,11 @@
 		<!-- Output -->
 		<div class="space-y-4">
 			{#if error}
-				<div class="card preset-glass-error p-6">
+				<div class="card preset-blur-error p-6">
 					<p class="text-error-700 dark:text-error-400">{error}</p>
 				</div>
 			{:else if result}
-				<div class="card preset-glass p-6 space-y-4">
+				<div class="card preset-blur p-6 space-y-4">
 					<h2 class="text-xl font-bold">Result</h2>
 
 					{#if mode === 'to-human'}

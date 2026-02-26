@@ -72,7 +72,7 @@
 		<!-- Input -->
 		<div class="space-y-4">
 			<div
-				class="card preset-glass p-6 space-y-4"
+				class="card preset-blur p-6 space-y-4"
 			>
 				<label class="label">
 					<span class="font-semibold mb-2 block">CSV Input</span>
@@ -109,12 +109,12 @@
 		<!-- Output -->
 		<div class="space-y-4">
 			{#if error}
-				<div class="card preset-glass-error p-6">
+				<div class="card preset-blur-error p-6">
 					<p class="text-error-700 dark:text-error-400">{error}</p>
 				</div>
 			{:else if result}
 				<div
-					class="card preset-glass p-6 space-y-3"
+					class="card preset-blur p-6 space-y-3"
 				>
 					<div class="flex items-center justify-between">
 						<div>

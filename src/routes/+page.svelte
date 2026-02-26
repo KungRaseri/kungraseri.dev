@@ -2,7 +2,13 @@
 	import { Music, Braces, Wrench, ChevronRight } from 'lucide-svelte';
 </script>
 
-<div class="container mx-auto px-4 py-8 max-w-6xl">
+<div class="relative container mx-auto px-4 py-8 max-w-6xl">
+	<!-- Decorative gradient blobs for backdrop-filter to blur through -->
+	<div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+		<div class="absolute -top-32 left-1/4 w-96 h-96 rounded-full bg-primary-500/20 blur-3xl"></div>
+		<div class="absolute top-1/3 -right-32 w-80 h-80 rounded-full bg-secondary-500/20 blur-3xl"></div>
+		<div class="absolute bottom-1/4 -left-32 w-72 h-72 rounded-full bg-tertiary-500/15 blur-3xl"></div>
+	</div>
 	<!-- Hero Section -->
 	<section class="text-center py-8 md:py-12">
 		<h1 class="text-4xl md:text-6xl font-bold mb-4 text-primary-500">KungRaseri Productions</h1>
@@ -17,7 +23,7 @@
 	<!-- What I Do Section -->
 	<section class="py-8 grid grid-cols-1 md:grid-cols-3 gap-6">
 		<!-- Development -->
-		<a href="/projects" class="card preset-glass hover:preset-glass-primary p-6">
+		<a href="/projects" class="card preset-blur hover:preset-blur-primary p-6 transition-all duration-300">
 			<div class="flex flex-col items-center text-center">
 				<div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mb-4">
 					<Braces class="size-8 text-white" />
@@ -34,7 +40,7 @@
 		</a>
 
 		<!-- Music -->
-		<a href="/music" class="card preset-glass hover:preset-tonal-secondary p-6">
+		<a href="/music" class="card preset-blur hover:preset-blur-secondary p-6 transition-all duration-300">
 			<div class="flex flex-col items-center text-center">
 				<div class="w-16 h-16 bg-secondary-500 rounded-full flex items-center justify-center mb-4">
 					<Music class="size-8 text-white" />
@@ -54,7 +60,7 @@
 		<!-- Tools -->
 		<a
 			href="/tools"
-			class="card preset-glass hover:preset-tonal-tertiary p-6"
+			class="card preset-blur hover:preset-blur-tertiary p-6 transition-all duration-300"
 		>
 			<div class="flex flex-col items-center text-center">
 				<div class="w-16 h-16 bg-tertiary-500 rounded-full flex items-center justify-center mb-4">
@@ -76,7 +82,7 @@
 	<section class="py-8">
 		<h2 class="text-3xl font-bold text-center mb-6">Featured Work</h2>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-			<div class="card preset-glass p-6">
+			<div class="card preset-blur p-6">
 				<h4 class="text-xl font-bold mb-3">Realm Engine</h4>
 				<p class="text-surface-600 dark:text-surface-400 mb-4">
 					RPG backend engine with gameplay systems and content generation. Game Engine agnostic, open-source, and built with C#.
@@ -89,7 +95,7 @@
 					View on GitHub
 				</a>
 			</div>
-			<div class="card preset-glass p-6">
+			<div class="card preset-blur p-6">
 				<h4 class="text-xl font-bold mb-3">Latest Album: Emergent</h4>
 				<p class="text-surface-600 dark:text-surface-400 mb-4">
 					Released in 2020, featuring electronic soundscapes and ambient production
@@ -107,7 +113,7 @@
 
 	<!-- Call to Action -->
 	<section class="py-8 text-center">
-		<div class="card preset-glass p-8">
+		<div class="card preset-blur p-8">
 			<h2 class="text-3xl font-bold mb-4">Let's Connect</h2>
 			<p class="text-lg text-surface-600 dark:text-surface-400 mb-6">
 				Interested in collaboration or just want to chat? Reach out on social media.

@@ -167,11 +167,11 @@
 	</div>
 
 	<!-- Mode Selector -->
-	<div class="card preset-glass p-4">
+	<div class="card preset-blur p-4">
 		<div class="flex gap-2">
 			<button
 				class="btn flex-1 flex items-center justify-center gap-2 transition-all duration-200"
-				class:preset-filled-primary={mode === 'simple'}
+				class:preset-filled-primary-500={mode === 'simple'}
 				class:preset-tonal={mode !== 'simple'}
 				onclick={() => (mode = 'simple')}
 			>
@@ -179,7 +179,7 @@
 			</button>
 			<button
 				class="btn flex-1 flex items-center justify-center gap-2 transition-all duration-200"
-				class:preset-filled-primary={mode === 'complex'}
+				class:preset-filled-primary-500={mode === 'complex'}
 				class:preset-tonal={mode !== 'complex'}
 				onclick={() => (mode = 'complex')}
 			>
@@ -189,7 +189,7 @@
 	</div>
 
 	<!-- Password Display -->
-	<div class="card preset-glass p-6 space-y-4">
+	<div class="card preset-blur p-6 space-y-4">
 		<div class="space-y-2">
 			<div class="label">
 				<span class="font-semibold">Generated Password</span>
@@ -225,7 +225,7 @@
 						<Dialog.Backdrop class="fixed inset-0 z-50 bg-surface-950/80" />
 						<Dialog.Positioner class="fixed inset-0 z-50 flex justify-center items-center p-4">
 							<Dialog.Content
-							class="card preset-glass w-full max-w-md max-h-[80vh] overflow-y-auto p-6 space-y-4 shadow-xl"
+						class="card preset-blur w-full max-w-md max-h-[80vh] overflow-y-auto p-6 space-y-4 shadow-xl"
 							>
 								<!-- Single Column List -->
 								<div class="space-y-3">
@@ -268,7 +268,7 @@
 
 	<!-- Options -->
 	{#if mode === 'simple'}
-		<div class="card preset-glass p-6 space-y-4">
+		<div class="card preset-blur p-6 space-y-4">
 			<h2 class="text-2xl font-bold">Simple Mode</h2>
 			<p class="text-surface-700 dark:text-surface-300">
 				Generates memorable passwords using the pattern: <code
@@ -280,7 +280,7 @@
 			</p>
 		</div>
 	{:else}
-		<div class="card preset-glass p-6 space-y-6">
+		<div class="card preset-blur p-6 space-y-6">
 			<h2 class="text-2xl font-bold">Complex Mode Options</h2>
 
 			<!-- Length Slider -->
@@ -351,7 +351,7 @@
 	{/if}
 
 	<!-- Tips -->
-	<div class="card preset-glass-primary p-6 space-y-3">
+	<div class="card preset-blur-primary p-6 space-y-3">
 		<h3 class="text-lg font-bold">💡 Password Security Tips</h3>
 		<ul class="list-disc list-inside space-y-2 text-surface-700 dark:text-surface-300">
 			{#if mode === 'simple'}

@@ -93,7 +93,7 @@
 		<!-- Left Column: Settings -->
 		<div class="space-y-6">
 			<!-- Input -->
-			<div class="card preset-glass p-6 space-y-4">
+			<div class="card preset-blur p-6 space-y-4">
 				<div class="space-y-2">
 					<div class="label">
 						<span class="font-semibold">Text or URL</span>
@@ -188,7 +188,7 @@
 			</div>
 
 			<!-- Info -->
-			<div class="card preset-glass-primary p-6 space-y-3">
+			<div class="card preset-blur-primary p-6 space-y-3">
 				<h3 class="text-lg font-bold">💡 QR Code Tips</h3>
 				<ul class="list-disc list-inside space-y-2 text-surface-700 dark:text-surface-300">
 					<li>QR codes can store URLs, text, contact info, and more</li>
@@ -204,7 +204,7 @@
 		<div class="space-y-6">
 			<!-- QR Code Display -->
 			{#if qrCodeDataUrl}
-				<div class="card preset-glass p-6 space-y-4 lg:sticky lg:top-8">
+				<div class="card preset-blur p-6 space-y-4 lg:sticky lg:top-8">
 					<h2 class="text-2xl font-bold">QR Code Preview</h2>
 
 					<div class="flex flex-col items-center space-y-4">
@@ -236,7 +236,7 @@
 					</div>
 				</div>
 			{:else}
-				<div class="card preset-glass p-6 lg:sticky lg:top-8">
+				<div class="card preset-blur p-6 lg:sticky lg:top-8">
 					<div class="flex flex-col items-center justify-center space-y-4 min-h-[400px]">>
 						<QrCodeIcon class="size-16 text-surface-400 dark:text-surface-600" />
 						<p class="text-center text-surface-600 dark:text-surface-400">

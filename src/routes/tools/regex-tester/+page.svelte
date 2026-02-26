@@ -168,8 +168,8 @@
 				</div>
 
 				{#if error}
-					<div class="card preset-filled-error p-3">
-						<p class="text-sm text-error-contrast-500">{error}</p>
+					<div class="card preset-blur-error p-3">
+						<p class="text-sm text-error-700 dark:text-error-400">{error}</p>
 					</div>
 				{/if}
 			</div>
@@ -201,7 +201,7 @@
 			{#if matches.length > 0}
 				<div class="space-y-2">
 					{#each matches as match, index}
-						<div class="card preset-glass p-4 space-y-2">
+						<div class="card preset-blur p-4 space-y-2">
 							<div class="flex items-start justify-between gap-2">
 								<div class="space-y-1 flex-1">
 									<div class="flex items-center gap-2">
@@ -232,13 +232,13 @@
 					{/each}
 				</div>
 			{:else if testText && pattern && !error}
-			<div class="card preset-glass p-12 text-center">
+			<div class="card preset-blur p-12 text-center">
 				<p class="text-surface-600 dark:text-surface-400">
 					No matches found
 				</p>
 			</div>
 		{:else}
-			<div class="card preset-glass p-12 text-center">
+			<div class="card preset-blur p-12 text-center">
 					<p class="text-surface-600 dark:text-surface-400">
 						Enter a pattern and test string to see matches
 					</p>

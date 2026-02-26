@@ -82,7 +82,7 @@
 		<!-- Input -->
 		<div class="space-y-4">
 			<div
-				class="card preset-glass p-6 space-y-4"
+				class="card preset-blur p-6 space-y-4"
 			>
 				<label class="label">
 					<span class="font-semibold mb-2 block">JSON Input</span>
@@ -108,7 +108,7 @@
 				</button>
 			</div>
 
-			<div class="card preset-glass p-4 space-y-2">
+			<div class="card preset-blur p-4 space-y-2">
 				<h3 class="font-semibold">Note</h3>
 				<p class="text-sm text-surface-600 dark:text-surface-400">
 					JSON must be an array of objects with consistent keys.
@@ -119,12 +119,12 @@
 		<!-- Output -->
 		<div class="space-y-4">
 			{#if error}
-				<div class="card preset-glass-error p-6">
+				<div class="card preset-blur-error p-6">
 					<p class="text-error-700 dark:text-error-400">{error}</p>
 				</div>
 			{:else if result}
 				<div
-					class="card preset-glass p-6 space-y-3"
+					class="card preset-blur p-6 space-y-3"
 				>
 					<div class="flex items-center justify-between">
 						<div>

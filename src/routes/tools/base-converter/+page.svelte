@@ -86,7 +86,7 @@
 	<div class="grid md:grid-cols-2 gap-6">
 		<!-- Settings -->
 		<div class="space-y-4">
-			<div class="card preset-glass p-6 space-y-4">
+			<div class="card preset-blur p-6 space-y-4">
 				<div class="space-y-2">
 					<div class="font-semibold">From Base</div>
 					<select bind:value={from} class="select">
@@ -111,7 +111,7 @@
 				</button>
 			</div>
 
-			<div class="card preset-glass p-4 space-y-2">
+			<div class="card preset-blur p-4 space-y-2">
 				<h3 class="font-semibold">Examples</h3>
 				<ul class="text-sm text-surface-600 dark:text-surface-400 space-y-1">
 					{#each bases as base}
@@ -123,7 +123,7 @@
 
 		<!-- Input & Output -->
 		<div class="space-y-4">
-			<div class="card preset-glass p-6 space-y-4">
+			<div class="card preset-blur p-6 space-y-4">
 				<label class="label">
 					<span class="font-semibold mb-2 block">Input Value</span>
 					<input
@@ -144,11 +144,11 @@
 			</div>
 
 			{#if error}
-				<div class="card preset-glass-error p-6">
+				<div class="card preset-blur-error p-6">
 					<p class="text-error-700 dark:text-error-400">{error}</p>
 				</div>
 			{:else if result}
-				<div class="card preset-glass p-6 space-y-3">
+				<div class="card preset-blur p-6 space-y-3">
 					<div class="flex items-center justify-between">
 						<h2 class="text-xl font-bold">Result</h2>
 						<button

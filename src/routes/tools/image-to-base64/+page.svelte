@@ -80,7 +80,7 @@
 		<!-- Upload -->
 		<div class="space-y-4">
 			<div
-				class="card preset-glass p-6 space-y-4"
+				class="card preset-blur p-6 space-y-4"
 			>
 				<label
 					class="border-2 border-dashed border-surface-300 dark:border-surface-700 rounded-lg p-8 flex flex-col items-center gap-4 cursor-pointer hover:border-primary-500 transition-colors"
@@ -98,7 +98,7 @@
 				{/if}
 			</div>
 
-			<div class="card preset-glass p-4 space-y-2">
+			<div class="card preset-blur p-4 space-y-2">
 				<h3 class="font-semibold">Use Cases</h3>
 				<ul class="text-sm text-surface-600 dark:text-surface-400 space-y-1">
 					<li>• Embed images in HTML/CSS without external files</li>
@@ -112,12 +112,12 @@
 		<!-- Result -->
 		<div class="space-y-4">
 			{#if result.error}
-				<div class="card preset-glass-error p-6">
+				<div class="card preset-blur-error p-6">
 					<p class="text-error-700 dark:text-error-400">{result.error}</p>
 				</div>
 			{:else if result.dataUrl}
 				<div
-					class="card preset-glass p-6 space-y-4"
+					class="card preset-blur p-6 space-y-4"
 				>
 					<div class="space-y-2">
 						<h2 class="text-xl font-bold">Preview</h2>
@@ -141,7 +141,7 @@
 				</div>
 
 				<div
-					class="card preset-glass p-6 space-y-3"
+					class="card preset-blur p-6 space-y-3"
 				>
 					<div class="flex items-center justify-between">
 						<h2 class="text-xl font-bold">Base64 Data URL</h2>

@@ -69,7 +69,7 @@
 	</div>
 
 	<!-- Input Section -->
-	<div class="card preset-glass p-6 space-y-4">
+	<div class="card preset-blur p-6 space-y-4">
 		<label class="label">
 			<span class="font-semibold mb-2 block">JWT Token</span>
 			<textarea
@@ -90,7 +90,7 @@
 
 	<!-- Result Section -->
 	{#if result.error}
-		<div class="card preset-glass-error p-6">
+		<div class="card preset-blur-error p-6">
 			<p class="text-error-700 dark:text-error-400">{result.error}</p>
 		</div>
 	{:else if result.header || result.payload}
@@ -98,7 +98,7 @@
 			<!-- Status -->
 			{#if result.isExpired !== undefined}
 				<div
-					class="card {result.isExpired ? 'preset-glass-warning' : 'preset-glass-success'} p-4"
+					class="card {result.isExpired ? 'preset-blur-warning' : 'preset-blur-success'} p-4"
 				>
 					<p
 						class="font-semibold text-{result.isExpired
@@ -113,7 +113,7 @@
 			<!-- Header -->
 			{#if result.header}
 				<div
-					class="card preset-glass p-6 space-y-3"
+					class="card preset-blur p-6 space-y-3"
 				>
 					<div class="flex items-center justify-between">
 						<h2 class="text-xl font-bold">Header</h2>
@@ -141,7 +141,7 @@
 			<!-- Payload -->
 			{#if result.payload}
 				<div
-					class="card preset-glass p-6 space-y-3"
+					class="card preset-blur p-6 space-y-3"
 				>
 					<div class="flex items-center justify-between">
 						<h2 class="text-xl font-bold">Payload</h2>
@@ -169,7 +169,7 @@
 			<!-- Signature -->
 			{#if result.signature}
 				<div
-					class="card preset-glass p-6 space-y-3"
+					class="card preset-blur p-6 space-y-3"
 				>
 					<div class="flex items-center justify-between">
 						<h2 class="text-xl font-bold">Signature</h2>

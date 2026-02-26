@@ -26,45 +26,133 @@ html[data-mode='dark'] body {
 	color: var(--base-font-color-dark);
 }
 
-/* Glass Presets - Custom frosted glass effects
+/* Glass Presets - Two-tier frosted glass system
  *
  * Uses Skeleton's dual-value color variables (e.g. --color-surface-50-950)
  * which automatically resolve to the light shade in light mode and the dark
  * shade in dark mode via Skeleton's light-dark() CSS variable system.
- * Transparency is applied with color-mix(), matching Skeleton's own pattern.
  * A single class handles both light and dark — no separate dark variant needed.
+ *
+ * preset-glass-*  — Standard glass: semi-transparent with moderate blur.
+ *                   Good for cards, panels, and containers.
+ *
+ * preset-blur-*   — Heavy frosted glass: near-transparent with aggressive blur
+ *                   and color saturation boost. Good for modals, overlays, and
+ *                   hero-area cards where the background is richly colored.
  */
+
+/* ── Standard Glass ─────────────────────────────────────────────────────── */
+
 @utility preset-glass {
-	background-color: color-mix(in srgb, var(--color-surface-50-950) 70%, transparent);
-	backdrop-filter: blur(12px);
+	background-color: color-mix(in srgb, var(--color-surface-50-950) 55%, transparent);
+	backdrop-filter: blur(16px) saturate(150%);
 	border-width: 1px;
-	border-color: color-mix(in srgb, var(--color-surface-200-800) 50%, transparent);
+	border-color: color-mix(in srgb, var(--color-surface-200-800) 65%, transparent);
+	box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-surface-50-950) 25%, transparent);
 }
 
 @utility preset-glass-primary {
-	background-color: color-mix(in srgb, var(--color-primary-50-950) 70%, transparent);
-	backdrop-filter: blur(12px);
+	background-color: color-mix(in srgb, var(--color-primary-50-950) 55%, transparent);
+	backdrop-filter: blur(16px) saturate(150%);
 	border-width: 1px;
-	border-color: color-mix(in srgb, var(--color-primary-200-800) 50%, transparent);
+	border-color: color-mix(in srgb, var(--color-primary-200-800) 65%, transparent);
+	box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-primary-50-950) 25%, transparent);
+}
+
+@utility preset-glass-secondary {
+	background-color: color-mix(in srgb, var(--color-secondary-50-950) 55%, transparent);
+	backdrop-filter: blur(16px) saturate(150%);
+	border-width: 1px;
+	border-color: color-mix(in srgb, var(--color-secondary-200-800) 65%, transparent);
+	box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-secondary-50-950) 25%, transparent);
+}
+
+@utility preset-glass-tertiary {
+	background-color: color-mix(in srgb, var(--color-tertiary-50-950) 55%, transparent);
+	backdrop-filter: blur(16px) saturate(150%);
+	border-width: 1px;
+	border-color: color-mix(in srgb, var(--color-tertiary-200-800) 65%, transparent);
+	box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-tertiary-50-950) 25%, transparent);
 }
 
 @utility preset-glass-error {
-	background-color: color-mix(in srgb, var(--color-error-50-950) 70%, transparent);
-	backdrop-filter: blur(12px);
+	background-color: color-mix(in srgb, var(--color-error-50-950) 55%, transparent);
+	backdrop-filter: blur(16px) saturate(150%);
 	border-width: 1px;
-	border-color: color-mix(in srgb, var(--color-error-200-800) 50%, transparent);
+	border-color: color-mix(in srgb, var(--color-error-200-800) 65%, transparent);
+	box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-error-50-950) 25%, transparent);
 }
 
 @utility preset-glass-success {
-	background-color: color-mix(in srgb, var(--color-success-50-950) 70%, transparent);
-	backdrop-filter: blur(12px);
+	background-color: color-mix(in srgb, var(--color-success-50-950) 55%, transparent);
+	backdrop-filter: blur(16px) saturate(150%);
 	border-width: 1px;
-	border-color: color-mix(in srgb, var(--color-success-200-800) 50%, transparent);
+	border-color: color-mix(in srgb, var(--color-success-200-800) 65%, transparent);
+	box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-success-50-950) 25%, transparent);
 }
 
 @utility preset-glass-warning {
-	background-color: color-mix(in srgb, var(--color-warning-50-950) 70%, transparent);
-	backdrop-filter: blur(12px);
+	background-color: color-mix(in srgb, var(--color-warning-50-950) 55%, transparent);
+	backdrop-filter: blur(16px) saturate(150%);
 	border-width: 1px;
-	border-color: color-mix(in srgb, var(--color-warning-200-800) 50%, transparent);
+	border-color: color-mix(in srgb, var(--color-warning-200-800) 65%, transparent);
+	box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-warning-50-950) 25%, transparent);
+}
+
+/* ── Heavy Frosted Blur ──────────────────────────────────────────────────── */
+
+@utility preset-blur {
+	background-color: color-mix(in srgb, var(--color-surface-50-950) 20%, transparent);
+	backdrop-filter: blur(32px) saturate(200%);
+	border-width: 1px;
+	border-color: color-mix(in srgb, var(--color-surface-200-800) 70%, transparent);
+	box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-surface-50-950) 40%, transparent);
+}
+
+@utility preset-blur-primary {
+	background-color: color-mix(in srgb, var(--color-primary-50-950) 20%, transparent);
+	backdrop-filter: blur(32px) saturate(200%);
+	border-width: 1px;
+	border-color: color-mix(in srgb, var(--color-primary-200-800) 70%, transparent);
+	box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-primary-50-950) 40%, transparent);
+}
+
+@utility preset-blur-secondary {
+	background-color: color-mix(in srgb, var(--color-secondary-50-950) 20%, transparent);
+	backdrop-filter: blur(32px) saturate(200%);
+	border-width: 1px;
+	border-color: color-mix(in srgb, var(--color-secondary-200-800) 70%, transparent);
+	box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-secondary-50-950) 40%, transparent);
+}
+
+@utility preset-blur-tertiary {
+	background-color: color-mix(in srgb, var(--color-tertiary-50-950) 20%, transparent);
+	backdrop-filter: blur(32px) saturate(200%);
+	border-width: 1px;
+	border-color: color-mix(in srgb, var(--color-tertiary-200-800) 70%, transparent);
+	box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-tertiary-50-950) 40%, transparent);
+}
+
+@utility preset-blur-error {
+	background-color: color-mix(in srgb, var(--color-error-50-950) 20%, transparent);
+	backdrop-filter: blur(32px) saturate(200%);
+	border-width: 1px;
+	border-color: color-mix(in srgb, var(--color-error-200-800) 70%, transparent);
+	box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-error-50-950) 40%, transparent);
+}
+
+@utility preset-blur-success {
+	background-color: color-mix(in srgb, var(--color-success-50-950) 20%, transparent);
+	backdrop-filter: blur(32px) saturate(200%);
+	border-width: 1px;
+	border-color: color-mix(in srgb, var(--color-success-200-800) 70%, transparent);
+	box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-success-50-950) 40%, transparent);
+}
+
+@utility preset-blur-warning {
+	background-color: color-mix(in srgb, var(--color-warning-50-950) 20%, transparent);
+	backdrop-filter: blur(32px) saturate(200%);
+	border-width: 1px;
+	border-color: color-mix(in srgb, var(--color-warning-200-800) 70%, transparent);
+	box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-warning-50-950) 40%, transparent);
 }
