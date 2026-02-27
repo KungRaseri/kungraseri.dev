@@ -19,18 +19,17 @@
 	<footer
 		class="w-full bg-surface-100 dark:bg-surface-900 border-t border-surface-300 dark:border-surface-700"
 	>
-		<section class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-			<div class="px-5 py-2.5 text-surface-900 dark:text-surface-100">
-				<span class="mx-1">© {new Date().getFullYear()}</span>-
-				<span class="mx-1 uppercase">
-					<span class="font-bold">KungRaseri</span>
-					<span class="font-light"> Productions</span>
-					<span class="font-extralight"> LLC</span>
+		<div class="max-w-screen-xl mx-auto px-4 py-3 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+			<p class="text-sm text-surface-900 dark:text-surface-100 text-center md:text-left">
+				<span>© {new Date().getFullYear()}</span>
+				<span class="mx-1">—</span>
+				<span class="uppercase">
+					<span class="font-bold">KungRaseri</span><span class="font-light"> Productions</span><span class="font-extralight"> LLC</span>
 				</span>
-			</div>
-			<div class="flex flex-wrap gap-2 justify-start md:justify-end items-center">
+			</p>
+			<div class="flex flex-wrap gap-2 justify-center md:justify-end items-center">
 				<a
-					class="btn btn-sm preset-tonal hover:preset-filled-primary-500 flex items-center gap-2 transition-all duration-200"
+					class="btn preset-tonal hover:preset-filled-primary-500 flex items-center gap-2 transition-all duration-200"
 					href="https://discord.gg/eUuBSP6Qcb"
 					target="_blank"
 				>
@@ -38,7 +37,7 @@
 					<ExternalLink class="size-4" />
 				</a>
 				<a
-					class="btn btn-sm preset-tonal hover:preset-filled-primary-500 flex items-center gap-2 transition-all duration-200"
+					class="btn preset-tonal hover:preset-filled-primary-500 flex items-center gap-2 transition-all duration-200"
 					href="https://github.com/kungraseri/kungraseri.dev"
 					target="_blank"
 				>
@@ -46,6 +45,6 @@
 					<ExternalLink class="size-4" />
 				</a>
 			</div>
-		</section>
+		</div>
 	</footer>
 </div>

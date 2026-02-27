@@ -69,7 +69,7 @@
 	<div class="space-y-2">
 		<div class="flex items-center gap-3">
 			<LockKeyholeIcon class="size-10 text-primary-500" />
-			<h1 class="text-4xl font-bold">Hash Generator</h1>
+			<h1 class="text-2xl md:text-4xl font-bold">Hash Generator</h1>
 		</div>
 		<p class="text-xl text-surface-700 dark:text-surface-300">
 			Generate cryptographic hashes from text

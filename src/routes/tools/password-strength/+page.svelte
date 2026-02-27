@@ -84,7 +84,7 @@
 	<div class="space-y-2">
 		<div class="flex items-center gap-3">
 			<ShieldCheckIcon class="size-8 text-primary-500" />
-			<h1 class="text-4xl font-bold">Password Strength Tester</h1>
+			<h1 class="text-2xl md:text-4xl font-bold">Password Strength Tester</h1>
 		</div>
 		<p class="text-lg text-surface-600 dark:text-surface-400">
 			Test your password strength and get recommendations for improvement.

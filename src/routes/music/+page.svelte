@@ -2,7 +2,7 @@
 	import type { PageData } from './$types';
 	import AlbumPanel from '$lib/components/Album.svelte';
 
-	export let data: PageData;
+	let { data }: { data: PageData } = $props();
 </script>
 
 <div class="relative min-h-screen">
