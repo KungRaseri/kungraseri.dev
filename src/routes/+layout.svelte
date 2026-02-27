@@ -9,7 +9,7 @@
 	let user: any;
 </script>
 
-<div class="flex flex-col h-full">
+<div class="flex flex-col h-full overflow-x-hidden">
 	<Navigation />
 
 	<main class="flex-1 overflow-y-auto">
