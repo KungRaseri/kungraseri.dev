@@ -94,7 +94,7 @@
 			<button
 				onclick={generate}
 				disabled={isGenerating}
-				class="btn preset-filled-primary flex items-center gap-2"
+				class="btn preset-filled-primary-500 flex items-center gap-2"
 			>
 				<RefreshCwIcon class="size-5" />
 				<span>Generate</span>

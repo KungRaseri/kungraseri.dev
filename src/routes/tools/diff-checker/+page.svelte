@@ -103,19 +103,19 @@ in the moonlight`;
 		<span class="font-semibold">Mode:</span>
 		<button
 			onclick={() => { mode = 'lines'; computeDiff(); }}
-			class="btn btn-sm {mode === 'lines' ? 'preset-filled-primary' : 'preset-tonal'}"
+			class="btn btn-sm {mode === 'lines' ? 'preset-filled-primary-500' : 'preset-tonal'}"
 		>
 			Lines
 		</button>
 		<button
 			onclick={() => { mode = 'words'; computeDiff(); }}
-			class="btn btn-sm {mode === 'words' ? 'preset-filled-primary' : 'preset-tonal'}"
+			class="btn btn-sm {mode === 'words' ? 'preset-filled-primary-500' : 'preset-tonal'}"
 		>
 			Words
 		</button>
 		<button
 			onclick={() => { mode = 'chars'; computeDiff(); }}
-			class="btn btn-sm {mode === 'chars' ? 'preset-filled-primary' : 'preset-tonal'}"
+			class="btn btn-sm {mode === 'chars' ? 'preset-filled-primary-500' : 'preset-tonal'}"
 		>
 			Characters
 		</button>

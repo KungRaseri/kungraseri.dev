@@ -92,7 +92,7 @@
 					<div class="grid grid-cols-2 gap-2">
 						<button 
 							class="btn transition-all duration-200"
-							class:preset-filled-primary={mode === 'harmony'}
+							class:preset-filled-primary-500={mode === 'harmony'}
 							class:preset-tonal={mode !== 'harmony'}
 							onclick={() => { mode = 'harmony'; generatePalette(); }}
 						>
@@ -100,7 +100,7 @@
 						</button>
 						<button 
 							class="btn transition-all duration-200"
-							class:preset-filled-primary={mode === 'material'}
+							class:preset-filled-primary-500={mode === 'material'}
 							class:preset-tonal={mode !== 'material'}
 							onclick={() => { mode = 'material'; generatePalette(); }}
 						>
@@ -147,7 +147,7 @@
 						<div class="grid grid-cols-1 gap-2">
 							<button 
 								class="btn transition-all duration-200"
-								class:preset-filled-primary={scheme === 'monochromatic'}
+								class:preset-filled-primary-500={scheme === 'monochromatic'}
 								class:preset-tonal={scheme !== 'monochromatic'}
 								onclick={() => { scheme = 'monochromatic'; generatePalette(); }}
 							>
@@ -155,7 +155,7 @@
 							</button>
 							<button 
 								class="btn transition-all duration-200"
-								class:preset-filled-primary={scheme === 'complementary'}
+								class:preset-filled-primary-500={scheme === 'complementary'}
 								class:preset-tonal={scheme !== 'complementary'}
 								onclick={() => { scheme = 'complementary'; generatePalette(); }}
 							>
@@ -163,7 +163,7 @@
 							</button>
 							<button 
 								class="btn transition-all duration-200"
-								class:preset-filled-primary={scheme === 'triadic'}
+								class:preset-filled-primary-500={scheme === 'triadic'}
 								class:preset-tonal={scheme !== 'triadic'}
 								onclick={() => { scheme = 'triadic'; generatePalette(); }}
 							>
@@ -171,7 +171,7 @@
 							</button>
 							<button 
 								class="btn transition-all duration-200"
-								class:preset-filled-primary={scheme === 'analogous'}
+								class:preset-filled-primary-500={scheme === 'analogous'}
 								class:preset-tonal={scheme !== 'analogous'}
 								onclick={() => { scheme = 'analogous'; generatePalette(); }}
 							>
@@ -179,7 +179,7 @@
 							</button>
 							<button 
 								class="btn transition-all duration-200"
-								class:preset-filled-primary={scheme === 'split-complementary'}
+								class:preset-filled-primary-500={scheme === 'split-complementary'}
 								class:preset-tonal={scheme !== 'split-complementary'}
 								onclick={() => { scheme = 'split-complementary'; generatePalette(); }}
 							>

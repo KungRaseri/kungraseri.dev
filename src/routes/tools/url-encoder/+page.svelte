@@ -93,13 +93,13 @@
 	<div class="flex gap-2">
 		<button
 			onclick={() => { mode = 'encode'; output = ''; }}
-			class="btn flex-1 {mode === 'encode' ? 'preset-filled-primary' : 'preset-tonal'}"
+			class="btn flex-1 {mode === 'encode' ? 'preset-filled-primary-500' : 'preset-tonal'}"
 		>
 			Encode
 		</button>
 		<button
 			onclick={() => { mode = 'decode'; output = ''; }}
-			class="btn flex-1 {mode === 'decode' ? 'preset-filled-primary' : 'preset-tonal'}"
+			class="btn flex-1 {mode === 'decode' ? 'preset-filled-primary-500' : 'preset-tonal'}"
 		>
 			Decode
 		</button>

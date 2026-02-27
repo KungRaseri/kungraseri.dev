@@ -205,7 +205,7 @@
 							<div class="flex items-start justify-between gap-2">
 								<div class="space-y-1 flex-1">
 									<div class="flex items-center gap-2">
-										<span class="chip preset-filled-primary text-xs">Match {index + 1}</span>
+										<span class="chip preset-filled-primary-500 text-xs">Match {index + 1}</span>
 										<span class="text-sm text-surface-600 dark:text-surface-400">
 											at index {match.index}
 										</span>

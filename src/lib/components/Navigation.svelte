@@ -50,9 +50,9 @@
 			<ThemeSelector />
 			<!-- Uncomment when auth is ready
 			{#if isAuthenticated}
-				<a href="/" class="btn btn-sm preset-filled-primary">Logout</a>
+				<a href="/" class="btn btn-sm preset-filled-primary-500">Logout</a>
 			{:else}
-				<a href="/" class="btn btn-sm preset-filled-primary">Login / Register</a>
+				<a href="/" class="btn btn-sm preset-filled-primary-500">Login / Register</a>
 			{/if}
 			-->
 		</div>

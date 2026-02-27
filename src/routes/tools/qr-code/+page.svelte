@@ -115,7 +115,7 @@
 					<div class="grid grid-cols-4 gap-2">
 						<button
 							class="btn transition-all duration-200"
-							class:preset-filled-primary={errorLevel === 'L'}
+							class:preset-filled-primary-500={errorLevel === 'L'}
 							class:preset-tonal={errorLevel !== 'L'}
 							onclick={() => {
 								errorLevel = 'L';
@@ -126,7 +126,7 @@
 						</button>
 						<button
 							class="btn transition-all duration-200"
-							class:preset-filled-primary={errorLevel === 'M'}
+							class:preset-filled-primary-500={errorLevel === 'M'}
 							class:preset-tonal={errorLevel !== 'M'}
 							onclick={() => {
 								errorLevel = 'M';
@@ -137,7 +137,7 @@
 						</button>
 						<button
 							class="btn transition-all duration-200"
-							class:preset-filled-primary={errorLevel === 'Q'}
+							class:preset-filled-primary-500={errorLevel === 'Q'}
 							class:preset-tonal={errorLevel !== 'Q'}
 							onclick={() => {
 								errorLevel = 'Q';
@@ -148,7 +148,7 @@
 						</button>
 						<button
 							class="btn transition-all duration-200"
-							class:preset-filled-primary={errorLevel === 'H'}
+							class:preset-filled-primary-500={errorLevel === 'H'}
 							class:preset-tonal={errorLevel !== 'H'}
 							onclick={() => {
 								errorLevel = 'H';
@@ -214,7 +214,7 @@
 
 						<div class="flex gap-2 w-full">
 							<button
-								class="btn preset-filled-primary flex items-center justify-center gap-2 flex-1"
+								class="btn preset-filled-primary-500 flex items-center justify-center gap-2 flex-1"
 								onclick={downloadQRCode}
 							>
 								<DownloadIcon class="size-5" />

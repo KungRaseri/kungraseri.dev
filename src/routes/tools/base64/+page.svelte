@@ -96,7 +96,7 @@
 		<div class="flex items-center gap-2">
 			<button 
 				class="btn flex-1 flex items-center justify-center gap-2 transition-all duration-200"
-				class:preset-filled-primary={mode === 'encode'}
+				class:preset-filled-primary-500={mode === 'encode'}
 				class:preset-tonal={mode !== 'encode'}
 				onclick={() => { mode = 'encode'; process(); }}
 			>
@@ -111,7 +111,7 @@
 			</button>
 			<button 
 				class="btn flex-1 flex items-center justify-center gap-2 transition-all duration-200"
-				class:preset-filled-primary={mode === 'decode'}
+				class:preset-filled-primary-500={mode === 'decode'}
 				class:preset-tonal={mode !== 'decode'}
 				onclick={() => { mode = 'decode'; process(); }}
 			>

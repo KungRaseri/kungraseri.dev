@@ -197,7 +197,7 @@
 			<div class="flex gap-2">
 				<input type="text" class="input flex-1 font-mono text-lg" value={password} readonly />
 				<button
-					class="btn-icon btn-icon-lg preset-filled-primary flex items-center gap-2"
+					class="btn-icon btn-icon-lg preset-filled-primary-500 flex items-center gap-2"
 					onclick={copyToClipboard}
 					aria-label="Copy password"
 				>

@@ -132,7 +132,7 @@
 								class="card preset-blur hover:preset-blur-primary p-6 space-y-3 transition-all duration-200"
 							>
 								<div class="flex items-start gap-3">
-									<div class="preset-filled-primary p-2 rounded-lg shrink-0">
+									<div class="preset-filled-primary-500 p-2 rounded-lg shrink-0">
 										<Icon class="size-6" />
 									</div>
 									<div class="space-y-2 flex-1 min-w-0">

@@ -137,7 +137,7 @@
 	<div class="card preset-blur p-4">
 		<div class="flex flex-wrap items-center gap-3">
 			<button 
-				class="btn preset-filled-primary flex items-center gap-2"
+				class="btn preset-filled-primary-500 flex items-center gap-2"
 				onclick={formatJSON}
 			>
 				<MaximizeIcon class="size-5" />

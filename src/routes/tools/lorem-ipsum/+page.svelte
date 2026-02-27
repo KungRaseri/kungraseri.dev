@@ -79,19 +79,19 @@
 			<div class="flex gap-2">
 				<button
 					onclick={() => { type = 'paragraphs'; output = ''; }}
-					class="btn {type === 'paragraphs' ? 'preset-filled-primary' : 'preset-tonal'}"
+					class="btn {type === 'paragraphs' ? 'preset-filled-primary-500' : 'preset-tonal'}"
 				>
 					Paragraphs
 				</button>
 				<button
 					onclick={() => { type = 'sentences'; output = ''; }}
-					class="btn {type === 'sentences' ? 'preset-filled-primary' : 'preset-tonal'}"
+					class="btn {type === 'sentences' ? 'preset-filled-primary-500' : 'preset-tonal'}"
 				>
 					Sentences
 				</button>
 				<button
 					onclick={() => { type = 'words'; output = ''; }}
-					class="btn {type === 'words' ? 'preset-filled-primary' : 'preset-tonal'}"
+					class="btn {type === 'words' ? 'preset-filled-primary-500' : 'preset-tonal'}"
 				>
 					Words
 				</button>
@@ -123,7 +123,7 @@
 		<button
 			onclick={generate}
 			disabled={isGenerating}
-			class="btn preset-filled-primary flex items-center gap-2"
+			class="btn preset-filled-primary-500 flex items-center gap-2"
 		>
 			<SparklesIcon class="size-5" />
 			<span>Generate</span>
