@@ -1,11 +1,10 @@
 <script lang="ts">
-	import {
 	import ToolHeader from '$lib/components/ToolHeader.svelte';
+	import {
 		FileCodeIcon,
 		ArrowLeftRightIcon,
 		CopyIcon,
-		CheckIcon,
-		ChevronRightIcon
+		CheckIcon
 	} from 'lucide-svelte';
 
 	let input = $state('name: John Doe\nemail: john@example.com\nage: 30');
