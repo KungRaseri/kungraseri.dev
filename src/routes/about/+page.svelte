@@ -166,14 +166,14 @@
 		{
 			year: 2020,
 			type: 'music',
-			title: 'Emergent released',
-			description: 'Second album, originally planned for 2019.'
+			title: 'Expanse released',
+			description: 'Third album, released later in the same year as Emergent.'
 		},
 		{
 			year: 2020,
 			type: 'music',
-			title: 'Expanse released',
-			description: 'Third album, released the same year as Emergent.'
+			title: 'Emergent released',
+			description: 'Second album, originally planned for 2019.'
 		},
 		{
 			year: 2019,
