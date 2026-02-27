@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { DiffIcon, ArrowRightLeftIcon, ChevronRightIcon } from 'lucide-svelte';
+	import ToolHeader from '$lib/components/ToolHeader.svelte';
 	
 	type DiffMode = 'lines' | 'words' | 'chars';
 	type DiffResult = {
@@ -80,23 +81,7 @@ in the moonlight`;
 </svelte:head>
 
 <div class="container mx-auto px-4 py-8 space-y-6">
-	<!-- Breadcrumb -->
-	<nav class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400">
-		<a href="/tools" class="hover:text-primary-500 transition-colors">Tools</a>
-		<ChevronRightIcon class="size-4" />
-		<span class="text-surface-900 dark:text-surface-100">Diff Checker</span>
-	</nav>
-
-	<!-- Header -->
-	<div class="space-y-2">
-		<div class="flex items-center gap-3">
-			<DiffIcon class="size-8 text-primary-500" />
-			<h1 class="text-3xl font-bold">Diff Checker</h1>
-		</div>
-		<p class="text-surface-700 dark:text-surface-300">
-			Compare two texts and highlight differences
-		</p>
-	</div>
+	<ToolHeader title="Diff Checker" description="Compare two texts and highlight differences" slug="diff-checker" icon="DiffIcon" />
 
 	<!-- Mode Selection -->
 	<div class="flex items-center gap-2">

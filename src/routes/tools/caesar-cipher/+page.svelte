@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { LockIcon, UnlockIcon, CopyIcon, CheckIcon, ChevronRightIcon } from 'lucide-svelte';
+	import ToolHeader from '$lib/components/ToolHeader.svelte';
 
 	let text = $state('');
 	let shift = $state(13);
@@ -52,23 +53,7 @@
 </script>
 
 <div class="container mx-auto px-4 py-8 space-y-6">
-	<!-- Breadcrumb -->
-	<nav class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400">
-		<a href="/tools" class="hover:text-primary-500 transition-colors">Tools</a>
-		<ChevronRightIcon class="size-4" />
-		<span class="text-surface-900 dark:text-surface-100">Caesar Cipher</span>
-	</nav>
-
-	<!-- Header -->
-	<div class="space-y-2">
-		<div class="flex items-center gap-3">
-			<LockIcon class="size-8 text-primary-500" />
-			<h1 class="text-2xl md:text-4xl font-bold">Caesar Cipher</h1>
-		</div>
-		<p class="text-lg text-surface-600 dark:text-surface-400">
-			Encode and decode text using the Caesar cipher (ROT13 by default).
-		</p>
-	</div>
+	<ToolHeader title="Caesar Cipher" description="" slug="caesar-cipher" icon="WrenchIcon" />
 
 	<div class="grid md:grid-cols-2 gap-6">
 		<!-- Settings -->

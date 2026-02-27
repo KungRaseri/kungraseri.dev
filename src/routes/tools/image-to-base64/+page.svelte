@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { ImageIcon, UploadIcon, CopyIcon, CheckIcon, ChevronRightIcon } from 'lucide-svelte';
+	import ToolHeader from '$lib/components/ToolHeader.svelte';
 
 	let result = $state<{
 		dataUrl?: string;
@@ -58,23 +59,7 @@
 </script>
 
 <div class="container mx-auto px-4 py-8 space-y-6">
-	<!-- Breadcrumb -->
-	<nav class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400">
-		<a href="/tools" class="hover:text-primary-500 transition-colors">Tools</a>
-		<ChevronRightIcon class="size-4" />
-		<span class="text-surface-900 dark:text-surface-100">Image to Base64</span>
-	</nav>
-
-	<!-- Header -->
-	<div class="space-y-2">
-		<div class="flex items-center gap-3">
-			<ImageIcon class="size-8 text-primary-500" />
-			<h1 class="text-2xl md:text-4xl font-bold">Image to Base64 Converter</h1>
-		</div>
-		<p class="text-lg text-surface-600 dark:text-surface-400">
-			Convert images to Base64 data URLs for embedding in HTML/CSS.
-		</p>
-	</div>
+	<ToolHeader title="Image to Base64 Converter" description="" slug="image-to-base64" icon="WrenchIcon" />
 
 	<div class="grid md:grid-cols-2 gap-6">
 		<!-- Upload -->

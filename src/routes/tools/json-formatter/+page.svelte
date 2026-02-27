@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { CodeIcon, CopyIcon, CheckIcon, MinimizeIcon, MaximizeIcon, ChevronRightIcon } from 'lucide-svelte';
+	import ToolHeader from '$lib/components/ToolHeader.svelte';
 	
 	let input = $state('');
 	let output = $state('');
@@ -115,23 +116,7 @@
 </svelte:head>
 
 <div class="container mx-auto px-4 py-8 space-y-6">
-	<!-- Breadcrumb -->
-	<nav class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400">
-		<a href="/tools" class="hover:text-primary-500 transition-colors">Tools</a>
-		<ChevronRightIcon class="size-4" />
-		<span class="text-surface-900 dark:text-surface-100">JSON Formatter</span>
-	</nav>
-
-	<!-- Header -->
-	<div class="space-y-2">
-		<div class="flex items-center gap-3">
-			<CodeIcon class="size-10 text-primary-500" />
-			<h1 class="text-2xl md:text-4xl font-bold">JSON Formatter</h1>
-		</div>
-		<p class="text-xl text-surface-700 dark:text-surface-300">
-			Format, validate, and beautify JSON data
-		</p>
-	</div>
+	<ToolHeader title="JSON Formatter" description="Format, validate, and beautify JSON data" slug="json-formatter" icon="CodeIcon" />
 
 	<!-- Controls -->
 	<div class="card preset-blur p-4">

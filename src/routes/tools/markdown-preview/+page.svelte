@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { FileTextIcon, ChevronRightIcon } from 'lucide-svelte';
+	import ToolHeader from '$lib/components/ToolHeader.svelte';
 
 	let markdown = $state('# Hello World\n\nThis is a **markdown** preview tool.\n\n- List item 1\n- List item 2\n\n[Link](https://example.com)');
 	let html = $state('');
@@ -31,23 +32,7 @@
 </script>
 
 <div class="container mx-auto px-4 py-8 space-y-6">
-	<!-- Breadcrumb -->
-	<nav class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400">
-		<a href="/tools" class="hover:text-primary-500 transition-colors">Tools</a>
-		<ChevronRightIcon class="size-4" />
-		<span class="text-surface-900 dark:text-surface-100">Markdown Previewer</span>
-	</nav>
-
-	<!-- Header -->
-	<div class="space-y-2">
-		<div class="flex items-center gap-3">
-			<FileTextIcon class="size-8 text-primary-500" />
-			<h1 class="text-2xl md:text-4xl font-bold">Markdown Previewer</h1>
-		</div>
-		<p class="text-lg text-surface-600 dark:text-surface-400">
-			Write markdown and see a live preview of the rendered HTML.
-		</p>
-	</div>
+	<ToolHeader title="Markdown Previewer" description="" slug="markdown-preview" icon="WrenchIcon" />
 
 	<div class="grid md:grid-cols-2 gap-6">
 		<!-- Editor -->

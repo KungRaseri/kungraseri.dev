@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { TypeIcon, CopyIcon, CheckIcon, SparklesIcon, ChevronRightIcon } from 'lucide-svelte';
+	import ToolHeader from '$lib/components/ToolHeader.svelte';
 	
 	type GeneratorType = 'paragraphs' | 'sentences' | 'words';
 	
@@ -52,23 +53,7 @@
 </svelte:head>
 
 <div class="container mx-auto px-4 py-8 space-y-6 max-w-4xl">
-	<!-- Breadcrumb -->
-	<nav class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400">
-		<a href="/tools" class="hover:text-primary-500 transition-colors">Tools</a>
-		<ChevronRightIcon class="size-4" />
-		<span class="text-surface-900 dark:text-surface-100">Lorem Ipsum Generator</span>
-	</nav>
-
-	<!-- Header -->
-	<div class="space-y-2">
-		<div class="flex items-center gap-3">
-			<TypeIcon class="size-8 text-primary-500" />
-			<h1 class="text-3xl font-bold">Lorem Ipsum Generator</h1>
-		</div>
-		<p class="text-surface-700 dark:text-surface-300">
-			Generate placeholder text for designs and mockups
-		</p>
-	</div>
+	<ToolHeader title="Lorem Ipsum Generator" description="Generate placeholder text for designs and mockups" slug="lorem-ipsum" icon="TypeIcon" />
 
 	<!-- Controls -->
 	<div class="card preset-blur p-6 space-y-4">

@@ -5,10 +5,14 @@ type Action = {
 
 export type Project = {
 	id: number;
+	slug: string;
 	title: string;
 	url: string;
 	image?: string;
 	description: string;
+	longDescription?: string;
+	status?: 'active' | 'archived' | 'wip';
+	tech?: string[];
 	actions: Action[];
 };
 

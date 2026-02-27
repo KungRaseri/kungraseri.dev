@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { LinkIcon, CopyIcon, CheckIcon, ArrowRightLeftIcon, ChevronRightIcon } from 'lucide-svelte';
+	import ToolHeader from '$lib/components/ToolHeader.svelte';
 	
 	let input = $state('');
 	let output = $state('');
@@ -71,23 +72,7 @@
 </svelte:head>
 
 <div class="container mx-auto px-4 py-8 space-y-6">
-	<!-- Breadcrumb -->
-	<nav class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400">
-		<a href="/tools" class="hover:text-primary-500 transition-colors">Tools</a>
-		<ChevronRightIcon class="size-4" />
-		<span class="text-surface-900 dark:text-surface-100">URL Encoder/Decoder</span>
-	</nav>
-
-	<!-- Header -->
-	<div class="space-y-2">
-		<div class="flex items-center gap-3">
-			<LinkIcon class="size-8 text-primary-500" />
-			<h1 class="text-3xl font-bold">URL Encoder/Decoder</h1>
-		</div>
-		<p class="text-surface-700 dark:text-surface-300">
-			Encode or decode URLs for safe transmission
-		</p>
-	</div>
+	<ToolHeader title="URL Encoder/Decoder" description="Encode or decode URLs for safe transmission" slug="url-encoder" icon="LinkIcon" />
 
 	<!-- Mode Selection -->
 	<div class="flex gap-2">

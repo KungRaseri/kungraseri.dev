@@ -2,6 +2,14 @@
 	import { Music, Braces, Wrench, ChevronRight } from 'lucide-svelte';
 </script>
 
+<svelte:head>
+	<title>KungRaseri Productions</title>
+	<meta name="description" content="Developer, electronic music producer, and community builder. Projects, music, and 30+ developer tools." />
+	<meta property="og:title" content="KungRaseri Productions" />
+	<meta property="og:description" content="Developer, electronic music producer, and community builder. Projects, music, and 30+ developer tools." />
+	<meta property="og:url" content="https://kungraseri.dev" />
+</svelte:head>
+
 <div class="relative container mx-auto px-4 py-8 max-w-6xl">
 	<!-- Decorative gradient blobs for backdrop-filter to blur through -->
 	<div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">

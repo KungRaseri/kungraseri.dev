@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { SearchCodeIcon, CopyIcon, CheckIcon, ChevronRightIcon } from 'lucide-svelte';
+	import ToolHeader from '$lib/components/ToolHeader.svelte';
 	
 	let pattern = $state('');
 	let testText = $state('');
@@ -80,23 +81,7 @@
 </svelte:head>
 
 <div class="container mx-auto px-4 py-8 space-y-6">
-	<!-- Breadcrumb -->
-	<nav class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400">
-		<a href="/tools" class="hover:text-primary-500 transition-colors">Tools</a>
-		<ChevronRightIcon class="size-4" />
-		<span class="text-surface-900 dark:text-surface-100">Regex Tester</span>
-	</nav>
-
-	<!-- Header -->
-	<div class="space-y-2">
-		<div class="flex items-center gap-3">
-			<SearchCodeIcon class="size-8 text-primary-500" />
-			<h1 class="text-3xl font-bold">Regex Tester</h1>
-		</div>
-		<p class="text-surface-700 dark:text-surface-300">
-			Test and debug regular expressions with real-time matching
-		</p>
-	</div>
+	<ToolHeader title="Regex Tester" description="Test and debug regular expressions with real-time matching" slug="regex-tester" icon="SearchCodeIcon" />
 
 	<!-- Main Content -->
 	<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">

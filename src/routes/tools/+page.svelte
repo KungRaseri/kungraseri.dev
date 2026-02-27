@@ -24,8 +24,11 @@
 		NetworkIcon,
 		ShieldCheckIcon,
 		WifiIcon,
-		MonitorSmartphoneIcon
+		MonitorSmartphoneIcon,
+		HistoryIcon
 	} from 'lucide-svelte';
+	import { onMount } from 'svelte';
+	import { getRecentTools, type RecentTool } from '$lib/stores/recentTools';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -58,6 +61,11 @@
 	};
 
 	let searchQuery = $state('');
+	let recentTools = $state<RecentTool[]>([]);
+
+	onMount(() => {
+		recentTools = getRecentTools();
+	});
 
 	// Filter tools based on search
 	const filteredTools = $derived(() => {
@@ -88,8 +96,11 @@
 </script>
 
 <svelte:head>
-	<title>Tools - KungRaseri.dev</title>
-	<meta name="description" content="Useful web development tools and utilities" />
+	<title>Tools — KungRaseri.dev</title>
+	<meta name="description" content="30+ free developer tools: JSON formatter, password generator, UUID generator, regex tester, and more." />
+	<meta property="og:title" content="Developer Tools — KungRaseri Productions" />
+	<meta property="og:description" content="30+ free developer tools: JSON formatter, password generator, UUID generator, regex tester, and more." />
+	<meta property="og:url" content="https://kungraseri.dev/tools" />
 </svelte:head>
 
 <div class="container mx-auto px-4 py-8 space-y-8">
@@ -103,6 +114,26 @@
 			A collection of useful web development tools and utilities
 		</p>
 	</div>
+
+	<!-- Recent Tools -->
+	{#if recentTools.length > 0}
+		<section class="space-y-3">
+			<h2 class="text-lg font-semibold flex items-center gap-2 text-surface-600 dark:text-surface-400">
+				<HistoryIcon class="size-5" />
+				Recently Used
+			</h2>
+			<div class="flex flex-wrap gap-2">
+				{#each recentTools as tool}
+					<a
+						href="/tools/{tool.slug}"
+						class="chip preset-tonal hover:preset-tonal-primary transition-all duration-200"
+					>
+						{tool.title}
+					</a>
+				{/each}
+			</div>
+		</section>
+	{/if}
 
 	<!-- Search Bar -->
 	<div class="max-w-2xl">

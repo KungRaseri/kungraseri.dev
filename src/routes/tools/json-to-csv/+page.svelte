@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { TableIcon, CopyIcon, CheckIcon, ChevronRightIcon } from 'lucide-svelte';
+	import ToolHeader from '$lib/components/ToolHeader.svelte';
 
 	let jsonData = $state(`[
   {
@@ -60,23 +61,7 @@
 </script>
 
 <div class="container mx-auto px-4 py-8 space-y-6">
-	<!-- Breadcrumb -->
-	<nav class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400">
-		<a href="/tools" class="hover:text-primary-500 transition-colors">Tools</a>
-		<ChevronRightIcon class="size-4" />
-		<span class="text-surface-900 dark:text-surface-100">JSON to CSV</span>
-	</nav>
-
-	<!-- Header -->
-	<div class="space-y-2">
-		<div class="flex items-center gap-3">
-			<TableIcon class="size-8 text-primary-500" />
-			<h1 class="text-2xl md:text-4xl font-bold">JSON to CSV Converter</h1>
-		</div>
-		<p class="text-lg text-surface-600 dark:text-surface-400">
-			Convert JSON arrays to CSV format with customizable delimiters.
-		</p>
-	</div>
+	<ToolHeader title="JSON to CSV Converter" description="" slug="json-to-csv" icon="WrenchIcon" />
 
 	<div class="grid md:grid-cols-2 gap-6">
 		<!-- Input -->

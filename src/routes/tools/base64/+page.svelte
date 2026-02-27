@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { TypeIcon, ArrowLeftRightIcon, CopyIcon, CheckIcon, ChevronRightIcon } from 'lucide-svelte';
+	import ToolHeader from '$lib/components/ToolHeader.svelte';
 	
 	type Mode = 'encode' | 'decode';
 	
@@ -73,23 +74,7 @@
 </svelte:head>
 
 <div class="container mx-auto px-4 py-8 space-y-6">
-	<!-- Breadcrumb -->
-	<nav class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400">
-		<a href="/tools" class="hover:text-primary-500 transition-colors">Tools</a>
-		<ChevronRightIcon class="size-4" />
-		<span class="text-surface-900 dark:text-surface-100">Base64 Encoder/Decoder</span>
-	</nav>
-
-	<!-- Header -->
-	<div class="space-y-2">
-		<div class="flex items-center gap-3">
-			<TypeIcon class="size-10 text-primary-500" />
-			<h1 class="text-2xl md:text-4xl font-bold">Base64 Encoder/Decoder</h1>
-		</div>
-		<p class="text-xl text-surface-700 dark:text-surface-300">
-			Encode and decode Base64 strings
-		</p>
-	</div>
+	<ToolHeader title="Base64 Encoder/Decoder" description="Encode and decode Base64 strings" slug="base64" icon="TypeIcon" />
 
 	<!-- Mode Toggle -->
 	<div class="card preset-blur p-4">

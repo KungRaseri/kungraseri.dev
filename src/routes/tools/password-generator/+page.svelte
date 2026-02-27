@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { KeyRoundIcon, CopyIcon, CheckIcon, RefreshCwIcon, Volume2Icon, ChevronRightIcon } from 'lucide-svelte';
+	import ToolHeader from '$lib/components/ToolHeader.svelte';
 	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
+	import ToolHeader from '$lib/components/ToolHeader.svelte';
 
 	import phoneticAlphabetRaw from '$lib/data/phonetic.json';
+	import ToolHeader from '$lib/components/ToolHeader.svelte';
 
 	const phoneticAlphabet = phoneticAlphabetRaw as Record<string, string>;
 
@@ -148,23 +151,7 @@
 </svelte:head>
 
 <div class="container mx-auto px-4 py-8 space-y-6 max-w-2xl">
-	<!-- Breadcrumb -->
-	<nav class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400">
-		<a href="/tools" class="hover:text-primary-500 transition-colors">Tools</a>
-		<ChevronRightIcon class="size-4" />
-		<span class="text-surface-900 dark:text-surface-100">Password Generator</span>
-	</nav>
-
-	<!-- Header -->
-	<div class="space-y-2">
-		<div class="flex items-center gap-3">
-			<KeyRoundIcon class="size-10 text-primary-500" />
-			<h1 class="text-2xl md:text-4xl font-bold">Password Generator</h1>
-		</div>
-		<p class="text-xl text-surface-700 dark:text-surface-300">
-			Generate secure passwords with simple or complex patterns
-		</p>
-	</div>
+	<ToolHeader title="Password Generator" description="Generate secure passwords with simple or complex patterns" slug="password-generator" icon="KeyRoundIcon" />
 
 	<!-- Mode Selector -->
 	<div class="card preset-blur p-4">

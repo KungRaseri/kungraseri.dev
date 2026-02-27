@@ -9,7 +9,7 @@
 </script>
 
 <div class="card card-hover preset-blur overflow-hidden">
-	<a href={project.url} class="block h-56 sm:h-64 overflow-hidden bg-surface-900">
+	<a href="/projects/{project.slug}" class="block h-56 sm:h-64 overflow-hidden bg-surface-900">
 		{#if project.image}
 			<img class="w-full h-full object-contain" src={project.image} alt={project.title} />
 		{:else}

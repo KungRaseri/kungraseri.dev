@@ -3,11 +3,12 @@
 	import LightSwitch from './LightSwitch.svelte';
 	import { page } from '$app/stores';
 
-	import { CodeXml, Music, WrenchIcon, Menu, X } from 'lucide-svelte';
+	import { CodeXml, Music, WrenchIcon, UserIcon, Menu, X } from 'lucide-svelte';
 
 	let mobileMenuOpen = $state(false);
 
 	const navLinks = [
+		{ href: '/about', label: 'about', icon: UserIcon },
 		{ href: '/projects', label: 'projects', icon: CodeXml },
 		{ href: '/music', label: 'music', icon: Music },
 		{ href: '/tools', label: 'tools', icon: WrenchIcon },

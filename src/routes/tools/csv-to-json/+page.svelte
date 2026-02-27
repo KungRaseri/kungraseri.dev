@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { FileJsonIcon, CopyIcon, CheckIcon, ChevronRightIcon } from 'lucide-svelte';
+	import ToolHeader from '$lib/components/ToolHeader.svelte';
 
 	let csv = $state('name,email,age\nJohn Doe,john@example.com,30\nJane Smith,jane@example.com,25');
 	let delimiter = $state(',');
@@ -50,23 +51,7 @@
 </script>
 
 <div class="container mx-auto px-4 py-8 space-y-6">
-	<!-- Breadcrumb -->
-	<nav class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400">
-		<a href="/tools" class="hover:text-primary-500 transition-colors">Tools</a>
-		<ChevronRightIcon class="size-4" />
-		<span class="text-surface-900 dark:text-surface-100">CSV to JSON</span>
-	</nav>
-
-	<!-- Header -->
-	<div class="space-y-2">
-		<div class="flex items-center gap-3">
-			<FileJsonIcon class="size-8 text-primary-500" />
-			<h1 class="text-2xl md:text-4xl font-bold">CSV to JSON Converter</h1>
-		</div>
-		<p class="text-lg text-surface-600 dark:text-surface-400">
-			Convert CSV data to JSON format with customizable delimiters.
-		</p>
-	</div>
+	<ToolHeader title="CSV to JSON Converter" description="" slug="csv-to-json" icon="WrenchIcon" />
 
 	<div class="grid md:grid-cols-2 gap-6">
 		<!-- Input -->
