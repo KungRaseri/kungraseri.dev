@@ -146,22 +146,16 @@
 
 	const timeline = [
 		{
-			year: 2018,
-			type: 'music',
-			title: 'Ascension released',
-			description: 'First album — the beginning of the music production journey.'
-		},
-		{
-			year: 2019,
+			year: 2025,
 			type: 'dev',
-			title: 'Uncharted Lands started',
-			description: 'Open-source browser-based settlement management game.'
+			title: 'Tools suite expanded',
+			description: '30+ developer tools added to the site.'
 		},
 		{
-			year: 2020,
-			type: 'music',
-			title: 'Emergent released',
-			description: 'Second album, originally planned for 2019.'
+			year: 2024,
+			type: 'site',
+			title: 'KungRaseri.dev relaunched',
+			description: 'Portfolio site rebuilt — projects, music, and developer tools.'
 		},
 		{
 			year: 2022,
@@ -170,16 +164,28 @@
 			description: 'Game-engine-agnostic RPG backend engine in C#.'
 		},
 		{
-			year: 2024,
-			type: 'site',
-			title: 'KungRaseri.dev launched',
-			description: 'Portfolio site — projects, music, and developer tools.'
+			year: 2020,
+			type: 'music',
+			title: 'Emergent released',
+			description: 'Second album, originally planned for 2019.'
 		},
 		{
-			year: 2025,
+			year: 2019,
 			type: 'dev',
-			title: 'Tools suite expanded',
-			description: '30+ developer tools added to the site.'
+			title: 'Uncharted Lands started',
+			description: 'Open-source browser-based settlement management game.'
+		},
+		{
+			year: 2018,
+			type: 'music',
+			title: 'Ascension released',
+			description: 'First album — the beginning of the music production journey.'
+		},
+		{
+			year: 2018,
+			type: 'site',
+			title: 'KungRaseri.dev launched',
+			description: 'The site goes live for the first time.'
 		}
 	];
 </script>

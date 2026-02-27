@@ -1,11 +1,9 @@
 <script lang="ts">
-	import { KeyRoundIcon, CopyIcon, CheckIcon, RefreshCwIcon, Volume2Icon, ChevronRightIcon } from 'lucide-svelte';
+	import { KeyRoundIcon, CopyIcon, CheckIcon, RefreshCwIcon, Volume2Icon } from 'lucide-svelte';
 	import ToolHeader from '$lib/components/ToolHeader.svelte';
 	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
-	import ToolHeader from '$lib/components/ToolHeader.svelte';
 
 	import phoneticAlphabetRaw from '$lib/data/phonetic.json';
-	import ToolHeader from '$lib/components/ToolHeader.svelte';
 
 	const phoneticAlphabet = phoneticAlphabetRaw as Record<string, string>;
 
