@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { QrCodeIcon, DownloadIcon, CopyIcon, CheckIcon, ChevronRightIcon } from 'lucide-svelte';
-	import ToolHeader from '$lib/components/ToolHeader.svelte';
 	import { onMount } from 'svelte';
 	import ToolHeader from '$lib/components/ToolHeader.svelte';
 
@@ -72,7 +71,12 @@
 </svelte:head>
 
 <div class="container mx-auto px-4 py-8 space-y-6">
-	<ToolHeader title="QR Code Generator" description="Create QR codes from any text or URL" slug="qr-code" icon="QrCodeIcon" />
+	<ToolHeader
+		title="QR Code Generator"
+		description="Create QR codes from any text or URL"
+		slug="qr-code"
+		icon="QrCodeIcon"
+	/>
 
 	<!-- Two Column Layout -->
 	<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -223,7 +227,8 @@
 				</div>
 			{:else}
 				<div class="card preset-blur p-6 lg:sticky lg:top-8">
-					<div class="flex flex-col items-center justify-center space-y-4 min-h-[400px]">>
+					<div class="flex flex-col items-center justify-center space-y-4 min-h-[400px]">
+						>
 						<QrCodeIcon class="size-16 text-surface-400 dark:text-surface-600" />
 						<p class="text-center text-surface-600 dark:text-surface-400">
 							Your QR code will appear here
